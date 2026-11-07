@@ -5,6 +5,7 @@ Ein Roblox-Spiel von Valentin. Auf dem Kukurin trainierst du beim Fahren Speed, 
 Das Repository enthält den aktuellen Entwurf für die Umsetzung in Roblox Studio. Die neun freigegebenen Bilder zeigen Wege, Blickwinkel und Bedienung. Die Stadt im Spiel soll einfacher, blockiger und weniger realistisch wirken als die Illustrationen.
 
 - [Spielkonzept und offene Entscheidungen](docs/SPIELKONZEPT.md)
+- [Alle offenen Fragen, fehlenden Zahlen und Spielregeln](docs/OFFENE_FRAGEN.md)
 - [Neun freigegebene Ansichten](docs/design/README.md)
 - [Bauanleitung für Claude Code](CLAUDE.md)
 - [Entwicklungsplan](docs/ENTWICKLUNGSPLAN.md)
