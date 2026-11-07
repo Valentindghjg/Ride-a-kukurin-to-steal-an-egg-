@@ -31,8 +31,10 @@ Für die erste Veröffentlichung knapp halten: wenige Inhalte, funktionierende S
 
 - [ ] Map anhand der abgestimmten Referenz ausarbeiten.
 - [ ] Eier und weitere Scooter-Modelle ergänzen.
+- [ ] Einen Rebirth mit Levelprüfung und Erhalt aller Tiere testen. Die Meilensteinbelohnung genau einmal vergeben. Reset-Regeln und endgültige Schwellen abstimmen.
+- [ ] Kauf zusätzlicher Gehegeplätze und Geld/s bei unterschiedlicher Belegung prüfen.
 - [ ] Preise und Einnahmen auf die gewünschte Progression abstimmen.
-- [ ] Geld, Scooter-Besitz und Upgrades dauerhaft speichern.
+- [ ] Geld, Tiere, Gehegeplätze, Scooter-Besitz, Fahrtraining, Upgrades und Rebirth-Stand dauerhaft speichern.
 - [ ] Käufe und Belohnungen serverseitig prüfen.
 - [ ] Spielstand nach Verlassen und erneutem Beitreten prüfen.
 

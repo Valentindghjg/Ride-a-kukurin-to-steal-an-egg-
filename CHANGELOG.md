@@ -2,6 +2,8 @@
 
 ## 2026-11-07
 
+- Gesamtüberblick der Spielmechaniken ergänzt. Fahrlevel ermöglichen Rebirths, Tiere bleiben erhalten. Level 10 und die Belohnung bei Rebirth 2 sind Beispielwerte. Teure Gehege-Upgrades erlauben mehr gleichzeitig platzierte Tiere.
+
 - Acht unterschiedliche Original-Screenshots von Steal an Egg aus Steal-a-Crystal übernommen, visuell geprüft und anhand des Quell-Manifests per SHA-256 verifiziert. Identische Trail-Shop-Dublette ausgelassen; keine Kristallspiel-Entwürfe importiert.
 - Acht Stadtentwürfe mit dem integrierten Imagegen-Werkzeug erstellt, visuell geprüft und unter docs/design gespeichert: gleicher räumlicher Grundaufbau mit Straßen, Gehwegen, einfachen Häusern, Tierflächen und Kukurin-Scootern. Einzelaufträge in docs/design/PROMPTS.md dokumentiert.
 - CLAUDE.md und visuelle Referenz mit Mapaufbau, HUD-Positionen, Menügestaltung und Zuordnung von Originalen zu Stadtbildern angelegt.

@@ -10,6 +10,8 @@ Die Modelle werden zunehmend teurer. Dadurch bleiben spätere Scooter langfristi
 
 Valentins gewünschte Richtung: gleicher räumlicher Grundaufbau wie Steal an Egg, aber als Stadt mit Straßen, Gehwegen und einfachen Häusern. Eier und Tiere bleiben. Tiere in der Basis erzeugen Geld pro Sekunde; der Kukurin ersetzt das Laufband. Aktives Fahren trainiert Speed über gefahrene Strecke, spätere Stufen brauchen länger. Geld finanziert bessere Modelle; trainierte Speed-Stufen bleiben beim Wechsel erhalten.
 
+Mit genügend Fahrlevel kann der Spieler einen Rebirth auslösen und seine Tiere behalten. Rebirth-Meilensteine können bessere Kukurin und einen Bonus auf das Tiereinkommen geben. Teure Gehege-Upgrades schaffen Platz für mehr Tiere gleichzeitig. [Alle Spielmechaniken im Überblick](docs/SPIELKONZEPT.md#so-spielt-sich-eine-runde)
+
 ## Dokumente
 
 - [Spielkonzept](docs/SPIELKONZEPT.md): festgelegte Idee und offene Entscheidungen.

@@ -34,7 +34,7 @@ Die Bilder zeigen noch keine Fahrtrainingsleiste. Claude ergänzt eine kleine Le
 - „Geschäft“ und „Kukurin“ variieren als Beschriftung des grünen linken Zugangs. Einheitlich „Kukurin“ mit Scooter-Symbol verwenden.
 - In einzelnen Bildern ist der ursprüngliche Schalter „Langsamer Modus“ noch sichtbar. Daraus keinen zweiten persönlichen Speed-Fortschritt oder zusätzlichen Pflichtmodus bauen.
 - Shopkarten und HUD zeigen unabhängige Beispielwerte. Beispielsweise darf im fertigen Spiel ein ausgerüsteter 25-km/h-Scooter nicht ohne erklärte Trainings-/Modellberechnung als 40 km/h angezeigt werden. Alle Anzeigen aus denselben Daten berechnen.
-- Tier-Index und Ei-Panel zeigen die Optik. Sammlungsbelohnungen, Ei-Wachstumszeiten, Tierkapazität und Basis-Upgrades sind dadurch noch nicht abschließend festgelegt.
+- Tier-Index und Ei-Panel zeigen die Optik. Der Ausbau in Bild 09 kauft zusätzliche Tierplätze. Preise, Startkapazität, Ei-Wachstumszeiten und Sammlungsbelohnungen sind offen.
 - Rangliste, dekorative Stände und sonstige Extras hinter dem vollständigen Kernablauf priorisieren.
 
 Die genaue Bildherkunft und Einzelaufträge stehen in [PROMPTS.md](PROMPTS.md). Die Beschreibung von Originalaufbau, HUD-Positionen und Übertragung steht in [VISUELLE_REFERENZ.md](../VISUELLE_REFERENZ.md).
