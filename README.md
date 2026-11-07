@@ -21,7 +21,7 @@ Bei einem Rebirth fallen trainierter Speed und Fahrlevel auf die Startwerte zur�
 - [Änderungsprotokoll](CHANGELOG.md): gespeicherte Projektstände.
 - [Claude-Code-Einstieg](CLAUDE.md): Arbeitsauftrag und verbindliche Grenzen für die Umsetzung.
 - [Visuelle Referenz](docs/VISUELLE_REFERENZ.md): Auswertung der acht Originalbilder von Map und UI.
-- [Stadtentwürfe](docs/design/README.md): acht bearbeitete Kukurin-Ansichten und ihre Einordnung.
+- [Bildgalerie für Claude](docs/design/README.md) mit Gehegehof, Eiergang, Trainingsstadt, Fahranzeigen und geöffneten Menüs.
 - [Originale](references/steal-an-egg/README.md): unveränderte Screenshots mit Herkunft und Prüfsummen.
 
 ## Aktueller Stand

@@ -52,7 +52,7 @@ Die gefahrene Strecke bestimmt den Trainingsfortschritt. Für spätere Level inn
 
 Mit einem höheren Rebirth-Stand füllt dieselbe Strecke die Trainingsleiste schneller. So erreicht der Spieler ein zuvor erspieltes Fahrlevel früher und kann danach auf den nächsten Meilenstein hinfahren.
 
-Die genaue Trainingskurve und die Geschwindigkeit der Modelle werden im Spieltest abgestimmt. In den Stadtentwürfen fehlt die Trainingsleiste.
+Die genaue Trainingskurve und die Geschwindigkeit der Modelle werden im Spieltest abgestimmt. [Fahransicht mit Trainingsleiste](design/02-spielansicht.png)
 
 ## Trainingsstadt und Wheelies
 
@@ -64,7 +64,7 @@ Die Hauptwelt hat die Tiergehege und den Eingang in den langen Gang zu den Tiere
 
 Der Robux-Shop erhält einen eigenen Zugang im HUD neben Kukurin-Übersicht und Tier-Index. Eine Angebotskarte zeigt den Artikel, seine Wirkung und den Preis in Robux. Spielgeld bleibt die Währung für Gehegeplätze und Verbesserungen am aktuellen Scooter. Neue Kukurin werden durch Rebirths freigeschaltet. Welche Artikel im Robux-Shop angeboten werden und was sie kosten, ist offen.
 
-Als UI-Entwurf öffnet sich jeweils ein Menü mittig über der sichtbaren Spielwelt. Ein gut erreichbares X führt zur vorherigen Spielansicht. Bei Auswahl eines Angebots folgt die Roblox-Kaufbestätigung. Ein Abbruch kehrt zum Shop zurück. Die endgültigen Bildvorlagen entstehen nach Eingang von Valentins neuen Fotos.
+Als UI-Entwurf öffnet sich jeweils ein Menü mittig über der sichtbaren Spielwelt. Ein gut erreichbares X führt zur vorherigen Spielansicht. Bei Auswahl eines Angebots folgt die Roblox-Kaufbestätigung. Ein Abbruch kehrt zum Shop zurück. [Ansicht des geöffneten Robux-Shops](design/04-robux-shop.png)
 
 ## Scooter-Fortschritt
 

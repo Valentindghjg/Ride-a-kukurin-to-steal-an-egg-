@@ -1,82 +1,75 @@
-# Bildaufträge – Kukurin-Stadt, Version 1
+# Bildaufträge für die Kukurin-Serie 2
 
-Erzeugt mit dem integrierten Imagegen-Werkzeug (kein CLI/API-Fallback). Acht getrennte Bearbeitungen der acht Originalansichten; keine Kristallspiel-Entwürfe als Input. Originale unverändert erhalten. Bild 01 wurde zuerst erstellt und bei Bildern 02–09 zusätzlich als Stilreferenz verwendet.
+Erstellt mit dem integrierten Imagegen-Werkzeug. Die Nummern unter „Upload“ entsprechen Valentins Anhängen. Die dekodierten Pixel aller acht Uploads stimmen mit den [Originalen im Repository](../../references/steal-an-egg/screenshots/) überein. Upload 8 entspricht Originaldatei 09.
 
-Die Aufträge wurden vor der Bestätigung des Fahrtrainings gestartet. Die Dokumentation ergänzt diese spätere Entscheidung; die Bilder enthalten noch keine Trainingsleiste.
+## Gemeinsame Bildsprache
 
-## Gemeinsamer Auftrag (wörtlich)
+Create ONE new polished, implementable widescreen 16:9 Roblox Studio game concept screenshot for Ride a Kukurin to Steal an Egg. Use supplied screenshot(s) for specified spatial or UI layout only; completely re-art the frame. Cohesive art direction: bright toy-city harbor district; simple modular red-brick and cream shopfronts, teal metal canopies, safety-orange paint, dark blue asphalt, golden square-post X-fences, green studded rectangular pet yards, friendly chunky cuboid pets and speckled eggs. Sunny blue-sky daylight, clear shadows, beveled Roblox parts and subtle studs, easy to build and navigate, not photographic. When present the vehicle is a black/orange TWO-WHEEL STAND-UP ELECTRIC SCOOTER with single low deck, stem, handlebars, orange forks, marked 'Kukurin'. Avatar wears teal jacket and orange helmet. A real gameplay/design screen, not poster or title art. All UI in concise legible German, bold cream/white type, navy keyline, flat colored panels; no giant promo text, watermark, desktop chrome, usernames, countdowns, monetized random eggs, treadmill, giant floating numbers, or purchased scooter models. Render only requested labels. Keep full frame, generous UI safe margins.
 
-```text
-Use case: style-transfer. Edit target: image 1, an original Steal an Egg Roblox screenshot. Create ONE full landscape screenshot mockup for our game "Ride a Kukurin to Steal an Egg". Keep the original camera, perspective, blocky Roblox 3D geometry, relative building/plot/route layout and UI placement. Reskin into a cheerful simple Roblox CITY: gray asphalt roads with white lane markings, pale sidewalks, modest colorful blocky low-rise buildings, streetlights, small planted green areas. Keep fenced player plots in their original positions, as urban egg/pet courtyards with yellow or brown low fences, still containing eggs and pets. Keep the long straight progression corridor where shown; city blocks and street sections replace biomes without changing its footprint. Do NOT make a realistic city or an elaborate new map. Black electric standing scooters with orange accents, branded text "Kukurin", identifiable deck, two wheels, stem and handlebars. Replace shoe speed HUD with scooter icon and yellow scooter speed, green cash below. Use sample values "40 km/h" and "$1,250" consistently, never the huge original numbers. Preserve left green shop / cyan index buttons, right red egg / orange paw icons, thick black outlines, bold white playful UI text, bright Roblox studded textures where suitable. Remove desktop window chrome, chat notification details, original usernames and seasonal countdown mascot. Text must be legible German. Retain eggs/pets as the collectible theme, no crystals, mines, moles, digging or tools. This is a visual implementation reference for Claude Code, not marketing art. Each image must be internally coherent.
-```
+## HUD-Zusatz für Ansichten 02–08
 
-## 01-map-overview-city-v1.png
+Reusable HUD for gameplay screens: three small stacked buttons at middle left 'Kukurin' (orange scooter icon), 'Tier-Index' (cyan book), 'Robux-Shop' (violet shopping bag). Bottom left a compact navy dashboard with orange scooter icon '32 km/h', 'Level 6' plus a HALF-FILLED orange training progress bar, and green '$1.250'. Small egg tab middle right. Keep the view open in the center. For menus use this same HUD dimmed and one centered modal over the softly blurred world.
 
-Bearbeitungsziel: `references/steal-an-egg/screenshots/01-map-overview.png`.
+## 01-gehegehof.png
 
-```text
-High oblique map overview: preserve exact arrangement of rectangular fenced player plots and central shared aisle. Turn the aisle into a small street, sidewalks beside plots, low-rise city buildings along original perimeter walls. Scooter shop stand near original stalls, marked 'KUKURIN'. Add a few parked black/orange scooters and a rider without obscuring layout. Preserve open egg/pet plots and house ownership markers. No central modal. Left buttons 'Kukurin' and 'Index'.
-```
+Upload 5, 1.
 
-## 02-collection-index-city-v1.png
+A completely new wide establishing shot, no screen HUD. Reference 1 sets camera (raised frontal aerial, one-point perspective across pens toward horizon) and topology; reference 2 shows individual fenced grassy plots. Make the layout instantly readable at thumbnail size: several generous rectangular pet enclosures to either side in the FRONT half, with open gates facing a paved central approach. In pens put distinctive little animals, eggs and shade canopies. Across mid-frame at the far edge of this common safe hub place one wide brick-and-teal arch labelled 'EIERGANG'. Through the arch a long, straight, open-to-sky enclosed avenue of animal/egg zones stretches to the vanishing point, with receding colored sections and visible eggs at intervals. The arch must not hide the long route. At the right edge of the courtyard a distinctly smaller, lateral teal transit shelter, label 'TRAININGSSTADT', distinct from the big straight gate. Small rider on a black/orange Kukurin for scale. Architecture at periphery only. Natural light and tasteful detail, no circles with portraits. Output is a spatial construction reference.
 
-Bearbeitungsziel: `references/steal-an-egg/screenshots/02-collection-index.png`.
-Zusätzliche Stilreferenz: `01-map-overview-city-v1.png`. Bild 1 ist das Bearbeitungsziel, Bild 2 dient ausschließlich als Stadt-/Scooter-/HUD-Stilreferenz, nicht für Kamerawinkel oder Menülayout.
+## 02-spielansicht.png
 
-```text
-Preserve the original centered 'Haustier-Index' modal layout: cyan title strip, red X, forest category card, two-row pet card grid with discovered pets and unknown silhouettes, right preview and reward panel, bottom collection progress. Keep egg/pet collection rather than scooter collection. Replace shoe reward with a small cash reward only; no personal speed or scooter reward invented. Background is the same urban plot map, blurred. Text 'Haustier-Index', 'Wald', 'Welt', 'Begrenzt', 'Freigeschaltet: 5/8', 'Belohnung', '$100', 'Einsammeln'.
-```
+Upload 5, 7. Zusätzliche Stilreferenz: 01-gehegehof.png.
 
-## 03-kukurin-shop-city-v1.png
+Eye-level over-the-shoulder third person screenshot approaching the same large 'EIERGANG' arch. In direct line of sight see the long straight open-air lane INSIDE, eggs and small cubic animals in successive zones, strong depth. Foreground avatar riding on both wheels, adjacent gated yards, a workshop on sidewalk like the station in reference 2. To the side a separate directional sign 'Trainingsstadt →'. This is the main gameplay HUD with all menus closed, dashboard and level bar readable. No extra controls.
 
-Bearbeitungsziel: `references/steal-an-egg/screenshots/03-premium-shop.png`.
-Zusätzliche Stilreferenz: `01-map-overview-city-v1.png`. Bild 1 ist das Bearbeitungsziel, Bild 2 dient ausschließlich als Stadt-/Scooter-/HUD-Stilreferenz, nicht für Kamerawinkel oder Menülayout.
+## 03-trainingsstadt.png
 
-```text
-Adapt the original large central green-title shop window into our cash-based scooter shop. Keep modal outer bounds and right-side vertical category rail. Title 'Kukurin-Geschäft', categories 'Modelle', 'Upgrades'. Replace Halloween event banner, odds, Robux prices and gift buttons with THREE clear black/orange electric scooter product cards. Names 'Kukurin Starter', 'Kukurin City', 'Kukurin Pro'. Card speeds 25, 40, 60 km/h respectively. Starter state 'Ausgerüstet'; City '$2,500' with 'Kaufen'; Pro '$15,000' with 'Kaufen'. Mark prices as illustrative UI examples by a small footer 'Beispielwerte'. Maintain chunky Roblox green buttons, black outlines, white text, red X, dark content background. Same blurred city courtyard behind. Do not reproduce monetized random egg shop.
-```
+Upload 1, 7. Zusätzliche Stilreferenz: 01-gehegehof.png.
 
-## 04-egg-side-panel-city-v1.png
+Creative new second world. References inform scale/materials only; compose a large freely rideable urban street grid, no pens or eggs. Clear low three-quarter side view of avatar holding handlebars of ONE TWO-WHEELED electric kick scooter doing a wheelie: rear wheel touching level asphalt, front wheel lifted, deck tilted up with feet on it, front tire clearly off the ground. The rider travels across an open waterfront boulevard; a perpendicular street, city blocks, a distant bridge and a loop around a small plaza are readable. Midground transit shelter with 'Zum Hof'. Same base HUD and progress bar. A single compact status beside bar 'Wheelie-Bonus' indicates extra training for this section. No numeric multiplier. Game screenshot not splash art.
 
-Bearbeitungsziel: `references/steal-an-egg/screenshots/04-egg-side-panel.png`.
-Zusätzliche Stilreferenz: `01-map-overview-city-v1.png`. Bild 1 ist das Bearbeitungsziel, Bild 2 dient ausschließlich als Stadt-/Scooter-/HUD-Stilreferenz, nicht für Kamerawinkel oder Menülayout.
+## 04-robux-shop.png
 
-```text
-Keep the original oblique map camera and exact right side panel bounds, brown/beige header, dark empty content body and red collapse arrow on its left edge. Title 'Wachsende Eier', yellow header action 'Alle anbauen'. These are reference labels, not a new system redesign. City street, plot courtyards, urban perimeter as in image 1. Scooters at street edge. No extra modal, do not fill empty panel with invented mechanics.
-```
+Upload 3. Zusätzliche Stilreferenz: 01-gehegehof.png.
 
-## 05-map-progression-city-v1.png
+One centered open premium shop modal, preserve reference's modal vs world scale and red close X. Fresh premium retail styling in indigo/violet, soft background shows the new urban pens hub and dim edge HUD. Title 'Robux-Shop'. Two clear illustrative cosmetic cards with bespoke renders of parts only: 'Neon-Griffe' (cyan handle grips, caption 'Leuchtende Lenkergriffe', purchase button '49 Robux') and 'Sternendeck' (star-pattern scooter deck graphic, caption 'Sterne auf dem Trittbrett', button '79 Robux'). Small readable footer 'Beispielangebote'. No real purchase confirmation shown, no random products, no whole scooters, no pay to unlock models. Robust spacing, tactile icons, clean uncluttered UI.
 
-Bearbeitungsziel: `references/steal-an-egg/screenshots/05-map-progression.png`.
-Zusätzliche Stilreferenz: `01-map-overview-city-v1.png`. Bild 1 ist das Bearbeitungsziel, Bild 2 dient ausschließlich als Stadt-/Scooter-/HUD-Stilreferenz, nicht für Kamerawinkel oder Menülayout.
+## 05-tier-index.png
 
-```text
-Preserve original high frontal overview with fenced base plots in foreground and a single long straight progression corridor receding centrally to horizon. Reskin base hub as city courtyard with asphalt central crossing and sidewalks, keep player plots and eggs/pets. Reskin successive corridor sections as distinct colored city street districts, low-rise facades on both sides following original high retaining wall footprint; foreground residential, farther commercial and neon accents. Keep route straight, unobstructed and legible, same width relative to base hub, no branching labyrinth, no aerial skyline shot. Replace original ground safe line with 'SICHERE ZONE'. Show one Kukurin rider entering street. No modal.
-```
+Upload 2. Zusätzliche Stilreferenz: 01-gehegehof.png.
 
-## 06-kukurin-upgrades-city-v1.png
+Take reference's broad centered collection window, cyan top bar, close X, biome label, cards and preview layout. Rebuild with a fresh navy/cream/teal UI, actual City hub blurred behind with shared HUD dimmed. Title 'Tier-Index'. Show 2 rows of 3 friendly cubic animal cards, three discovered (Hund, Katze, Vogel), three silhouettes with '?'. Selected cat on the right with exact labels 'Katze' and '+8 $/s'. Footer small collection meter '3 / 6 entdeckt'. No speed rewards or purchase button. Clear selected state.
 
-Bearbeitungsziel: `references/steal-an-egg/screenshots/06-trail-shop.png`.
-Zusätzliche Stilreferenz: `01-map-overview-city-v1.png`. Bild 1 ist das Bearbeitungsziel, Bild 2 dient ausschließlich als Stadt-/Scooter-/HUD-Stilreferenz, nicht für Kamerawinkel oder Menülayout.
+## 06-eierpanel.png
 
-```text
-Use original purple-header three-card Trail shop layout as a Kukurin upgrades panel. Preserve centered modal size, three tall cards, large illustrations, color backgrounds gray/green/blue, red X and horizontal scrolling affordance. Title 'Kukurin-Upgrades'. The THREE cards represent consecutive levels of the same scooter speed upgrade, not extra progression systems: 'Stufe 1', 'Stufe 2', 'Stufe 3'. Show same black/orange scooter illustration in every card. Card labels '25 km/h', '30 km/h', '35 km/h'. First green button 'Aktuell', second '$250 – Verbessern', third '$750 – Verbessern'. Small footer 'Beispielwerte'. No trails, personal running speed, batteries, stamina or fuel. Background same blurred urban plots.
-```
+Upload 4, 8. Zusätzliche Stilreferenz: 01-gehegehof.png.
 
-## 07-scooter-station-city-v1.png
+Show same lively new courtyard with a compact RIGHT edge egg inventory drawer open using reference 1 geometry. Reference 2 gives fence scale. Keep center of world visible and sharp, no centered modal. Visible hatchling pen and a scooter; panel occupies right quarter, beige/amber header 'Meine Eier', close chevron, two icon rows labelled 'Wald-Ei' and 'Stadt-Ei'. No countdown or claim about hatching odds. Same left HUD and bottom-left dashboard.
 
-Bearbeitungsziel: `references/steal-an-egg/screenshots/07-training-and-upgrades.png`.
-Zusätzliche Stilreferenz: `01-map-overview-city-v1.png`. Bild 1 ist das Bearbeitungsziel, Bild 2 dient ausschließlich als Stadt-/Scooter-/HUD-Stilreferenz, nicht für Kamerawinkel oder Menülayout.
+## 07-kukurin-rebirth.png
 
-```text
-Preserve the original close ground-level view: central blue money/s leaderboard against rear wall, fenced player courtyard to right, upgrade station to left foreground. Replace treadmill with compact Kukurin repair/upgrade pad on sidewalk, black/orange standing scooter and small repair stand. Upgrade sign 'Kukurin verbessern', 'Stufe 1 > Stufe 2', '$250'. Keep blue leaderboard titled 'MEISTES GELD/s', use generic player labels rather than original usernames. Replace free treasure chest with a simple decorative scooter parking rack; do not add reward mechanic. Buildings behind the station replace original tall bare walls, keep scene layout. Green floating income labels within pet plot. Show readable scooter without excessive props.
-```
+Upload 6. Zusätzliche Stilreferenz: 01-gehegehof.png.
 
-## 09-base-upgrade-city-v1.png
+Open Kukurin model overview modal based on original high-card structure. Orange header 'Kukurin', navy body, red X, two large clearly distinct model illustrations: black/orange starter standing scooter 'Starter' with status 'Ausgerüstet', heavier black/orange scooter with dual headlight 'City' and a padlock with 'Ab Rebirth 2'. Below, a compact explanatory row 'Rebirth' with 'Speed startet neu' and 'Danach schneller leveln'. No sales prices, Robux, cash purchase CTA or treadmill inside this modal. Same dim HUD and blurred city background. Emphasize model grant through Rebirth.
 
-Bearbeitungsziel: `references/steal-an-egg/screenshots/09-base-upgrade.png`.
-Zusätzliche Stilreferenz: `01-map-overview-city-v1.png`. Bild 1 ist das Bearbeitungsziel, Bild 2 dient ausschließlich als Stadt-/Scooter-/HUD-Stilreferenz, nicht für Kamerawinkel oder Menülayout.
+## 08-gehegeausbau.png
 
-```text
-Preserve original third-person ground-level perspective directly outside a rectangular fenced pet courtyard, low gold/yellow fence and left upgrade sign. Place blocky avatar on black/orange Kukurin in foreground instead of banana-shaped avatar, still looking into courtyard. Keep egg/pet income labels inside plot. Asphalt sidewalk outside, grassy inner courtyard, low-rise colorful city facades replace high bare perimeter. Left sign 'Tiergehege verbessern', 'Stufe 1 > Stufe 2', '$500' as illustrative UI. Replace original right event billboard with a simple 'KUKURIN' scooter parking sign, no countdown/event. HUD consistent with other outputs.
-```
+Upload 8, 7. Zusätzliche Stilreferenz: 01-gehegehof.png.
+
+Gameplay view near entrance of owner's fenced courtyard as in reference 1, with scooter workshop neighboring it as in ref 2. The featured physical sign beside the open gate is legible: 'Gehege erweitern', '3 / 3 Plätze', '+1 Platz', green cash button '$2.500'. Exactly three distinct small block pets inside the pen, e.g. cat, dog and bird. Show the three on ground level, gentle floating green income icons. Third-person avatar at rest with scooter at gate. Same HUD layout; use '0 km/h' and cash '$1.250' here as stopped. Gray unavailable buy button if showing insufficient funds. No premium product or Rebirth unlock on this sign. Past the pen glimpse same brick/teal city and EIERGANG arch.
+
+Zusatz für Ansichten 02–08:
+
+Last supplied image is the new art-direction reference; match its architecture, habitat, arch and rider design. All earlier images are original user screenshots serving the specified reference roles.
+
+## 09-stadtplan.png
+
+Vorlage: 03-trainingsstadt.png.
+
+Use the supplied gameplay view as an art-direction and landmark reference. Create a brand new in-engine bird's-eye gameplay construction reference for the LARGE separate free-roam TRAININGSSTADT of Ride a Kukurin to Steal an Egg. Show an elevated oblique view from the harbor looking across a substantial district with at least 10 distinct accessible city blocks, four-way intersections, several alternative turn choices, a clearly traceable closed riding loop around a central green square, a wide waterfront boulevard, brick buildings, tramless sidewalks and crosswalks, orange bridge, one return shelter labelled 'Zum Hof' in foreground. Include tiny players on orange and black stand-up scooters for scale. Preserve recognizable anchor roundabout by the waterfront from the reference. Depth in a blocky distant skyline. Modest modular, easy-to-build Roblox part architecture, sunny saturated teal brick and orange identity to match reference. No farm, no pens, no eggs, no tunnel down a narrow linear lane, no collectible currency, no HUD, captions, legend, map pins or extra text. Landscape 16:9. One continuous playable space, keep the road network visibly connected from the foreground into the distance. Design reference, not a marketing illustration.
+
+## Korrektur an Bild 08
+
+Vorlage: erste Fassung des neuen Gehegeschilds. Der Kontostand soll den angezeigten Kauf erlauben.
+
+Precise single text edit. Keep this entire Kukurin Roblox screenshot pixel-composition, readable typography, HUD, all architecture, scooter, three animals, styling and EVERY sign and badge exactly as shown. Change only the bottom-left green cash balance text from '$1.250' to '$3.250'. This makes the green $2.500 cash upgrade affordable. Preserve 0 km/h, Level 6, 3 / 3 Plätze, +1 Platz, and $2.500 on the world sign. Sharp landscape screenshot. No other alterations.

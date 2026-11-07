@@ -19,16 +19,16 @@ Zwei Welten verwenden denselben Fahrfortschritt. In der Hauptwelt führt der Weg
 
 Sobald das erforderliche Fahrlevel erreicht ist, kann der Spieler einen Rebirth auslösen. Speed, Fahrlevel und die laufende Leiste beginnen beim Startwert. Im neuen Durchgang bringt dieselbe gefahrene Strecke mehr Trainingsfortschritt. Tiere bleiben erhalten. Der Trainingsbonus und ein möglicher Einkommensbonus sind getrennte Werte. Rebirth 2 mit neuem Modell und 5 % mehr Tiereinkommen ist ein Beispiel. [Spielkonzept](docs/SPIELKONZEPT.md#so-spielt-sich-eine-runde)
 
-Beim Nachbau von Bild 03 auf jeder Modellkarte den benötigten Rebirth oder „Freigeschaltet“ anzeigen. Die Modellvergabe erfolgt direkt beim Rebirth. Eine kleine Leiste beim Scooter-HUD zeigt den Trainingsfortschritt.
+[Bild 02](docs/design/02-spielansicht.png) zeigt das Fahr-HUD. Die Modellkarten zeigen den erforderlichen Rebirth oder das bereits ausgerüstete Modell. [Bild 07](docs/design/07-kukurin-rebirth.png)
 
-Der Robux-Shop ist ein eigener HUD-Zugang. Im geöffneten Menü erscheinen Artikel, Wirkung und Robux-Preis sowie eine Schließen-Schaltfläche. Produkte und Preise sind noch offen. Den Ablauf für Weltwechsel, Wheelie und Shop im [Spielkonzept](docs/SPIELKONZEPT.md#trainingsstadt-und-wheelies) nachlesen. Für die nächste Bildserie liefert Valentin neue Fotos.
+Der Robux-Shop ist ein eigener HUD-Zugang. Im geöffneten Menü erscheinen Artikel, Wirkung und Robux-Preis sowie eine Schließen-Schaltfläche. Produkte und Preise sind noch offen. Den Ablauf für Weltwechsel, Wheelie und Shop im [Spielkonzept](docs/SPIELKONZEPT.md#trainingsstadt-und-wheelies) nachlesen. [Ansicht des geöffneten Shops](docs/design/04-robux-shop.png)
 
 Keine Kristalle, Grabkraft, Trainingssteine, Werkzeuge, Minen oder Maulwürfe aus dem separaten Projekt Steal a Crystal übernehmen. Auch dessen zwölf Stages und zwölf Werkzeuge sind keine Vorgabe für dieses Spiel.
 
 ## Welche Bilder gelten?
 
 - `references/steal-an-egg/screenshots/`: acht unveränderte Originalansichten von Steal an Egg. Zeigen den Ausgangsaufbau von Map und UI.
-- `docs/design/*-city-v1.png`: KI-bearbeitete Stadtentwürfe für dieses Kukurin-Spiel. Zeigen die gewünschte Übertragung auf Straßen, Gehwege, einfache Häuser und Scooter.
+- Die [aktuelle Bildgalerie](docs/design/README.md) enthält neun Bauvorlagen. Bilder 01 und 02 zeigen die Hauptwelt, Bild 03 die Trainingsstadt. Bilder 04 bis 08 zeigen Menüs und Interaktionen. Bild 09 zeigt das Straßennetz der Trainingsstadt aus der Vogelperspektive.
 - Im Quellrepository Steal-a-Crystal liegen unter `docs/design/` bearbeitete Kristallspiel-Bilder. Diese sind NICHT Vorlagen für dieses Projekt und wurden nicht importiert.
 
 ## Umsetzung
