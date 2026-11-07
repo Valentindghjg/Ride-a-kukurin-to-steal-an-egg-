@@ -15,9 +15,13 @@ Tiere im Gehege verdienen Geld für Gehegeplätze und Upgrades am aktuellen Scoo
 
 Aktive Fahrt füllt die Trainingsleiste. Der Server zählt plausibel gefahrene Strecke. Mit jeder vollen Leiste steigt das Fahrlevel und damit der trainierte Speed.
 
+Zwei Welten verwenden denselben Fahrfortschritt. In der Hauptwelt führt der Weg von den Gehegen durch den langen Gang zu den Tieren und Eiern. Die große Trainingsstadt erlaubt freies Fahren und Speed-Training ohne Eierdiebstahl. Beim Wheelie gewinnt der Spieler pro gefahrenem Streckenabschnitt mehr Training. Beim Übergang zwischen den Welten den Positionssprung aus der Streckenmessung ausnehmen.
+
 Sobald das erforderliche Fahrlevel erreicht ist, kann der Spieler einen Rebirth auslösen. Speed, Fahrlevel und die laufende Leiste beginnen beim Startwert. Im neuen Durchgang bringt dieselbe gefahrene Strecke mehr Trainingsfortschritt. Tiere bleiben erhalten. Der Trainingsbonus und ein möglicher Einkommensbonus sind getrennte Werte. Rebirth 2 mit neuem Modell und 5 % mehr Tiereinkommen ist ein Beispiel. [Spielkonzept](docs/SPIELKONZEPT.md#so-spielt-sich-eine-runde)
 
 Beim Nachbau von Bild 03 auf jeder Modellkarte den benötigten Rebirth oder „Freigeschaltet“ anzeigen. Die Modellvergabe erfolgt direkt beim Rebirth. Eine kleine Leiste beim Scooter-HUD zeigt den Trainingsfortschritt.
+
+Der Robux-Shop ist ein eigener HUD-Zugang. Im geöffneten Menü erscheinen Artikel, Wirkung und Robux-Preis sowie eine Schließen-Schaltfläche. Produkte und Preise sind noch offen. Den Ablauf für Weltwechsel, Wheelie und Shop im [Spielkonzept](docs/SPIELKONZEPT.md#trainingsstadt-und-wheelies) nachlesen. Für die nächste Bildserie liefert Valentin neue Fotos.
 
 Keine Kristalle, Grabkraft, Trainingssteine, Werkzeuge, Minen oder Maulwürfe aus dem separaten Projekt Steal a Crystal übernehmen. Auch dessen zwölf Stages und zwölf Werkzeuge sind keine Vorgabe für dieses Spiel.
 

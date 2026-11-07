@@ -30,6 +30,9 @@ Der erste Prototyp ist fertig, wenn Spieler fahren, ein Ei stehlen, ein Tier Gel
 Für die erste Veröffentlichung knapp halten: wenige Inhalte, funktionierende Speicherung und verlässliche Käufe. Größeren Inhaltsausbau und visuellen Feinschliff erst danach angehen.
 
 - [ ] Map anhand der abgestimmten Referenz ausarbeiten.
+- [ ] Basenhof mit Gehegen und klar erkennbarem Zugang zum langen Eiergang aufbauen. Separaten Wechsel in die große Trainingsstadt und Rückkehr zum Hof testen. Scooter, Fahrlevel und Trainingsfortschritt vor und nach dem Wechsel vergleichen.
+- [ ] Normale Fahrt, Wheelie und Stillstand vergleichen. Bei gleicher Strecke und gleichem Rebirth-Stand muss der Wheelie mehr Training bringen. Wechsel zwischen Fahrzuständen darf dieselbe Strecke nur einmal zählen.
+- [ ] Robux-Shop im HUD ergänzen. Öffnen, Schließen und Kaufabbruch prüfen. Für festgelegte Produkte bestätigte Käufe verarbeiten und die Belohnung pro Kauf genau einmal vergeben.
 - [ ] Eier und weitere Scooter-Modelle ergänzen.
 - [ ] Einen Rebirth mit Levelprüfung testen. Speed und Fahrlevel müssen auf die Startwerte fallen, die Tiere erhalten bleiben und der nächste Trainingslauf auf gleicher Strecke mehr Fortschritt bringen. Am Modell-Meilenstein den Kukurin genau einmal vergeben und den Kontostand durch die Modellvergabe nicht belasten.
 - [ ] Kauf zusätzlicher Gehegeplätze und Geld/s bei unterschiedlicher Belegung prüfen.

@@ -10,6 +10,8 @@ Neue Kukurin erhält der Spieler automatisch beim Erreichen der jeweiligen Rebir
 
 Der Basenhof und die gerade Zonenfolge von Steal an Egg bilden den Grundriss einer Stadt mit Straßen, Gehwegen und einfachen Häusern. Beim Fahren füllt die zurückgelegte Strecke die Trainingsleiste.
 
+Vom Hof gelangt man auch in eine zweite Welt. Dort kann man frei durch eine große Stadt fahren und Speed trainieren. Wheelies geben mehr Trainingsfortschritt pro Strecke. Über das HUD lässt sich ein eigener Robux-Shop öffnen. [Trainingsstadt, Wheelies und Shop](docs/SPIELKONZEPT.md#trainingsstadt-und-wheelies)
+
 Bei einem Rebirth fallen trainierter Speed und Fahrlevel auf die Startwerte zurück. Danach bringt dieselbe gefahrene Strecke mehr Trainingsfortschritt. Die Tiere bleiben erhalten. [Alle Spielmechaniken im Überblick](docs/SPIELKONZEPT.md#so-spielt-sich-eine-runde)
 
 ## Dokumente

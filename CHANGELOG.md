@@ -2,6 +2,8 @@
 
 ## 2026-11-07
 
+- Zweite Welt zum freien Speed-Training, zusätzlicher Trainingsgewinn bei Wheelies und ein eigener Robux-Shop samt Menüablauf im Konzept ergänzt. Die nächste Bildserie wartet auf Valentins neue Fotos.
+
 - Modellkauf durch automatische, kostenlose Vergabe beim entsprechenden Rebirth ersetzt. Der Rebirth setzt trainierten Speed und Fahrlevel zurück und beschleunigt das Leveln im nächsten Durchgang.
 
 - Gesamtüberblick der Spielmechaniken ergänzt. Fahrlevel ermöglichen Rebirths, Tiere bleiben erhalten. Level 10 und die Belohnung bei Rebirth 2 sind Beispielwerte. Teure Gehege-Upgrades erlauben mehr gleichzeitig platzierte Tiere.
