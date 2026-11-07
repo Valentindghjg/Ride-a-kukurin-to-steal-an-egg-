@@ -1,6 +1,6 @@
 # Kukurin · Map und Spieloberfläche
 
-Neun Bauvorlagen für Claude Code. Für den räumlichen Aufbau zuerst den Hof und seine Sichtachse durch den Eiergang ansehen. Für die Bedienung die Fahransicht mit dem geöffneten Shop vergleichen.
+**Von Valentin freigegeben.** Die neun Bilder zeigen den räumlichen Aufbau und die Bedienung. Die gebaute Stadt soll sichtbar einfacher und weniger realistisch aussehen als hier dargestellt. Für Studio breite Straßen, bunte Blockhäuser, einfache Fenster und wenige wiederverwendbare Bauteile verwenden. Für den räumlichen Aufbau zuerst den Hof und seine Sichtachse durch den Eiergang ansehen. Für die Bedienung die Fahransicht mit dem geöffneten Shop vergleichen.
 
 [![Gehegehof mit Eingang zum langen Eiergang](01-gehegehof.png)](01-gehegehof.png)
 
@@ -22,10 +22,10 @@ Die Gehege öffnen sich zur Mittelachse. Durch den großen Torbogen sind die Abs
 
 ## Angaben für die Umsetzung
 
-Für diese Serie wurde ein Hafenviertel mit Backstein, türkisfarbenen Dächern und gelben Zäunen gewählt. Der Hafen ist ein Gestaltungsvorschlag. Für den Grundriss ist Bild 01 maßgeblich, für die Platzierung der Bedienelemente Bild 02. Die Werkstatt kann neben dem Weg zur Trainingsstadt stehen.
+Der Hafen ist ein Gestaltungsvorschlag. Im Spiel reichen einfache Fassaden und wenige gut sichtbare Wegweiser. Die detailreiche Skyline ist für die Orientierung entbehrlich. Für den Grundriss ist Bild 01 maßgeblich, für die Platzierung der Bedienelemente Bild 02. Die Werkstatt kann neben dem Weg zur Trainingsstadt stehen.
 
 Die Zahl der sichtbaren Gehege, Tierarten, Modellnamen und Beträge sind Bildbeispiele. Die Produkte und Preise im Robux-Shop stehen zur Entscheidung. Das Freischalten eines neuen Kukurin erfolgt beim zugehörigen Rebirth. Im Gehege wird mit Spielgeld bezahlt. Der Wheelie gibt zusätzlichen Trainingsfortschritt pro Strecke. Seine Stärke ist noch offen.
 
 Das Spiel verwendet dieselben Fahrdaten in beiden Welten und zeigt den aktuellen Stand in allen Fenstern an. Die Abbildungen zeigen einzelne Spielsituationen. Das Öffnen oder Schließen eines Menüs löst keinen Kauf aus.
 
-[Spielkonzept](../SPIELKONZEPT.md) · [Originalansichten](../../references/steal-an-egg/screenshots/) · [Bildaufträge und verwendete Vorlagen](PROMPTS.md) · [Dateiprüfsummen](manifest.json)
+[Spielkonzept](../SPIELKONZEPT.md) · [Dateiprüfsummen](manifest.json)

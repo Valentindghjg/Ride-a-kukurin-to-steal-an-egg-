@@ -1,42 +1,18 @@
-# Einstieg für Claude Code
+# Umsetzung in Roblox Studio
 
-Projekt: **Ride a Kukurin to Steal an Egg**. Kukurin bleibt im Namen. Kurze Entwicklungszeit, einfache Logik und ein kleiner spielbarer Kern haben Vorrang.
+**Valentins Stilvorgabe:** Die neun Bilder sind freigegeben. Übernimm daraus die Wege zwischen den Gehegen, die Sicht durch den Eiergang, den Zugang zur Trainingsstadt und die Anordnung der UI. Besonders die Stadt wirkt in den Illustrationen zu aufwendig und realistisch. Baue sie als helle, einfache Roblox-Stadt mit großen Farbflächen, blockigen Häusern und wenigen wiederverwendbaren Straßen- und Fassadenteilen.
 
-## Zuerst lesen und Bilder öffnen
+Die Trainingsstadt soll sich beim Fahren groß anfühlen. Dafür reichen verbundene Straßenzüge, gut erkennbare Kreuzungen und eine Runde zurück zum Ausgangspunkt. Ein farbiges Schild und ein markantes Gebäude können den Heimweg zeigen. Die Hafenkräne, Schiffe, Skyline, einzelnen Ziegel und aufwendigen Lichteffekte gehören zur Illustration. Für die erste Version genügen breite Straßen, einfache Beleuchtung und wenige Orientierungspunkte.
 
-1. AGENTS.md und README.md.
-2. docs/SPIELKONZEPT.md und docs/ENTWICKLUNGSPLAN.md.
-3. docs/VISUELLE_REFERENZ.md und docs/design/README.md.
-4. Die dort verlinkten PNGs tatsächlich mit einem Bildwerkzeug ansehen. Die Originale und die Stadtentwürfe zeigen verschiedene Zustände derselben Vorlage.
+## Was zuerst gebaut wird
 
-## Verbindlicher Kern
+1. Lies das [Spielkonzept](docs/SPIELKONZEPT.md). Darin stehen die verbindlichen Mechaniken, Valentins Beispiel für Rebirth 2 und die offenen Balancewerte.
+2. Öffne die [Bildgalerie](docs/design/README.md). Bilder 01 und 02 erklären Gehegehof und Eiergang. Bilder 03 und 09 zeigen Fahransicht und Straßennetz der Trainingsstadt. Bilder 04 bis 08 zeigen Shop, Sammlung, Eierpanel, Modelle und Gehegeplätze.
+3. Baue zuerst einen fahrbaren Kukurin und einen vollständigen Weg vom Gehege zum Ei und zurück. Prüfe danach Tiereinkommen, Ausbau und den ersten Rebirth. Ergänze die zweite Welt mit demselben Spielerfortschritt. Die einzelnen Prüfschritte stehen im [Entwicklungsplan](docs/ENTWICKLUNGSPLAN.md).
 
-Tiere im Gehege verdienen Geld für Gehegeplätze und Upgrades am aktuellen Scooter. Bessere Kukurin werden beim jeweiligen Rebirth automatisch und kostenlos freigeschaltet.
+## Hinweise zur Umsetzung
 
-Aktive Fahrt füllt die Trainingsleiste. Der Server zählt plausibel gefahrene Strecke. Mit jeder vollen Leiste steigt das Fahrlevel und damit der trainierte Speed.
-
-Zwei Welten verwenden denselben Fahrfortschritt. In der Hauptwelt führt der Weg von den Gehegen durch den langen Gang zu den Tieren und Eiern. Die große Trainingsstadt erlaubt freies Fahren und Speed-Training ohne Eierdiebstahl. Beim Wheelie gewinnt der Spieler pro gefahrenem Streckenabschnitt mehr Training. Beim Übergang zwischen den Welten den Positionssprung aus der Streckenmessung ausnehmen.
-
-Sobald das erforderliche Fahrlevel erreicht ist, kann der Spieler einen Rebirth auslösen. Speed, Fahrlevel und die laufende Leiste beginnen beim Startwert. Im neuen Durchgang bringt dieselbe gefahrene Strecke mehr Trainingsfortschritt. Tiere bleiben erhalten. Der Trainingsbonus und ein möglicher Einkommensbonus sind getrennte Werte. Rebirth 2 mit neuem Modell und 5 % mehr Tiereinkommen ist ein Beispiel. [Spielkonzept](docs/SPIELKONZEPT.md#so-spielt-sich-eine-runde)
-
-[Bild 02](docs/design/02-spielansicht.png) zeigt das Fahr-HUD. Die Modellkarten zeigen den erforderlichen Rebirth oder das bereits ausgerüstete Modell. [Bild 07](docs/design/07-kukurin-rebirth.png)
-
-Der Robux-Shop ist ein eigener HUD-Zugang. Im geöffneten Menü erscheinen Artikel, Wirkung und Robux-Preis sowie eine Schließen-Schaltfläche. Produkte und Preise sind noch offen. Den Ablauf für Weltwechsel, Wheelie und Shop im [Spielkonzept](docs/SPIELKONZEPT.md#trainingsstadt-und-wheelies) nachlesen. [Ansicht des geöffneten Shops](docs/design/04-robux-shop.png)
-
-Keine Kristalle, Grabkraft, Trainingssteine, Werkzeuge, Minen oder Maulwürfe aus dem separaten Projekt Steal a Crystal übernehmen. Auch dessen zwölf Stages und zwölf Werkzeuge sind keine Vorgabe für dieses Spiel.
-
-## Welche Bilder gelten?
-
-- `references/steal-an-egg/screenshots/`: acht unveränderte Originalansichten von Steal an Egg. Zeigen den Ausgangsaufbau von Map und UI.
-- Die [aktuelle Bildgalerie](docs/design/README.md) enthält neun Bauvorlagen. Bilder 01 und 02 zeigen die Hauptwelt, Bild 03 die Trainingsstadt. Bilder 04 bis 08 zeigen Menüs und Interaktionen. Bild 09 zeigt das Straßennetz der Trainingsstadt aus der Vogelperspektive.
-- Im Quellrepository Steal-a-Crystal liegen unter `docs/design/` bearbeitete Kristallspiel-Bilder. Diese sind NICHT Vorlagen für dieses Projekt und wurden nicht importiert.
-
-## Umsetzung
-
-Die räumliche Grundstruktur der Originale erhalten: eingezäunte Basen um einen gemeinsamen Hof, ein zentraler Ausgang in eine gerade Zonenfolge. Als Stadt gestalten und für Scooter befahrbar halten. Eier/Tiere und ihre Basisflächen bleiben erkennbar.
-
-HUD und Menüs aus echten Roblox-UI-Elementen bauen. PNGs sind Referenzbilder, keine komplette Oberfläche zum Einblenden. Geld und Scooter-Fortschritt aus denselben tatsächlichen Spielerdaten anzeigen. KI-Bildtexte, Beispielpreise, Level, Mengen und Geschwindigkeiten sind keine verbindliche Balance. Unterschiedliche Bilder sind unabhängige Beispielzustände.
-
-Nur der kleine Kern muss zuerst funktionieren. Sichtbare Extras wie Trails, Premium-Eier, Events und Sammlungsbelohnungen sind keine automatische Aufforderung, diese Systeme zu bauen. Laufzeitregeln sind nicht aus Screenshots bewiesen. Routinewerte einfach wählen und dokumentieren, ohne ein großes Planungssystem aufzubauen.
-
-Nach Änderungen passende Funktionsprüfung durchführen, CHANGELOG.md aktualisieren und den Stand in diesem Repository speichern. Keine erfolgte Studio-Prüfung behaupten, solange sie nicht tatsächlich durchgeführt wurde.
+- Beim Training nur tatsächlich gefahrene Strecke berücksichtigen. Weltwechsel und Teleports aus der Streckenmessung ausnehmen. Den Wheelie-Bonus nur für den Abschnitt mit angehobenem Vorderrad vergeben.
+- Rebirths setzen Speed, Fahrlevel und die laufende Trainingsleiste auf Startwerte. Die Tiere bleiben erhalten, das Training wird schneller und das Modell des erreichten Meilensteins wird genau einmal kostenlos vergeben.
+- Anzeigen aus den aktuellen Spielerdaten befüllen. Große Schaltflächen, ein lesbarer Trainingsbalken und ein gut erreichbares X für geöffnete Menüs sollen auf Handy und PC funktionieren. Robux-Angebote im Shop und Gehegeausbau mit Spielgeld haben eigene Aktionen.
+- Käufe, Freischaltungen, Platzbelegung und Einkommen auf dem Server prüfen. Fortschritt beim Weltwechsel und Wiederbeitritt testen. Geprüfte Arbeit im Repository sichern.

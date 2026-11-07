@@ -1,13 +1,7 @@
 # Projektregeln
 
-- Dieses Repository ist der zentrale Speicherort für „Ride a Kukurin to Steal an Egg“.
-- Vor Arbeiten README.md, docs/SPIELKONZEPT.md und docs/ENTWICKLUNGSPLAN.md lesen.
-- Valentins festgelegte Idee von Vorschlägen und noch offenen Entscheidungen unterscheiden.
-- **Kukurin** ist verbindlich und bleibt im Spielnamen.
-- Für Map/UI CLAUDE.md, docs/VISUELLE_REFERENZ.md, docs/design/README.md und die verlinkten Bilder lesen bzw. ansehen. Originale liegen unter references/steal-an-egg; Stadtentwürfe unter docs/design. Keine Regeln oder Kristall-Entwürfe aus Steal-a-Crystal übernehmen.
-- Tiere im Gehege liefern Geld/s. Aktives Fahren trainiert Speed. Beim Rebirth starten Speed und Fahrlevel wieder beim Startwert, danach levelt der Spieler schneller. Neue Kukurin werden am jeweiligen Rebirth-Meilenstein automatisch und kostenlos vergeben.
-- Kurze Entwicklungszeit und einfache Logik priorisieren. Einen kleinen spielbaren Kern bauen, aufwendige Zusatzsysteme und Feinschliff zurückstellen. Routineentscheidungen mit einfachen, dokumentierten Standardwerten treffen.
-- Nach zusammenhängenden Änderungen Dokumentation und CHANGELOG.md aktualisieren, passend prüfen, committen und zu GitHub pushen, sofern die aktuelle Aufgabe das erlaubt.
-- Roblox-Studio-Änderungen ebenfalls als Skripte bzw. geeignete Projektdateien sichern. Eine Änderung nur im offenen Studio ist kein GitHub-Backup.
-- Keine fremden oder ungespeicherten Änderungen überschreiben. Keine Zugangsdaten committen.
-- Aktuelle Nutzeranweisungen haben Vorrang.
+- **Kukurin** bleibt Bestandteil des Spielnamens.
+- Für Spielregeln [Spielkonzept](docs/SPIELKONZEPT.md) und [Entwicklungsplan](docs/ENTWICKLUNGSPLAN.md) lesen. Für Map und UI die [Anleitung für Claude](CLAUDE.md) und die [neun freigegebenen Bilder](docs/design/README.md) ansehen.
+- Kurze Entwicklung priorisieren. Die Stadt in Studio mit einfachen, wiederverwendbaren Roblox-Bauteilen gestalten. Bilder bestimmen Orientierung und Bedienung. Bildpreise und Modellnamen sind Beispiele.
+- Offene Entscheidungen als solche festhalten. Änderungen an Konzept, Skripten und Studio-Projektdateien zusammen mit dem aktuellen Stand dokumentieren, prüfen, committen und zu GitHub pushen. Studio-Änderungen exportieren oder synchronisieren, damit sie im Repository gesichert sind.
+- Fremde Änderungen erhalten. Keine Zugangsdaten committen.

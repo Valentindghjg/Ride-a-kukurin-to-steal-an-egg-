@@ -2,13 +2,12 @@
 
 ## Leitlinie
 
-Kurze Entwicklungszeit, kleine erste Version und einfache Logik. **Kukurin** muss im Spielnamen bleiben. Zuerst den vollständigen Kernablauf bauen; Inhalt und Feinschliff nur so weit ergänzen, wie für eine spielbare erste Version nötig. Kleine Detailfragen mit einfachen, dokumentierten Standardwerten lösen, statt die Entwicklung dafür anzuhalten. Die konkrete Steal-an-Egg-Referenz ist für deren genaue Nachbildung erforderlich, blockiert aber keinen einfachen Kernprototyp.
+Kurze Entwicklungszeit, kleine erste Version und einfache Logik. **Kukurin** muss im Spielnamen bleiben. Zuerst den vollständigen Kernablauf bauen; Inhalt und Feinschliff nur so weit ergänzen, wie für eine spielbare erste Version nötig. Kleine Detailfragen mit einfachen, dokumentierten Standardwerten lösen, statt die Entwicklung dafür anzuhalten.
 
 ## 1. Projektgrundlage
 
-- [x] Repository finden und lokal klonen.
 - [x] Spielidee und offene Entscheidungen festhalten.
-- [x] Acht Originalansichten aus Steal-a-Crystal erfassen, visuell prüfen und für Claude beschreiben.
+- [x] Neun aktuelle Map- und UI-Ansichten von Valentin freigegeben. Stadt in Studio vereinfacht und blockig umsetzen.
 - [x] Fahrtraining, Speed- und Levelreset beim Rebirth sowie schnelleres Leveln im neuen Durchgang festlegen.
 - [ ] Startwerte, Trainingsfortschritt pro Strecke und Rebirth-Meilensteine konfigurieren.
 - [ ] Roblox-Studio-Projekt zuordnen und Speicher-/Synchronisierungsweg einrichten.
@@ -29,7 +28,7 @@ Der erste Prototyp ist fertig, wenn Spieler fahren, ein Ei stehlen, ein Tier Gel
 
 Für die erste Veröffentlichung knapp halten: wenige Inhalte, funktionierende Speicherung und verlässliche Käufe. Größeren Inhaltsausbau und visuellen Feinschliff erst danach angehen.
 
-- [ ] Map anhand der abgestimmten Referenz ausarbeiten.
+- [ ] Erst breite, gut befahrbare Wege und die Einfahrten der Gehege bauen. Die Trainingsstadt mit wiederverwendbaren Straßen und wenigen Hausformen ausarbeiten.
 - [ ] Basenhof mit Gehegen und klar erkennbarem Zugang zum langen Eiergang aufbauen. Separaten Wechsel in die große Trainingsstadt und Rückkehr zum Hof testen. Scooter, Fahrlevel und Trainingsfortschritt vor und nach dem Wechsel vergleichen.
 - [ ] Normale Fahrt, Wheelie und Stillstand vergleichen. Bei gleicher Strecke und gleichem Rebirth-Stand muss der Wheelie mehr Training bringen. Wechsel zwischen Fahrzuständen darf dieselbe Strecke nur einmal zählen.
 - [ ] Robux-Shop im HUD ergänzen. Öffnen, Schließen und Kaufabbruch prüfen. Für festgelegte Produkte bestätigte Käufe verarbeiten und die Belohnung pro Kauf genau einmal vergeben.

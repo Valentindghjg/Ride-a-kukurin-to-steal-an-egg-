@@ -1,87 +1,46 @@
-# Spielkonzept
+# Ride a Kukurin to Steal an Egg
 
-Stand: 7. November 2026. Grundlage: Valentins Spielbeschreibung und Präzisierung zum kleinen Entwicklungsumfang.
-
-## Festgelegte Richtung
-
-- Roblox-Spiel mit dem Arbeitstitel „Ride a Kukurin to Steal an Egg“.
-- E-Scooter sind das zentrale Fortbewegungsmittel.
-- Das Grundspiel orientiert sich an Steal an Egg: Eier stehlen und Geld für Fortschritt verwenden.
-- Statt persönlicher Speed-Upgrades verbessert der Spieler seinen Scooter.
-- Der Spieler erhält neue Kukurin kostenlos als Belohnung für bestimmte Rebirths.
-- Spätere Modelle sind längerfristige Ziele mit entsprechend höheren Rebirth-Anforderungen.
-- Räumlicher Mapaufbau und Eier sollen sich eng an der Referenz orientieren. Neue Präzisierung: gleicher 3D-Grundaufbau, aber als Stadt gestaltet. Acht Originalansichten und neue Stadtentwürfe sind im Repository erfasst; siehe VISUELLE_REFERENZ.md und design/README.md. Die vollständige Eierliste und Werte bleiben offen.
-- Alle Projektarbeit soll fortan in diesem Repository gespeichert werden.
-- **Kukurin** ist die verbindliche Schreibweise und ein wichtiger Bestandteil des Spielnamens. Valentin nennt den aktuellen Roblox-Hype als Grund.
-- Kurze Entwicklungszeit hat Priorität. Gewünscht ist ein einfaches Spiel mit überschaubarer Logik; kein großes, aufwendig ausgearbeitetes Projekt.
-
-## Umfang der ersten Version
-
-Der erste Stand konzentriert sich auf den vollständigen Kernablauf mit einer kompakten Map, einfacher Scooter-Steuerung, wenigen Eiern und wenigen Scooter-Modellen. Konkrete Mengen sind noch offen. Für die erste Umsetzung reichen einfache Modelle und eine zweckmäßige Oberfläche. Aufwendige Fahrzeugphysik, zusätzliche Spielmodi und umfangreicher Feinschliff werden zurückgestellt. Diese Umsetzungslinie folgt Valentins Vorgabe, die Entwicklung kurz zu halten.
+**Ziel der ersten Version** ist ein schnell umsetzbares Roblox-Spiel mit einem einfachen Kukurin, wenigen Eiern und Tieren und einem erreichbaren Rebirth. Das Spielgefühl, die Gehege und die gerade Folge von Eierzonen orientieren sich an *Steal an Egg*. Das Fahrtraining auf dem Kukurin übernimmt die Rolle des Laufbands.
 
 ## So spielt sich eine Runde
 
-| Funktion | Verhalten im Spiel |
+Der Spieler startet mit einem einfachen Kukurin am eigenen Gehege. Er fährt durch das Tor in den langen Eiergang, stiehlt ein Ei und bringt es zurück. Durch die Fahrt steigt sein Speed. Dadurch kann er entferntere und bessere Eier erreichen und schneller mit ihnen zurückkehren. Aus den Eiern kommen Tiere, die im Gehege Geld pro Sekunde verdienen.
+
+| Mechanik | Spielregel |
 | --- | --- |
-| Start und Map | Der Spieler startet mit einem einfachen Kukurin im gemeinsamen Basenhof. Um den Hof liegen eingezäunte Tiergehege. Eine gerade Straße führt durch mehrere Stadtabschnitte zu den Eiern. |
-| Fahrtraining | Aktiv gefahrene Strecke füllt die Trainingsleiste. Jede volle Stufe erhöht das Fahrlevel und verbessert den Speed auf dem Scooter. Spätere Stufen brauchen mehr Strecke. Stillstand bringt keinen Fortschritt. |
-| Trainingsstadt | Vom Basenhof aus kann der Spieler in eine zweite Welt wechseln. Dort fährt er mit seinem Kukurin frei durch eine große Stadt und trainiert denselben Speed wie in der Hauptwelt. Für das Training ist kein Ei nötig. Der Rückweg führt zum Basenhof. |
-| Wheelie | Wer in der Trainingsstadt während der Fahrt das Vorderrad anhebt, bekommt für die im Wheelie gefahrene Strecke mehr Speed-Fortschritt. Beim Absetzen des Vorderrads geht das normale Training weiter. |
-| Eier stehlen | Der Spieler fährt zu einem Ei und bringt es zur eigenen Basis. Mehr Speed hilft, entferntere und bessere Eier zu holen. Gegner, Fangregeln und der genaue Moment, in dem die Beute sicher ist, stehen noch aus. |
-| Tiere und Einkommen | Aus gestohlenen Eiern kommen Tiere. Jedes im Gehege platzierte Tier trägt seinen Geldbetrag pro Sekunde zum Einkommen bei. Schlüpfzeit, Werte je Tier und das Abholen des Geldes sind offen. |
-| Gehege ausbauen | Die Zahl der gleichzeitig platzierten Tiere ist begrenzt. Der Spieler gibt einen größeren Betrag Spielgeld für zusätzliche Plätze aus. Erst ein zusätzlich eingesetztes Tier erhöht den Ertrag. Startgröße, Preise und Plätze je Ausbau folgen im Spieltest. |
-| Kukurin verbessern | Mit Spielgeld lässt sich der aktuelle Scooter verbessern. Sobald der Spieler den Rebirth-Meilenstein für ein neues Modell erreicht, erhält er diesen Kukurin automatisch. |
-| Rebirth | Beim erforderlichen Fahrlevel kann der Spieler einen Rebirth auslösen. Sein trainierter Speed fällt auf den Startwert, das Fahrlevel beginnt von vorn und die Trainingsleiste leert sich. Im nächsten Durchgang levelt er bei gleicher Fahrstrecke schneller. Seine Tiere behält er. |
-| Robux-Shop | Ein eigener Button im HUD öffnet Angebote mit Robux-Preisen. Nach dem Schließen sieht der Spieler wieder die freie Spielansicht. Die Produkte und Preise stehen noch aus. |
+| Fahrtraining | Aktiv gefahrene Strecke füllt die Trainingsleiste. Eine volle Leiste erhöht Fahrlevel und trainierten Speed. Innerhalb eines Durchgangs benötigen spätere Level mehr Strecke. Stillstand bringt keinen Fortschritt. |
+| Tiereinkommen | Jedes eingesetzte Tier liefert seinen eigenen Geldbetrag pro Sekunde. Das Gesamteinkommen ist die Summe der aktiven Tiere mit dem jeweils freigeschalteten Einkommensbonus. |
+| Gehegeausbau | Das Gehege hat begrenzt Platz. Mit einem größeren Betrag Spielgeld kauft der Spieler zusätzliche Plätze für gleichzeitig aktive Tiere. Das Einkommen steigt, wenn ein weiteres Tier eingesetzt wird. |
+| Scooter-Upgrades | Mit Spielgeld kann der Spieler seinen aktuellen Kukurin verbessern. Neue Modelle erhält er automatisch und kostenlos bei den vorgesehenen Rebirth-Meilensteinen. Bessere Modelle ermöglichen höheren Speed. |
+| Rebirth | Ab dem nötigen Fahrlevel kann der Spieler einen Rebirth auslösen. Speed und Fahrlevel gehen auf die Startwerte zurück und die laufende Leiste leert sich. Die Tiere bleiben erhalten. Bei gleicher Strecke levelt der Spieler im neuen Durchgang schneller. |
 
-**Valentins Beispiel für den Spieltest.** Ab Fahrlevel 10 ist der erste Rebirth möglich. Beim Erreichen von Rebirth 2 erhält der Spieler einen besseren Kukurin und 5 % mehr Tiereinkommen. Verdienen die eingesetzten Tiere zusammen 100 Geld/s, werden daraus 105 Geld/s. Die 5 % beziehen sich auf das Einkommen. Eine pauschale Erhöhung bei jedem Rebirth ist noch offen.
-
-**Offene Werte.** Die genaue Nummer des Startlevels, der Start-Speed, der Trainingsbonus je Rebirth und die weiteren Modell-Meilensteine stehen noch aus. Ob Geld, Scooter-Upgrades und Gehegeplätze beim Rebirth erhalten bleiben, ist ebenfalls offen.
-
-**Oberfläche und Speicherstand.** Das HUD zeigt Scooter-Speed, Trainingsfortschritt und Geld. Modellkarten zeigen den erforderlichen Rebirth oder die bereits erreichte Freischaltung. Der Tier-Index zeigt die Sammlung. Am Gehegeschild stehen Belegung, zusätzliche Plätze und Kaufpreis. Vor einem Rebirth sieht der Spieler das benötigte Level, den Reset und die Belohnung. Beim Wiederbeitritt werden Rebirth-Stand, Fahrtraining, freigeschaltete Modelle, Tiere, Plätze und Geld geladen.
-
-## Vorgesehener Spielkreislauf
-
-Beim Fahren trainiert der Spieler Speed und holt Eier. Die Tiere daraus finanzieren den Gehegeausbau und Scooter-Upgrades. Beim Rebirth startet das Training von vorn und geht schneller. Bestimmte Rebirths geben einen besseren Kukurin für die nächsten Eier.
-
-Valentin hat die zwei Komponenten bestätigt: Tiere liefern das Geld/s, Kukurin übernimmt den Speed-Fortschritt und ersetzt das Laufband. Genauer Schlüpfablauf, Einkommensabholung und Abschluss eines Diebstahls bleiben noch auszuarbeiten.
-
-## Bestätigt: Fahren trainiert Speed
-
-Die gefahrene Strecke bestimmt den Trainingsfortschritt. Für spätere Level innerhalb eines Durchgangs ist mehr Strecke nötig.
-
-Mit einem höheren Rebirth-Stand füllt dieselbe Strecke die Trainingsleiste schneller. So erreicht der Spieler ein zuvor erspieltes Fahrlevel früher und kann danach auf den nächsten Meilenstein hinfahren.
-
-Die genaue Trainingskurve und die Geschwindigkeit der Modelle werden im Spieltest abgestimmt. [Fahransicht mit Trainingsleiste](design/02-spielansicht.png)
+**Valentins Beispiel für die Balance.** Der erste Rebirth könnte ab Fahrlevel 10 möglich sein. Bei Rebirth 2 könnte der Spieler einen besseren Kukurin und 5 % mehr Tiereinkommen bekommen. Aus 100 Geld/s würden 105 Geld/s. Der Einkommensbonus und das schnellere Leveln nach einem Rebirth sind zwei verschiedene Belohnungen.
 
 ## Trainingsstadt und Wheelies
 
-Die Hauptwelt hat die Tiergehege und den Eingang in den langen Gang zu den Tieren und Eiern. Die Trainingsstadt ist ein eigenes Ziel für Spieler, die einfach fahren wollen. Für den ersten Aufbau bieten sich breite Straßen mit Kreuzungen und einer durchgehenden Rundfahrt an. In beiden Welten gelten das ausgerüstete Kukurin-Modell, Fahrlevel, Trainingsleiste und Rebirth-Stand des Spielers. Der Weltwechsel selbst zählt keine Trainingsstrecke.
+Vom Gehegehof gibt es einen eigenen Zugang zu einer zweiten Welt. Dort fährt der Spieler frei durch eine große Stadt und trainiert Speed, auch wenn er gerade keine Eier stehlen will. Der Rückweg führt zum Hof. Der ausgerüstete Kukurin, das Fahrlevel, die Trainingsleiste und der Rebirth-Stand werden zwischen beiden Welten geteilt. Der Weltwechsel selbst gibt keine Trainingsstrecke.
 
-**Wheelie-Bonus.** Bei gleichem Rebirth-Stand soll eine gleich lange Fahrt mit Wheelie die Trainingsleiste weiter füllen als eine normale Fahrt. Gezählt wird nur der tatsächlich im Wheelie gefahrene Abschnitt. Beim Anhalten endet der Gewinn. Den Bonus verstehe ich als schnelleres Leveln. Die genaue Höhe und eine mögliche Nutzung in der Hauptwelt sind offen.
+Bei einem Wheelie bleibt das Hinterrad auf der Straße und das Vorderrad hebt ab. Für den tatsächlich so gefahrenen Abschnitt wächst die Trainingsleiste stärker als für eine gleich lange normale Fahrt. Sobald das Vorderrad wieder aufsetzt, gilt die normale Rate. Die genaue Höhe des Bonus und seine mögliche Nutzung in der Hauptwelt sind offen.
+
+## Map und Gestaltung
+
+Die Hauptwelt hat einen breiten Hof mit rechteckigen Tiergehegen, gut sichtbaren Eingängen und einer mittigen Fahrspur. Geradeaus liegt das große Tor. Dahinter verläuft der lange Gang durch aufeinanderfolgende Tier- und Eierzonen. Der Zugang zur freien Trainingsstadt liegt seitlich und ist vom Zugang zum Eiergang zu unterscheiden.
+
+Die neun Bilder sind als Vorlagen für Grundriss und UI freigegeben. Für die Stadt wünscht Valentin deutlich einfachere Roblox-Grafik. Breite Straßen, klare Farben, niedrige blockige Häuser und wiederverwendbare Gebäudeteile halten die Wege lesbar und den Bauaufwand klein. Die Größe der Trainingswelt entsteht durch den Platz zum Fahren und die Auswahl an Routen. [Bildgalerie](design/README.md)
 
 ## Robux-Shop und Menüansichten
 
-Der Robux-Shop erhält einen eigenen Zugang im HUD neben Kukurin-Übersicht und Tier-Index. Eine Angebotskarte zeigt den Artikel, seine Wirkung und den Preis in Robux. Spielgeld bleibt die Währung für Gehegeplätze und Verbesserungen am aktuellen Scooter. Neue Kukurin werden durch Rebirths freigeschaltet. Welche Artikel im Robux-Shop angeboten werden und was sie kosten, ist offen.
+- **Fahr-HUD.** Geschwindigkeit, Fahrlevel mit Trainingsleiste und Spielgeld sind während der Fahrt sichtbar. Beim Wheelie erscheint der Trainingsbonus an der Leiste.
+- **Kukurin.** Modellkarten zeigen den ausgerüsteten Scooter und den benötigten Rebirth für weitere Modelle. Verbesserungen des aktuellen Scooters zeigen Wirkung und Spielgeldpreis. Vor dem Rebirth sieht der Spieler Voraussetzung, Reset und Belohnung.
+- **Tier-Index und Eierpanel.** Der Index zeigt die Sammlung, unbekannte Tiere als Silhouetten und den Ertrag des ausgewählten Tiers. Über das seitliche Eierpanel sieht der Spieler seinen Eierbestand und weiterhin die Welt.
+- **Gehegeschild.** Am Eingang stehen belegte und verfügbare Plätze, die zusätzlichen Plätze der nächsten Stufe und deren Spielgeldpreis.
+- **Robux-Shop.** Ein eigener HUD-Button öffnet das Shopfenster über der Spielwelt. Eine Karte zeigt Artikel, Wirkung und Robux-Preis. Auswahl führt zur Kaufbestätigung, Abbruch zurück zum Shop und das X zurück ins Spiel. Produkte und Preise der Abbildung sind Beispiele.
+- **Speicherung.** Tiere, Geld, Gehegeplätze, freigeschaltete und ausgerüstete Kukurin, Upgrades, Fahrlevel, laufender Trainingsfortschritt und Rebirth-Stand sollen beim Wiederbeitritt wieder verfügbar sein.
 
-Als UI-Entwurf öffnet sich jeweils ein Menü mittig über der sichtbaren Spielwelt. Ein gut erreichbares X führt zur vorherigen Spielansicht. Bei Auswahl eines Angebots folgt die Roblox-Kaufbestätigung. Ein Abbruch kehrt zum Shop zurück. [Ansicht des geöffneten Robux-Shops](design/04-robux-shop.png)
+## Noch festzulegen
 
-## Scooter-Fortschritt
-
-Geld und Rebirths haben beim Scooter zwei Aufgaben.
-
-1. Verbesserungen am aktuellen Scooter kosten Spielgeld.
-2. Ein neues Modell wird als kostenlose Belohnung direkt beim vorgesehenen Rebirth vergeben.
-
-Offen sind Modellnamen, Modellfolge, Fahrwerte, Preise für Upgrades am aktuellen Scooter und die gewünschte Fahrzeit bis zum nächsten Rebirth.
-
-## Vor Umsetzung zu konkretisieren
-
-- Exakter Link zur gemeinten Steal-an-Egg-Erfahrung für spätere Live-Prüfung, falls nötig. Visuelle Originalreferenzen liegen bereits lokal vor und blockieren die Umsetzung nicht.
-- Genaue Titelformulierung; **Kukurin** bleibt als Bestandteil festgelegt.
-- Fahrgefühl: Steuerung, Beschleunigung, Bremsen, Kurven und Verhalten beim Tragen eines Eis.
-- Diebstahlregeln, Einkommen je Tier, Eierwerte und mögliche Seltenheiten.
-- Kartenabmessungen und Anordnung der Spielbereiche.
-- Start-Scooter, Upgrade-Wirkung, Rebirth-Ziele und Preise für Gehegeplätze und Upgrades.
-
-Diese offenen Punkte sind keine zusätzlich beschlossenen Features. Zahlen und Mechaniken werden erst bei ihrer Ausarbeitung festgelegt.
+- Eierliste, Seltenheiten, Schlüpfregeln, Ertrag je Tier, Einkommensabholung und Verhalten bei vollem Gehege.
+- Ablauf eines Diebstahls, mögliche Wächter, Fangregeln und wann ein zurückgebrachtes Ei sicher ist.
+- Startlevel und Start-Speed, Fahrgefühl, Trainingskurve, Wheelie-Bonus, Scooter-Upgrades und ihre Preise.
+- Modellfolge, Rebirth-Ziele und weitere Boni. Für Geld, Gehegeplätze und Scooter-Upgrades ist das Verhalten beim Rebirth noch offen.
+- Startkapazität, zusätzliche Plätze und Kosten je Gehegestufe, Größe der Welten sowie Sortiment und Preise des Robux-Shops.
