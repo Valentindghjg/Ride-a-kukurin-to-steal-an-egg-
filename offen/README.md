@@ -1,6 +1,6 @@
 # Offene Entscheidungen für Ride a Kukurin to Steal an Egg
 
-Stand der Durchsicht: 7. November 2026. Die Nummern dienen zum Antworten im Chat. Die Spielregeln stehen im [Spielkonzept](SPIELKONZEPT.md), die neun akzeptierten Layouts in der [Bildgalerie](design/README.md). Eine offene Frage kann auch durch eine einfache Regel erledigt werden. Sie ist kein Auftrag, eine zusätzliche Funktion zu bauen.
+Die 20 Fragen haben feste Nummern für Antworten im Chat. Die vereinbarten Spielregeln stehen im [Spielkonzept](../docs/SPIELKONZEPT.md), die neun freigegebenen Ansichten in der [Bildgalerie](../docs/design/README.md).
 
 ## Die Angaben in den Bildern richtig lesen
 

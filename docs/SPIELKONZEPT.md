@@ -39,7 +39,7 @@ Die neun Bilder sind als Vorlagen für Grundriss und UI freigegeben. Für die St
 
 ## Noch festzulegen
 
-Die [vollständige Fragenliste](OFFENE_FRAGEN.md) enthält die fehlenden Zahlen, Regeln für Sonderfälle und Entscheidungen für den ersten Spieltest.
+Die [vollständige Fragenliste](../offen/README.md) enthält die fehlenden Zahlen, Regeln für Sonderfälle und Entscheidungen für den ersten Spieltest.
 
 - Eierliste, Seltenheiten, Schlüpfregeln, Ertrag je Tier, Einkommensabholung und Verhalten bei vollem Gehege.
 - Ablauf eines Diebstahls, mögliche Wächter, Fangregeln und wann ein zurückgebrachtes Ei sicher ist.
