@@ -8,13 +8,17 @@ Das Spiel orientiert sich an **Steal an Egg**. Spieler fahren einen E-Scooter, s
 
 Die Modelle werden zunehmend teurer. Dadurch bleiben spätere Scooter langfristige Ziele.
 
-Valentins gewünschte Richtung: Map und Eier sollen sich sehr eng an Steal an Egg orientieren. Die konkrete Referenz und ihre Details müssen vor der Umsetzung noch gemeinsam geprüft werden.
+Valentins gewünschte Richtung: gleicher räumlicher Grundaufbau wie Steal an Egg, aber als Stadt mit Straßen, Gehwegen und einfachen Häusern. Eier und Tiere bleiben. Tiere in der Basis erzeugen Geld pro Sekunde; der Kukurin ersetzt das Laufband. Aktives Fahren trainiert Speed über gefahrene Strecke, spätere Stufen brauchen länger. Geld finanziert bessere Modelle; trainierte Speed-Stufen bleiben beim Wechsel erhalten.
 
 ## Dokumente
 
 - [Spielkonzept](docs/SPIELKONZEPT.md): festgelegte Idee und offene Entscheidungen.
 - [Entwicklungsplan](docs/ENTWICKLUNGSPLAN.md): Schritte zum ersten spielbaren Prototyp.
 - [Änderungsprotokoll](CHANGELOG.md): gespeicherte Projektstände.
+- [Claude-Code-Einstieg](CLAUDE.md): Arbeitsauftrag und verbindliche Grenzen für die Umsetzung.
+- [Visuelle Referenz](docs/VISUELLE_REFERENZ.md): Auswertung der acht Originalbilder von Map und UI.
+- [Stadtentwürfe](docs/design/README.md): acht bearbeitete Kukurin-Ansichten und ihre Einordnung.
+- [Originale](references/steal-an-egg/README.md): unveränderte Screenshots mit Herkunft und Prüfsummen.
 
 ## Aktueller Stand
 

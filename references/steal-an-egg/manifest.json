@@ -1,0 +1,58 @@
+{
+  "source_repository": "https://github.com/Valentindghjg/Steal-a-Crystal",
+  "source_commit": "bdd1ceb5f7fa727aeed456e44cb1db0d79adf0e6",
+  "source_directory": "references/screenshots",
+  "copied_on": "2026-11-07",
+  "image_policy": "Unmodified original reference screenshots; exclude docs/design generated Crystal images",
+  "omitted_duplicate": "08-trail-shop-duplicate.png is byte-identical to 06-trail-shop.png",
+  "screenshots": [
+    {
+      "number": 1,
+      "file": "screenshots/01-map-overview.png",
+      "original_filename": "codex-clipboard-6128027f-3297-43ae-b91d-e53ae593da92.png",
+      "sha256": "37A9029E1C8E3BD9830A4E85878EFEAF734C2C20A58890AF7420F56E179200CD"
+    },
+    {
+      "number": 2,
+      "file": "screenshots/02-collection-index.png",
+      "original_filename": "codex-clipboard-ef5c31d6-4a16-47b3-8594-c5b403514c6a.png",
+      "sha256": "381B8D77E30329CF0DB29468CD688AF4FA39797D92A58F12AD889E09E6F91DAC"
+    },
+    {
+      "number": 3,
+      "file": "screenshots/03-premium-shop.png",
+      "original_filename": "codex-clipboard-60dd5d3c-9ca1-4056-a2f2-992d71c6ea83.png",
+      "sha256": "D467818BAAC25D639C351C5BCBE145F299FAAF01A95445DA74AF712C77AFC567"
+    },
+    {
+      "number": 4,
+      "file": "screenshots/04-egg-side-panel.png",
+      "original_filename": "codex-clipboard-9b2212e4-ff18-4423-86af-fa674e2b1f8e.png",
+      "sha256": "1500CCDA736FA1943248E4D038176EBF110B83198425E6313CD1D014041185E7"
+    },
+    {
+      "number": 5,
+      "file": "screenshots/05-map-progression.png",
+      "original_filename": "codex-clipboard-fb153d4f-4762-4f14-bf57-35121b347682.png",
+      "sha256": "30FD2B2831D1D32AD62F42184530A76AD5C5BF92410C7692DC499F7B80E595C7"
+    },
+    {
+      "number": 6,
+      "file": "screenshots/06-trail-shop.png",
+      "original_filename": "codex-clipboard-b3bbcf05-b4be-4583-84ab-9eb2f0b28273.png",
+      "sha256": "D31C06C8F6FCC1487713FA28C117C066B825246C7D66DA4280278A9486C7B823"
+    },
+    {
+      "number": 7,
+      "file": "screenshots/07-training-and-upgrades.png",
+      "original_filename": "codex-clipboard-3bae6efd-9df7-488a-ad6f-7f09cc14f945.png",
+      "sha256": "5C51B8B9A0F965C6698DC56CED1B10DAFD6814BE188EC6F6B88B907CA2DE0BB9"
+    },
+    {
+      "number": 9,
+      "file": "screenshots/09-base-upgrade.png",
+      "original_filename": "codex-clipboard-ab10a591-564b-42d5-9db2-896016e6483e.png",
+      "sha256": "F74528BEF21E7790C76FC1328D7180AAEF454A08B11D6220B845A2050DBC2A6E"
+    }
+  ]
+}

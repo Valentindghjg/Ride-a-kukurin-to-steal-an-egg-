@@ -1,0 +1,42 @@
+[
+  {
+    "file": "01-map-overview-city-v1.png",
+    "sha256": "AC91C1AB9FC408A6629076A00930E2397416B8A6794EF02292B818C85B1B13B8",
+    "bytes": 2633058
+  },
+  {
+    "file": "02-collection-index-city-v1.png",
+    "sha256": "76717F9F501DE9B9FC55BCC18D8D0107BC3A2889B7422CBB14ADC092BF05DF9D",
+    "bytes": 1859059
+  },
+  {
+    "file": "03-kukurin-shop-city-v1.png",
+    "sha256": "10ECF0751A4B8AF2C410B8F18045AC99A121C44494CA3BF7E930F0942CB36A20",
+    "bytes": 1850687
+  },
+  {
+    "file": "04-egg-side-panel-city-v1.png",
+    "sha256": "CA367EDED1C4EB8BC5DA6BC018E6673FAE463AB84B7470079CF6B6B009A7E131",
+    "bytes": 2565790
+  },
+  {
+    "file": "05-map-progression-city-v1.png",
+    "sha256": "83A8FED2D8ACD2B52EEB898EBD29D4C4435A0E13A10DF34623A2B66D32B3BFA4",
+    "bytes": 2457246
+  },
+  {
+    "file": "06-kukurin-upgrades-city-v1.png",
+    "sha256": "B1A2823F2A693CCF790213759449F8005145C0A2FB4F7998E4D515D86951D6C7",
+    "bytes": 1888225
+  },
+  {
+    "file": "07-scooter-station-city-v1.png",
+    "sha256": "A34D43689C9E23757A8FC403E8A078C9B3700CBB7943895F435990BBBE4CD3F1",
+    "bytes": 2169394
+  },
+  {
+    "file": "09-base-upgrade-city-v1.png",
+    "sha256": "B7CCE2D137D98AEFBD9116C0FD2A2B44857F9036746A2A8DF0EFBB5B9C063787",
+    "bytes": 2201975
+  }
+]

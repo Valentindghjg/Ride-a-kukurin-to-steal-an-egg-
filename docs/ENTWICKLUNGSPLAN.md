@@ -8,15 +8,18 @@ Kurze Entwicklungszeit, kleine erste Version und einfache Logik. **Kukurin** mus
 
 - [x] Repository finden und lokal klonen.
 - [x] Spielidee und offene Entscheidungen festhalten.
-- [ ] Konkrete Steal-an-Egg-Referenz erfassen.
+- [x] Acht Originalansichten aus Steal-a-Crystal erfassen, visuell prüfen und für Claude beschreiben.
+- [x] Aktives Fahren als Trainingsfaktor bestätigen; Speed-Stufen beim Modellwechsel behalten.
+- [ ] Einfache Formel für Fahrtraining, Modellgrenzen und Geld-Upgrades konfigurieren.
 - [ ] Roblox-Studio-Projekt zuordnen und Speicher-/Synchronisierungsweg einrichten.
 
 ## 2. Erster spielbarer Ablauf
 
 - [ ] Kleine Teststrecke und einen einfachen Scooter erstellen.
 - [ ] Aufsteigen, Fahren, Lenken, Bremsen und Absteigen testen.
+- [ ] Fahrstrecke serverseitig plausibilisieren, Speed-Training und kleine Trainingsleiste ergänzen. Stillstand/Teleports dürfen keinen Trainingsgewinn geben.
 - [ ] Ein Test-Ei mit einem vollständigen Diebstahlablauf ergänzen.
-- [ ] Die dazugehörige Geldbelohnung implementieren.
+- [ ] Eier-/Tierablauf und Geld/s aus Tieren in der Basis implementieren.
 - [ ] Ein Scooter-Upgrade und den Kauf eines zweiten Modells umsetzen.
 - [ ] Ablauf mit mindestens zwei Spielern testen.
 
