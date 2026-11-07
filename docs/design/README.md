@@ -8,7 +8,7 @@ Diese acht Bilder bearbeiten die acht unterschiedlichen Original-Screenshots von
 | --- | --- |
 | [01 – Mapübersicht](01-map-overview-city-v1.png) | Hoher schräger Blick, Stadtfassaden, Straßen und umzäunte Tierflächen; gemeinsame Stilreferenz. |
 | [02 – Haustier-Index](02-collection-index-city-v1.png) | Haustiersammlung im Cyan-Fenster, Kartenraster und Einzelansicht. |
-| [03 – Kukurin-Shop](03-kukurin-shop-city-v1.png) | Modellkauf gegen Spielgeld im grünen Fenster. |
+| [03 – Kukurin-Fenster](03-kukurin-shop-city-v1.png) | Kartenlayout für die Modellübersicht. In der Spiel-UI steht auf jeder Karte der benötigte Rebirth oder „Freigeschaltet“. |
 | [04 – Eierpanel](04-egg-side-panel-city-v1.png) | Ausklappbares rechtes Ei-Fenster über der Stadtmap. |
 | [05 – Stadtverlauf](05-map-progression-city-v1.png) | Basenhof und gerade nach hinten führende Straße mit verschiedenen Stadtabschnitten. |
 | [06 – Kukurin-Upgrades](06-kukurin-upgrades-city-v1.png) | Übertragung des dreispaltigen Trail-Fensters auf Scooter-Upgrades. |
@@ -25,9 +25,9 @@ Menüs und Anzeigen als funktionierende Roblox-UI bauen. Bildpreise, Level, Scoo
 
 ## Spätere Gameplay-Entscheidung hat Vorrang
 
-Die Bildaufträge liefen bereits, als Valentin **Fahren als Speed-Training** bestätigte: Aktive gefahrene Strecke trainiert Speed; spätere Stufen brauchen mehr Strecke; Stillstand zählt nicht. Tiere erzeugen Geld/s und finanzieren bessere Kukurin. Speed-Stufen bleiben beim Modellwechsel erhalten.
+Beim Rebirth werden Speed und Fahrlevel zurückgesetzt. Anschließend füllt sich die Trainingsleiste bei gleicher Strecke schneller. Ab dem jeweiligen Meilenstein erhält der Spieler den neuen Kukurin automatisch und kostenlos.
 
-Die Bilder zeigen noch keine Fahrtrainingsleiste. Claude ergänzt eine kleine Leiste beim Scooter-HUD. Die reinen Geld-Upgrade-Beispiele in 03, 06 und 07 dürfen Fahrtraining nicht vollständig ersetzen. Das genaue Verhältnis von Training, Modellgrenzen und Geld-Upgrades steht als einfache Konfiguration noch aus.
+Bild 03 zeigt den früheren Kaufentwurf. Für die Umsetzung die Modellpreise und Kaufbuttons durch den jeweiligen Rebirth-Status ersetzen. Die Upgrade-Ansichten 06 und 07 betreffen Verbesserungen am aktuellen Scooter. Beim Scooter-HUD die Trainingsleiste ergänzen.
 
 ## Bekannte Bilddetails für die Umsetzung
 

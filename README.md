@@ -4,13 +4,13 @@ Roblox-Spielprojekt von Valentin. Dieses Repository ist ab sofort der zentrale S
 
 ## Spielidee
 
-Das Spiel orientiert sich an **Steal an Egg**. Spieler fahren einen E-Scooter, stehlen Eier und investieren verdientes Geld in ihren Scooter. Die persönliche Laufgeschwindigkeit wird als Fortschrittssystem durch Scooter-Upgrades und den Kauf besserer Modelle ersetzt.
+Tiere aus gestohlenen Eiern verdienen im Gehege Spielgeld. Damit lassen sich zusätzliche Plätze und Verbesserungen für den aktuellen Kukurin kaufen.
 
-Die Modelle werden zunehmend teurer. Dadurch bleiben spätere Scooter langfristige Ziele.
+Neue Kukurin erhält der Spieler automatisch beim Erreichen der jeweiligen Rebirth-Meilensteine.
 
-Valentins gewünschte Richtung: gleicher räumlicher Grundaufbau wie Steal an Egg, aber als Stadt mit Straßen, Gehwegen und einfachen Häusern. Eier und Tiere bleiben. Tiere in der Basis erzeugen Geld pro Sekunde; der Kukurin ersetzt das Laufband. Aktives Fahren trainiert Speed über gefahrene Strecke, spätere Stufen brauchen länger. Geld finanziert bessere Modelle; trainierte Speed-Stufen bleiben beim Wechsel erhalten.
+Der Basenhof und die gerade Zonenfolge von Steal an Egg bilden den Grundriss einer Stadt mit Straßen, Gehwegen und einfachen Häusern. Beim Fahren füllt die zurückgelegte Strecke die Trainingsleiste.
 
-Mit genügend Fahrlevel kann der Spieler einen Rebirth auslösen und seine Tiere behalten. Rebirth-Meilensteine können bessere Kukurin und einen Bonus auf das Tiereinkommen geben. Teure Gehege-Upgrades schaffen Platz für mehr Tiere gleichzeitig. [Alle Spielmechaniken im Überblick](docs/SPIELKONZEPT.md#so-spielt-sich-eine-runde)
+Bei einem Rebirth fallen trainierter Speed und Fahrlevel auf die Startwerte zurück. Danach bringt dieselbe gefahrene Strecke mehr Trainingsfortschritt. Die Tiere bleiben erhalten. [Alle Spielmechaniken im Überblick](docs/SPIELKONZEPT.md#so-spielt-sich-eine-runde)
 
 ## Dokumente
 
@@ -30,4 +30,4 @@ Die Projektgrundlage ist dokumentiert. Es gibt noch keinen spielbaren Prototyp u
 
 ## Entwicklungspriorität
 
-Schnell einen einfachen spielbaren Stand bauen. Das Projekt soll wenig Entwicklungszeit benötigen; aufwendige Fahrphysik, umfangreiche Systeme und großer visueller Feinschliff sind für die erste Version nicht vorgesehen. Der Kern bleibt: Kukurin fahren, Eier stehlen, Geld verdienen, Scooter verbessern und bessere Modelle kaufen.
+Für die erste Version reichen eine kurze Strecke, ein Eierdiebstahl, Tiere im Gehege und ein erreichbarer Rebirth mit Kukurin-Belohnung.

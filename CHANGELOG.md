@@ -2,6 +2,8 @@
 
 ## 2026-11-07
 
+- Modellkauf durch automatische, kostenlose Vergabe beim entsprechenden Rebirth ersetzt. Der Rebirth setzt trainierten Speed und Fahrlevel zurück und beschleunigt das Leveln im nächsten Durchgang.
+
 - Gesamtüberblick der Spielmechaniken ergänzt. Fahrlevel ermöglichen Rebirths, Tiere bleiben erhalten. Level 10 und die Belohnung bei Rebirth 2 sind Beispielwerte. Teure Gehege-Upgrades erlauben mehr gleichzeitig platzierte Tiere.
 
 - Acht unterschiedliche Original-Screenshots von Steal an Egg aus Steal-a-Crystal übernommen, visuell geprüft und anhand des Quell-Manifests per SHA-256 verifiziert. Identische Trail-Shop-Dublette ausgelassen; keine Kristallspiel-Entwürfe importiert.

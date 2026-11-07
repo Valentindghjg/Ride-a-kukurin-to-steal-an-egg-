@@ -8,8 +8,8 @@ Stand: 7. November 2026. Grundlage: Valentins Spielbeschreibung und Präzisierun
 - E-Scooter sind das zentrale Fortbewegungsmittel.
 - Das Grundspiel orientiert sich an Steal an Egg: Eier stehlen und Geld für Fortschritt verwenden.
 - Statt persönlicher Speed-Upgrades verbessert der Spieler seinen Scooter.
-- Zusätzlich lassen sich bessere Scooter-Modelle kaufen.
-- Spätere Modelle kosten zunehmend mehr Geld und sollen längerfristige Ziele sein.
+- Der Spieler erhält neue Kukurin kostenlos als Belohnung für bestimmte Rebirths.
+- Spätere Modelle sind längerfristige Ziele mit entsprechend höheren Rebirth-Anforderungen.
 - Räumlicher Mapaufbau und Eier sollen sich eng an der Referenz orientieren. Neue Präzisierung: gleicher 3D-Grundaufbau, aber als Stadt gestaltet. Acht Originalansichten und neue Stadtentwürfe sind im Repository erfasst; siehe VISUELLE_REFERENZ.md und design/README.md. Die vollständige Eierliste und Werte bleiben offen.
 - Alle Projektarbeit soll fortan in diesem Repository gespeichert werden.
 - **Kukurin** ist die verbindliche Schreibweise und ein wichtiger Bestandteil des Spielnamens. Valentin nennt den aktuellen Roblox-Hype als Grund.
@@ -28,37 +28,37 @@ Der erste Stand konzentriert sich auf den vollständigen Kernablauf mit einer ko
 | Eier stehlen | Der Spieler fährt zu einem Ei und bringt es zur eigenen Basis. Mehr Speed hilft, entferntere und bessere Eier zu holen. Gegner, Fangregeln und der genaue Moment, in dem die Beute sicher ist, stehen noch aus. |
 | Tiere und Einkommen | Aus gestohlenen Eiern kommen Tiere. Jedes im Gehege platzierte Tier trägt seinen Geldbetrag pro Sekunde zum Einkommen bei. Schlüpfzeit, Werte je Tier und das Abholen des Geldes sind offen. |
 | Gehege ausbauen | Die Zahl der gleichzeitig platzierten Tiere ist begrenzt. Der Spieler gibt einen größeren Betrag Spielgeld für zusätzliche Plätze aus. Erst ein zusätzlich eingesetztes Tier erhöht den Ertrag. Startgröße, Preise und Plätze je Ausbau folgen im Spieltest. |
-| Kukurin verbessern | Mit Spielgeld lässt sich der eigene Scooter verbessern oder ein teureres Modell kaufen. Bessere Modelle ermöglichen höheren Speed. Beim Wechsel des Modells behält der Spieler sein trainiertes Fahrlevel. |
-| Rebirth | Sobald der Spieler das benötigte Fahrlevel erreicht, kann er einen Rebirth auslösen. Seine Tiere behält er. Bestimmte Rebirths können direkt einen besseren Kukurin geben und die Einnahmen der Tiere erhöhen. |
+| Kukurin verbessern | Mit Spielgeld lässt sich der aktuelle Scooter verbessern. Sobald der Spieler den Rebirth-Meilenstein für ein neues Modell erreicht, erhält er diesen Kukurin automatisch. |
+| Rebirth | Beim erforderlichen Fahrlevel kann der Spieler einen Rebirth auslösen. Sein trainierter Speed fällt auf den Startwert, das Fahrlevel beginnt von vorn und die Trainingsleiste leert sich. Im nächsten Durchgang levelt er bei gleicher Fahrstrecke schneller. Seine Tiere behält er. |
 
 **Valentins Beispiel für den Spieltest.** Ab Fahrlevel 10 ist der erste Rebirth möglich. Beim Erreichen von Rebirth 2 erhält der Spieler einen besseren Kukurin und 5 % mehr Tiereinkommen. Verdienen die eingesetzten Tiere zusammen 100 Geld/s, werden daraus 105 Geld/s. Die 5 % beziehen sich auf das Einkommen. Eine pauschale Erhöhung bei jedem Rebirth ist noch offen.
 
-**Offen beim Rebirth.** Ein möglicher Ablauf ist, das Fahrlevel für den nächsten Durchgang auf den Startwert zu setzen und gekaufte Gehegeplätze zu behalten. Fest zugesagt ist bislang der Erhalt der Tiere. Für Geld, gekaufte Modelle, Scooter-Upgrades und Plätze braucht es eine Reset-Regel. Weitere Levelziele und Boni werden nach der Fahrzeit abgestimmt.
+**Offene Werte.** Die genaue Nummer des Startlevels, der Start-Speed, der Trainingsbonus je Rebirth und die weiteren Modell-Meilensteine stehen noch aus. Ob Geld, Scooter-Upgrades und Gehegeplätze beim Rebirth erhalten bleiben, ist ebenfalls offen.
 
-**Oberfläche und Speicherstand.** Das HUD zeigt Scooter-Speed, Trainingsfortschritt und Geld. Der Shop zeigt Modelle und Upgrades, der Tier-Index die Sammlung. Am Gehegeschild sollen belegte Plätze, zusätzliche Plätze und Kaufpreis erkennbar sein. Beim Rebirth sollen benötigtes Fahrlevel, Belohnung und Reset vor dem Auslösen sichtbar sein. Für den Wiederbeitritt sind Tiere, Plätze, Geld, Scooter und Fortschrittswerte zu speichern.
+**Oberfläche und Speicherstand.** Das HUD zeigt Scooter-Speed, Trainingsfortschritt und Geld. Modellkarten zeigen den erforderlichen Rebirth oder die bereits erreichte Freischaltung. Der Tier-Index zeigt die Sammlung. Am Gehegeschild stehen Belegung, zusätzliche Plätze und Kaufpreis. Vor einem Rebirth sieht der Spieler das benötigte Level, den Reset und die Belohnung. Beim Wiederbeitritt werden Rebirth-Stand, Fahrtraining, freigeschaltete Modelle, Tiere, Plätze und Geld geladen.
 
 ## Vorgesehener Spielkreislauf
 
-Mit dem Scooter losfahren → ein Ei stehlen → daraus Tiere für die Basis bekommen → Tiere erzeugen Geld pro Sekunde → Scooter verbessern oder auf ein besseres Modell sparen → bessere Eier erreichen und stehlen.
+Beim Fahren trainiert der Spieler Speed und holt Eier. Die Tiere daraus finanzieren den Gehegeausbau und Scooter-Upgrades. Beim Rebirth startet das Training von vorn und geht schneller. Bestimmte Rebirths geben einen besseren Kukurin für die nächsten Eier.
 
 Valentin hat die zwei Komponenten bestätigt: Tiere liefern das Geld/s, Kukurin übernimmt den Speed-Fortschritt und ersetzt das Laufband. Genauer Schlüpfablauf, Einkommensabholung und Abschluss eines Diebstahls bleiben noch auszuarbeiten.
 
 ## Bestätigt: Fahren trainiert Speed
 
-Valentin möchte zusätzlich zum Geldbedarf einen zeitabhängigen Fortschritt wie beim Laufband des Vorbilds. Reiner Modellkauf soll nicht sofort den gesamten Speed-Fortschritt überspringen.
+Die gefahrene Strecke bestimmt den Trainingsfortschritt. Für spätere Level innerhalb eines Durchgangs ist mehr Strecke nötig.
 
-Valentin hat den Vorschlag bestätigt („bissl so wie keyboard escape … gefällt mir“): Echte gefahrene Strecke füllt automatisch eine Trainingsleiste und erhöht Speed-Stufen. Spätere Stufen benötigen mehr Strecke; Stillstand gibt keinen Fortschritt. Tiere finanzieren bessere Modelle, Fahren trainiert die Geschwindigkeit. Bessere Modelle bieten mehr erreichbare Geschwindigkeit, erfahrene Stufen bleiben beim Modellwechsel erhalten. Keine zusätzliche Treibstoff-, Hunger- oder Ausdauerwirtschaft nötig. Keyboard Escape ist Valentins Vergleich für den Fortschrittsansatz; dessen Details wurden nicht untersucht und sind keine weitere Bauvorlage.
+Mit einem höheren Rebirth-Stand füllt dieselbe Strecke die Trainingsleiste schneller. So erreicht der Spieler ein zuvor erspieltes Fahrlevel früher und kann danach auf den nächsten Meilenstein hinfahren.
 
-Vor Umsetzung die einfache Beziehung zwischen Fahrtraining, Modellgrenzen und Geld-Upgrades festlegen. Bei streckenbasiertem Training auch berücksichtigen, dass schnellere Modelle Strecke schneller sammeln. Noch keine verbindliche Formel oder Trainingsdauer. Die Stadtbilder wurden vor dieser Bestätigung beauftragt; ihnen fehlt noch die Trainingsleiste. Deren reine Kauf-/Upgrade-Ansichten überschreiben diese bestätigte Mechanik nicht.
+Die genaue Trainingskurve und die Geschwindigkeit der Modelle werden im Spieltest abgestimmt. In den Stadtentwürfen fehlt die Trainingsleiste.
 
 ## Scooter-Fortschritt
 
-Zwei Ausgaben sollen sich sinnvoll ergänzen:
+Geld und Rebirths haben beim Scooter zwei Aufgaben.
 
-1. Den aktuellen Scooter mit Geld verbessern.
-2. Geld für einen besseren, teureren Scooter sparen.
+1. Verbesserungen am aktuellen Scooter kosten Spielgeld.
+2. Ein neues Modell wird als kostenlose Belohnung direkt beim vorgesehenen Rebirth vergeben.
 
-Noch offen sind Modellnamen, Anzahl der Modelle, Upgrade-Stufen, Fahrwerte, Preise und die gewünschte Spieldauer bis zum nächsten Kauf. Es gibt noch keine verbindliche Preistabelle.
+Offen sind Modellnamen, Modellfolge, Fahrwerte, Preise für Upgrades am aktuellen Scooter und die gewünschte Fahrzeit bis zum nächsten Rebirth.
 
 ## Vor Umsetzung zu konkretisieren
 
@@ -67,6 +67,6 @@ Noch offen sind Modellnamen, Anzahl der Modelle, Upgrade-Stufen, Fahrwerte, Prei
 - Fahrgefühl: Steuerung, Beschleunigung, Bremsen, Kurven und Verhalten beim Tragen eines Eis.
 - Diebstahlregeln, Einkommen je Tier, Eierwerte und mögliche Seltenheiten.
 - Kartenabmessungen und Anordnung der Spielbereiche.
-- Start-Scooter, Upgrade-Wirkung, Modellfolge und Preiskurve.
+- Start-Scooter, Upgrade-Wirkung, Rebirth-Ziele und Preise für Gehegeplätze und Upgrades.
 
 Diese offenen Punkte sind keine zusätzlich beschlossenen Features. Zahlen und Mechaniken werden erst bei ihrer Ausarbeitung festgelegt.

@@ -8,7 +8,7 @@ Stand: 7. November 2026. Die acht unterschiedlichen Originalansichten wurden vis
 | --- | --- | --- |
 | [01 Mapübersicht](../references/steal-an-egg/screenshots/01-map-overview.png) | Hoher schräger Blick auf grüne rechteckige umzäunte Grundstücke, gemeinsame Wege, Stände und hohe braune Außenwände. | Grundstückspositionen und Hofaufbau erhalten; Wege zu Stadtstraßen mit Gehwegen machen, einfache Häuser am Rand, Kukurin-Stand. |
 | [02 Haustier-Index](../references/steal-an-egg/screenshots/02-collection-index.png) | Großes Cyan-Fenster, links Wald-Kategorie, mittig zwei Reihen Tierkarten, rechts Einzelansicht und Belohnung, unten Fortschritt. | Tier-/Eiersammlung beibehalten. Kein Kristall- oder Werkzeug-Index. Speed-Belohnungen nicht als zweiten persönlichen Fortschritt übernehmen. |
-| [03 Geschäft](../references/steal-an-egg/screenshots/03-premium-shop.png) | Großes grünes Shopfenster, dunkler Inhalt, Angebote, rechte Kategorienavigation, rotes X. | In der neuen Bildfassung gleicher Fenstertyp als Kukurin-Modellshop mit Spielgeldpreisen und Scooter-Karten. Das ist eine Anpassung, keine Beobachtung des Originals. |
+| [03 Geschäft](../references/steal-an-egg/screenshots/03-premium-shop.png) | Grüner Titel, dunkle Inhaltsfläche, Karten und rotes X. | Das Kartenlayout als Modellübersicht verwenden. Jede Karte zeigt den erforderlichen Rebirth oder das freigeschaltete Modell. |
 | [04 Ei-Seitenpanel](../references/steal-an-egg/screenshots/04-egg-side-panel.png) | Rechter ausklappbarer Kasten, beige Kopfzeile „Wachsende Eier“, gelber Sammelknopf, dunkle leere Liste, roter Randpfeil. | Position und Ei-Thema erhalten. Wachstumszeiten und genaue Bedeutung von „Alle anbauen“ sind aus dem Bild nicht ableitbar. |
 | [05 Zonenverlauf](../references/steal-an-egg/screenshots/05-map-progression.png) | Vorderer Basenhof, mittiger Ausgang, lange gerade Folge verschieden gestalteter Bereiche zwischen Seitenwänden. | Gleiche Hauptrichtung; Stadtdistrikte entlang einer geraden Straße. Keine freie Großstadt mit verzweigtem Straßennetz daraus machen. |
 | [06 Trail-Shop](../references/steal-an-egg/screenshots/06-trail-shop.png) | Violetter Titel, drei hohe Karten in Grau/Grün/Blau, große Motive, Werte und grüne Aktionen. | Kartenlayout als einfacher Kukurin-Upgrade-Shop. Trails und deren Multiplikatoren sind keine beschlossene Funktion. |
@@ -31,7 +31,7 @@ Die Originale sind ungefähr 1920 × 1080. Die folgenden Positionen sind gerunde
 
 | Bereich | Position im Original | Kukurin-Übertragung |
 | --- | --- | --- |
-| Hauptzugänge | Links bei etwa 1–11 % Breite und 40–55 % Höhe, zwei vertikale große Buttons. | Grün: Kukurin-Shop; Cyan: Index. Scooterkauf und Sammlung schnell erreichbar. |
+| Hauptzugänge | Links bei etwa 1–11 % Breite und 40–55 % Höhe, zwei große Buttons übereinander. | Der grüne Kukurin-Button öffnet die Modellübersicht und Upgrades, der cyanfarbene den Index. |
 | Langsamer Modus | Direkt unter linken Hauptzugängen. | Im ersten Entwurf weggelassen; kein zusätzlicher persönlicher Speed-Fortschritt. Eine spätere Fahrbegrenzung wäre gesondert zu entscheiden. |
 | Werte | Links unten etwa 1–18 % Breite und 86–99 % Höhe. Gelbe Speed-Zahl über grüner Geldzahl. | Scooter-Symbol und Scooter-Geschwindigkeit statt Schuh/Lauf-Speed. Geld bleibt darunter. Geld/s stammt aus den Tieren; zusätzliche Gesamtanzeige ist bei Bedarf möglich. |
 | Verwaltung | Rechts außen bei etwa 95–99 % Breite, mittig; Ei rot, Pfote orange. | Ei-/Tierzugänge behalten. Pfotenfunktion ist in den Originalen nicht geöffnet. |
@@ -45,12 +45,12 @@ Roblox-Systemleiste oben links und Desktop-Titelleiste sind keine selbst zu baue
 
 Große mittige Fenster nehmen ungefähr 60 % der Bildschirmbreite ein. Titelbalken sind kräftig gefärbt, der Inhalt dunkelgrau/violett mit dezentem Noppenmuster. Breite dunkle Umrandungen und große weiße Schrift mit schwarzer Kontur erzeugen die typische Roblox-Wirkung. Der rote quadratische Schließenknopf sitzt oben rechts. Die Spielwelt bleibt sichtbar und ist hinter geöffneten Hauptmenüs unscharf.
 
-Index: Kategorien links bzw. seitlich, Kartenraster mittig, ausgewähltes Tier rechts, Fortschritt unten. Shop/Upgrade: wenige große Karten mit Scooterbild, Modell oder Stufe, Leistung, Preis und klaren Aktionen „Kaufen“, „Ausrüsten“, „Ausgerüstet“ bzw. „Verbessern“. Die neuen Shopbilder ersetzen zwei unterschiedliche Originalshops; daraus keine zwei unnötig komplexen Shop-Systeme machen. Modellkauf und Upgrades können technisch in einem einfachen Fenster mit zwei Tabs umgesetzt werden.
+Der Index zeigt Kategorien, Tierkarten, Einzelansicht und Sammlungsfortschritt. Im Kukurin-Fenster erhält jede Modellkarte ein Scooterbild, die Leistung und den zugehörigen Rebirth. Der Upgrade-Tab zeigt Preis und Wirkung der Verbesserung am aktuellen Scooter.
 
 Für Handy mit relativen Größen und Layouts arbeiten: Bewegung und Kamera freihalten, Menüs innerhalb des sichtbaren Bereichs halten, nötigenfalls scrollen. Die Originale zeigen nur PC; sie beweisen keine mobile Anordnung.
 
 ## Spiellogik und Bildinhalt unterscheiden
 
-Valentins Klarstellung für dieses Spiel: Tiere in der Basis erzeugen Geld pro Sekunde. Aktives Kukurin-Fahren trainiert Speed über gefahrene Strecke und ersetzt das Laufband. Geld kauft bessere Modelle und Scooter-Upgrades. Speed-Stufen bleiben beim Modellwechsel erhalten. Dadurch kann der Spieler bessere Eier erreichen und stehlen. Eier und Tiere werden beibehalten. Die Stadtentwürfe wurden vor der Bestätigung des Fahrtrainings beauftragt: Bei der Umsetzung eine kleine Trainingsleiste beim Scooter-HUD ergänzen.
+Tiere in der Basis erzeugen Geld pro Sekunde. Aktive Fahrt trainiert Speed. Ein Rebirth setzt Speed und Fahrlevel auf die Startwerte und beschleunigt das weitere Training. Neue Kukurin gibt es bei den entsprechenden Rebirths. Das HUD braucht eine kleine Trainingsleiste.
 
 Nicht durch die Bilder geklärt: genauer Schlüpf-/Wachstumsablauf, Wächterverhalten, Zonenanforderungen, Verhalten bei vollem Gehege, Preise für zusätzliche Plätze und Einkommensabholung. Die neuen Bilder sind visuelle Entwürfe und entscheiden diese Regeln nicht. Preise, Scooterwerte und Tiermengen sind Beispiele. Keine Crystal-Regeln aus dem Quellprojekt importieren.

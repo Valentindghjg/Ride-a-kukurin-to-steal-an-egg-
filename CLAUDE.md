@@ -11,13 +11,13 @@ Projekt: **Ride a Kukurin to Steal an Egg**. Kukurin bleibt im Namen. Kurze Entw
 
 ## Verbindlicher Kern
 
-Zwei zusammenhängende Fortschritte: Tiere in der Basis erzeugen Geld pro Sekunde. Das Geld verbessert den Kukurin oder kauft ein schnelleres Modell. Der Kukurin ersetzt Laufband und persönliche Speed-Upgrades und hilft, bessere Eier zu erreichen und zu stehlen. Eier und Tiere bleiben erhalten.
+Tiere im Gehege verdienen Geld für Gehegeplätze und Upgrades am aktuellen Scooter. Bessere Kukurin werden beim jeweiligen Rebirth automatisch und kostenlos freigeschaltet.
 
-Zusätzlich bestätigt: **Aktives Fahren trainiert Speed**. Echte gefahrene Strecke füllt eine Trainingsleiste und erhöht Speed-Stufen; spätere Stufen benötigen mehr Strecke, Stillstand zählt nicht. Bessere Modelle bieten mehr erreichbare Geschwindigkeit; trainierte Speed-Stufen bleiben beim Wechsel erhalten. Die genaue Formel und das Verhältnis zu Geld-Upgrades einfach als Konfigurationswerte festlegen. Käufe allein dürfen das Fahrtraining nicht vollständig ersetzen. Server prüft echte Scooterbewegung; Teleports und unplausible Positionssprünge nicht als Trainingsstrecke belohnen.
+Aktive Fahrt füllt die Trainingsleiste. Der Server zählt plausibel gefahrene Strecke. Mit jeder vollen Leiste steigt das Fahrlevel und damit der trainierte Speed.
 
-Rebirths hängen vom erreichten Fahrlevel ab. Tiere bleiben beim Rebirth erhalten. Als Beispiel gibt es bei Rebirth 2 einen besseren Kukurin und 5 % mehr Tiereinkommen. Der teure Gehegeausbau erhöht die Zahl der gleichzeitig platzierbaren Tiere. Die Zusammenfassung im [Spielkonzept](docs/SPIELKONZEPT.md#so-spielt-sich-eine-runde) beschreibt den Ablauf, die Beispielwerte und die offenen Reset-Regeln.
+Sobald das erforderliche Fahrlevel erreicht ist, kann der Spieler einen Rebirth auslösen. Speed, Fahrlevel und die laufende Leiste beginnen beim Startwert. Im neuen Durchgang bringt dieselbe gefahrene Strecke mehr Trainingsfortschritt. Tiere bleiben erhalten. Der Trainingsbonus und ein möglicher Einkommensbonus sind getrennte Werte. Rebirth 2 mit neuem Modell und 5 % mehr Tiereinkommen ist ein Beispiel. [Spielkonzept](docs/SPIELKONZEPT.md#so-spielt-sich-eine-runde)
 
-Die acht Stadtbilder wurden vor der Bestätigung des Fahrtrainings beauftragt. Eine kleine Trainingsleiste beim Scooter-HUD ergänzen; die dort gezeigten Kaufstufen sind Beispiele, keine vollständige Progressionsspezifikation.
+Beim Nachbau von Bild 03 auf jeder Modellkarte den benötigten Rebirth oder „Freigeschaltet“ anzeigen. Die Modellvergabe erfolgt direkt beim Rebirth. Eine kleine Leiste beim Scooter-HUD zeigt den Trainingsfortschritt.
 
 Keine Kristalle, Grabkraft, Trainingssteine, Werkzeuge, Minen oder Maulwürfe aus dem separaten Projekt Steal a Crystal übernehmen. Auch dessen zwölf Stages und zwölf Werkzeuge sind keine Vorgabe für dieses Spiel.
 
