@@ -1,5 +1,9 @@
 # Entwicklungsplan
 
+## Leitlinie
+
+Kurze Entwicklungszeit, kleine erste Version und einfache Logik. **Kukurin** muss im Spielnamen bleiben. Zuerst den vollständigen Kernablauf bauen; Inhalt und Feinschliff nur so weit ergänzen, wie für eine spielbare erste Version nötig. Kleine Detailfragen mit einfachen, dokumentierten Standardwerten lösen, statt die Entwicklung dafür anzuhalten. Die konkrete Steal-an-Egg-Referenz ist für deren genaue Nachbildung erforderlich, blockiert aber keinen einfachen Kernprototyp.
+
 ## 1. Projektgrundlage
 
 - [x] Repository finden und lokal klonen.
@@ -19,6 +23,8 @@
 Der erste Prototyp ist fertig, wenn Spieler fahren, ein Ei stehlen, damit Geld verdienen und dieses Geld für Scooter-Fortschritt verwenden können.
 
 ## 3. Inhalt und Fortschritt ausbauen
+
+Für die erste Veröffentlichung knapp halten: wenige Inhalte, funktionierende Speicherung und verlässliche Käufe. Größeren Inhaltsausbau und visuellen Feinschliff erst danach angehen.
 
 - [ ] Map anhand der abgestimmten Referenz ausarbeiten.
 - [ ] Eier und weitere Scooter-Modelle ergänzen.

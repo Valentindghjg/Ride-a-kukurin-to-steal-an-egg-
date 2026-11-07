@@ -2,6 +2,8 @@
 
 ## 2026-11-07
 
+- Valentins Präzisierung übernommen: kurze Entwicklungszeit, einfache Logik und kleiner Umfang für die erste Version.
+- Kukurin als verbindliche Schreibweise und Bestandteil des Spielnamens festgelegt.
 - Leeres Repository lokal geklont.
 - Spielidee mit Scooter-Upgrades statt persönlichem Speed-Fortschritt dokumentiert.
 - Zunehmend teure Scooter-Modelle als langfristige Ziele festgehalten.

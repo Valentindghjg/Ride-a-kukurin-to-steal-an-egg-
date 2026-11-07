@@ -20,4 +20,8 @@ Valentins gewünschte Richtung: Map und Eier sollen sich sehr eng an Steal an Eg
 
 Die Projektgrundlage ist dokumentiert. Es gibt noch keinen spielbaren Prototyp und noch keine gespeicherte Roblox-Map. Beim Projektstart am 7. November 2026 war keine Roblox-Studio-Instanz verbunden.
 
-Arbeitstitel und Repository verwenden vorläufig die Schreibweise **Kukurin** aus dem Repository-Namen; in der gesprochenen Idee wurde **Kogorin** verwendet. Die endgültige Schreibweise ist noch offen.
+**Kukurin** ist die festgelegte Schreibweise und muss im Spielnamen bleiben. Valentin möchte damit den von ihm beobachteten Roblox-Trend aufgreifen.
+
+## Entwicklungspriorität
+
+Schnell einen einfachen spielbaren Stand bauen. Das Projekt soll wenig Entwicklungszeit benötigen; aufwendige Fahrphysik, umfangreiche Systeme und großer visueller Feinschliff sind für die erste Version nicht vorgesehen. Der Kern bleibt: Kukurin fahren, Eier stehlen, Geld verdienen, Scooter verbessern und bessere Modelle kaufen.
