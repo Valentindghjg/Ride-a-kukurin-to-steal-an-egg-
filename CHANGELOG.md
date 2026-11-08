@@ -2,6 +2,14 @@
 
 ## 8. November 2026
 
+Gehege mit Tieren und Einkommen eingebaut ([GehegeService](src/server/GehegeService.server.luau)):
+- Jeder Spieler bekommt beim Beitritt eines der sieben Plots. Am Eingang steht das Gehegeschild wie in Bild 08 mit Besitzer, Belegung und Preis für den nächsten Platz, dort kauft man per Taste Plätze mit Spielgeld.
+- Startwerte: 3 Plätze, höchstens 8, der 4. Platz kostet $250, jeder weitere das 2,5-fache.
+- Ein Ei in „Meine Eier“ antippen brütet es aus. Das Tier schlüpft sofort, steht als blockige Figur in den Farben seiner Stage auf dem nächsten freien Platz und erscheint im Tier-Index. Ist das Gehege voll, bleibt das Ei liegen und ein Hinweis erscheint.
+- Einkommen jede Sekunde automatisch, auch in der Trainingsstadt. Je Rebirth gibt es +5 % (Valentins Beispiel), offline verdient man nichts. Das HUD zeigt „+x/s“ neben dem Geld.
+- Den Stand speichert der Dienst als Spielerangabe „Gehege“. Ein geladener Spielstand baut das Gehege daraus neu auf.
+- Offline durchgespielt: Zuteilung, Ausbrüten bis zum vollen Gehege, Einkommen (+100 in 10 s bei 10 $/s), Platzkauf, Rebirth-Bonus, zweiter Spieler, geladener Spielstand, Freigabe beim Verlassen.
+
 Eier stehlen mit Wächtern eingebaut ([EggService](src/server/EggService.server.luau), [SpielKatalog](src/shared/SpielKatalog.luau)):
 - Jede Stage hat fünf Eiergrößen von „klein“ bis „gigantisch“ und fünf Tiere. Wald: Maus, Hase, Fuchs, Reh, Bär. Wüste: Skorpion, Echse, Schlange, Kamel, Löwe. Eis: Pinguin, Robbe, Eule, Wolf, Mammut. Vulkan: Käfer, Fledermaus, Krabbe, Nashorn, T-Rex. Kristall: Schmetterling, Pfau, Flamingo, Einhorn, Drache.
 - Größere Eier sind seltener (40/28/18/10/4 %) und bremsen den Kukurin stärker (Tempo ×0,92 bis ×0,6). Daraus schlüpfen Tiere mit mehr Geld pro Sekunde: im Wald 2 bis 16 $/s, jede Stage weiter hinten ×4. Große Eier leuchten.

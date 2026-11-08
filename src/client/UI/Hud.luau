@@ -14,7 +14,7 @@ local Hud = {}
 export type HudApi = {
 	setSpeed: (kmh: number) -> (),
 	setLevel: (level: number, training: number, toNextKmh: number?) -> (),
-	setMoney: (money: number) -> (),
+	setMoney: (money: number, income: number?) -> (),
 	setWheelie: (active: boolean) -> (),
 	setTouch: (touch: boolean) -> (),
 	scalers: { UIScale },
@@ -60,7 +60,8 @@ function Hud.build(gui: ScreenGui, onMenu: (id: string) -> (), onEggs: () -> ())
 	Theme.icon(panel, "Scooter", "🛴", px(12, 6), px(46, 42))
 	local speedPc = Theme.text(panel, "Tempo", "0 km/h", px(64, 8), px(214, 40), { align = Enum.TextXAlignment.Left })
 	Theme.icon(panel, "Geldschein", "💵", px(10, 52), px(46, 42))
-	local moneyPc = Theme.text(panel, "Geld", "$0", px(62, 54), px(214, 40), { color = C.Money, align = Enum.TextXAlignment.Left })
+	local moneyPc = Theme.text(panel, "Geld", "$0", px(62, 54), px(146, 40), { color = C.Money, align = Enum.TextXAlignment.Left })
+	local incomePc = Theme.text(panel, "Einkommen", "", px(208, 62), px(72, 26), { color = C.Cream, align = Enum.TextXAlignment.Right, outline = 2 })
 
 	-- Leiste (Touch): Tempo und Geld oben in der Mitte
 	local strip = Theme.frame(gui, "Instrumentleiste", UDim2.new(0.5, 0, 0, 8), px(380, 58), C.Navy, Vector2.new(0.5, 0))
@@ -71,7 +72,8 @@ function Hud.build(gui: ScreenGui, onMenu: (id: string) -> (), onEggs: () -> ())
 	Theme.icon(strip, "Scooter", "🛴", px(10, 7), px(44, 44))
 	local speedTouch = Theme.text(strip, "Tempo", "0 km/h", px(56, 12), px(134, 34), { align = Enum.TextXAlignment.Left })
 	Theme.frame(strip, "Trenner", px(196, 10), px(3, 38), C.BarBack)
-	local moneyTouch = Theme.text(strip, "Geld", "$0", px(212, 10), px(156, 38), { color = C.Money, align = Enum.TextXAlignment.Left })
+	local moneyTouch = Theme.text(strip, "Geld", "$0", px(212, 10), px(102, 38), { color = C.Money, align = Enum.TextXAlignment.Left })
+	local incomeTouch = Theme.text(strip, "Einkommen", "", px(316, 17), px(56, 24), { color = C.Cream, align = Enum.TextXAlignment.Right, outline = 2 })
 
 	-- Levelleiste unten in der Mitte (wie die Minecraft-Erfahrungsleiste)
 	local levelGroup = Theme.group(gui, "Levelleiste", UDim2.new(0.5, 0, 1, -12), px(LEVEL_W, 34 + LEVEL_BAR_H), Vector2.new(0.5, 1))
@@ -124,10 +126,13 @@ function Hud.build(gui: ScreenGui, onMenu: (id: string) -> (), onEggs: () -> ())
 				nextText.Visible = false
 			end
 		end,
-		setMoney = function(money: number)
+		setMoney = function(money: number, income: number?)
 			local text = "$" .. Theme.number(money)
 			moneyPc.Text = text
 			moneyTouch.Text = text
+			local perSecond = if income and income > 0 then ("+%s/s"):format(Theme.number(income)) else ""
+			incomePc.Text = perSecond
+			incomeTouch.Text = perSecond
 		end,
 		setWheelie = function(active: boolean)
 			wheelie.Visible = active

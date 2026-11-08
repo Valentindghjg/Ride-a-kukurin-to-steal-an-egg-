@@ -61,6 +61,21 @@ SpielKatalog.Waechter = {
 	fangAbstand = 6, -- so nah muss er kommen
 }
 
+-- Gehege: ein Plot je Spieler (sieben Plots im Hof), Plätze für Tiere
+SpielKatalog.Gehege = {
+	startPlaetze = 3,
+	maxPlaetze = 8,
+	preisErsterPlatz = 250, -- Preis für den 4. Platz
+	preisFaktor = 2.5, -- jeder weitere Platz kostet so viel mal mehr
+}
+function SpielKatalog.platzPreis(plaetzeVorher: number): number
+	local n = plaetzeVorher - SpielKatalog.Gehege.startPlaetze
+	return math.floor(SpielKatalog.Gehege.preisErsterPlatz * SpielKatalog.Gehege.preisFaktor ^ n / 5 + 0.5) * 5
+end
+
+-- Valentins Beispiel: Rebirth bringt +5 % Tiereinkommen (hier je Rebirth)
+SpielKatalog.EinkommenJeRebirth = 0.05
+
 SpielKatalog.EierJeStage = 6
 SpielKatalog.EiNachschub = 15 -- Sekunden bis ein genommenes Ei neu erscheint
 

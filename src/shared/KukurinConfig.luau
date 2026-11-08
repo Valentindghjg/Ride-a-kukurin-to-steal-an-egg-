@@ -29,6 +29,8 @@ KukurinConfig.Attributes = {
 	Wheelie = "WheelieAktiv", -- true, solange der Wheelie-Bonus zählt
 	CarryEgg = "TraegtEi", -- id des getragenen Eis (nil = keins)
 	CarrySpeed = "EiTempo", -- Tempofaktor durch das getragene Ei (0..1)
+	Income = "Einkommen", -- $/s aller Tiere inklusive Rebirth-Bonus
+	Pen = "Gehege", -- JSON { plot, plaetze, tiere = { tierId, ... } }
 }
 
 KukurinConfig.Drive = {

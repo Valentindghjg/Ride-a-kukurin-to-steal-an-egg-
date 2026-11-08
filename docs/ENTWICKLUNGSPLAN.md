@@ -20,7 +20,7 @@ Kurze Entwicklungszeit, kleine erste Version und einfache Logik. **Kukurin** mus
 - [x] Fahrstrecke serverseitig plausibilisieren, Speed-Training und kleine Trainingsleiste ergänzen. Stillstand/Teleports dürfen keinen Trainingsgewinn geben. Umgesetzt in `TrainingService` und `src/shared/Training.luau`, Rechenlogik offline getestet.
 - [ ] Mit einem Test-Ei die Flucht aus einer hinteren Stage durch eine frühere Stage bis zur Safe Zone am Hof spielen. Der Wächter muss die Stagegrenze überqueren und die Verfolgung an der Safe Zone beenden. Umgesetzt in `EggService` und offline durchgespielt (Stage 3 bis Hof, keine Mauerdurchquerung, Heimkehr). Die Probe in Studio steht noch aus.
 - [ ] Einen Fang in einer fremden Stage testen. Der Wächter läuft danach bis zu seiner eigenen Stage zurück. Offline durchgespielt, das Ei liegt danach wieder an seinem Platz. Die Probe in Studio steht noch aus.
-- [ ] Eier-/Tierablauf und Geld/s aus Tieren in der Basis implementieren.
+- [x] Eier-/Tierablauf und Geld/s aus Tieren in der Basis implementieren. Umgesetzt in `GehegeService`: ein Plot je Spieler, Ausbrüten aus „Meine Eier“, Einkommen jede Sekunde. Offline durchgespielt.
 - [ ] Ein Scooter-Upgrade und die automatische Freischaltung eines zweiten Modells bei einem Rebirth umsetzen.
 - [ ] Ablauf mit mindestens zwei Spielern testen.
 - [ ] Sobald die Steuerung steht, Aufsteigen, Fahren, Ei aufnehmen und Menüs mit Maus/Tastatur, Touch (Handy und iPad), Konsolen-Controller und VR-Eingabe testen.
@@ -39,7 +39,7 @@ Für die erste Veröffentlichung knapp halten: wenige Inhalte, funktionierende S
 - [ ] Beim selben Kukurin den Rückweg mit einem kleinen und einem größeren Ei vergleichen. Mit dem schwereren Ei fährt er langsamer. Das daraus geschlüpfte Tier wiegt mehr und verdient bei gleichem Einkommensbonus mehr Geld pro Sekunde.
 - [ ] Weitere Scooter-Modelle ergänzen.
 - [ ] Einen Rebirth mit Levelprüfung testen. Speed und Fahrlevel müssen auf die Startwerte fallen, die Tiere erhalten bleiben und der nächste Trainingslauf auf gleicher Strecke mehr Fortschritt bringen. Am Modell-Meilenstein den Kukurin genau einmal vergeben und den Kontostand durch die Modellvergabe nicht belasten.
-- [ ] Kauf zusätzlicher Gehegeplätze und Geld/s bei unterschiedlicher Belegung prüfen.
+- [x] Kauf zusätzlicher Gehegeplätze und Geld/s bei unterschiedlicher Belegung prüfen. Offline geprüft: Platzkauf, volles Gehege, Einkommen und Rebirth-Bonus.
 - [ ] Preise und Einnahmen auf die gewünschte Progression abstimmen.
 - [ ] Geld, Tiere, Gehegeplätze, Scooter-Besitz, Fahrtraining, Upgrades und Rebirth-Stand dauerhaft speichern.
 - [ ] Käufe und Belohnungen serverseitig prüfen.

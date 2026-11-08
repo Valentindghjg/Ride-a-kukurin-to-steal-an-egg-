@@ -47,7 +47,9 @@ local kukurin = KukurinWindow.build(gui, Katalog.Modelle, Katalog.Rebirth, funct
 end, function()
 	uiAction:FireServer("Rebirth")
 end)
-local eggs = EggPanel.build(gui, Katalog.Eier)
+local eggs = EggPanel.build(gui, Katalog.Eier, function(id)
+	uiAction:FireServer("Ausbrueten", id)
+end)
 
 local windows = {
 	Kukurin = kukurin.window,
@@ -129,12 +131,13 @@ local DATA_ATTRIBUTES = {
 	[A.AnimalIndex] = true,
 	[A.Eggs] = true,
 	[A.Wheelie] = true,
+	[A.Income] = true,
 }
 
 local function refresh()
 	local level = player:GetAttribute(A.Level) or 1
 	hud.setLevel(level, player:GetAttribute(A.Training) or 0, player:GetAttribute(A.ToNextLevel))
-	hud.setMoney(player:GetAttribute(A.Money) or 0)
+	hud.setMoney(player:GetAttribute(A.Money) or 0, player:GetAttribute(A.Income))
 	hud.setWheelie(player:GetAttribute(A.Wheelie) == true)
 
 	local known = {}

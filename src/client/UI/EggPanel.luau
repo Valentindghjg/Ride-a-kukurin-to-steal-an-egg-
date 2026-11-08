@@ -12,7 +12,7 @@ local HEADER = 66
 local PER_ROW = 3
 local SLOT = 88
 local SLOT_GAP = 12
-local MAX_ROWS_PER_KIND = 2
+local MAX_ROWS_PER_KIND = 1 -- mehr Eier einer Sorte zeigt der Zähler "×n"
 
 export type EggApi = {
 	frame: Frame,
@@ -23,7 +23,7 @@ export type EggApi = {
 	refresh: (eggs: { [string]: number }) -> (),
 }
 
-function EggPanel.build(gui: ScreenGui, kinds: { any }): EggApi
+function EggPanel.build(gui: ScreenGui, kinds: { any }, onHatch: (id: string) -> ()): EggApi
 	local panel = Theme.frame(gui, "MeineEier", UDim2.new(1, -16, 0.5, 0), px(W, H), C.Navy, Vector2.new(1, 0.5))
 	panel.Visible = false
 	panel.ZIndex = 4
@@ -42,8 +42,19 @@ function EggPanel.build(gui: ScreenGui, kinds: { any }): EggApi
 		closeGradient.Color = ColorSequence.new(C.Orange, C.OrangeDark)
 	end
 
-	local content = Theme.group(panel, "Liste", px(14, HEADER + 12), px(W - 28, H - HEADER - 24))
-	local empty = Theme.text(content, "Leer", "Noch keine Eier.\nHol dir eins im Eiergang!", px(10, 40), px(W - 48, 90), { color = C.GreyDark, outline = 0 })
+	Theme.text(panel, "Hilfe", "Ei antippen = im Gehege ausbrüten", px(14, HEADER + 6), px(W - 28, 22), { color = C.GreyDark, outline = 0 })
+	-- Liste scrollt, wenn viele Eiersorten zusammenkommen
+	local content = Instance.new("ScrollingFrame")
+	content.Name = "Liste"
+	content.BackgroundTransparency = 1
+	content.BorderSizePixel = 0
+	content.Position = px(14, HEADER + 34)
+	content.Size = px(W - 22, H - HEADER - 44)
+	content.ScrollBarThickness = 6
+	content.ScrollingDirection = Enum.ScrollingDirection.Y
+	content.CanvasSize = px(0, 0)
+	content.Parent = panel
+	local empty = Theme.text(content, "Leer", "Noch keine Eier.\nHol dir eins im Eiergang!", px(10, 30), px(W - 48, 90), { color = C.GreyDark, outline = 0 })
 
 	local opened = false
 	local api: EggApi
@@ -81,15 +92,27 @@ function EggPanel.build(gui: ScreenGui, kinds: { any }): EggApi
 					y += 44
 					for i = 1, shown do
 						local col, row = (i - 1) % PER_ROW, math.floor((i - 1) / PER_ROW)
-						local slot = Theme.frame(content, "Feld", px(col * (SLOT + SLOT_GAP), y + row * (SLOT + SLOT_GAP)), px(SLOT, SLOT), C.NavyLight)
+						local slot = Instance.new("TextButton")
+						slot.Name = "Feld"
+						slot.Text = ""
+						slot.AutoButtonColor = true
+						slot.BorderSizePixel = 0
+						slot.BackgroundColor3 = C.NavyLight
+						slot.Position = px(col * (SLOT + SLOT_GAP), y + row * (SLOT + SLOT_GAP))
+						slot.Size = px(SLOT, SLOT)
+						slot.Parent = content
 						Theme.corner(slot, 14)
 						Theme.stroke(slot, C.Outline, 2)
 						Theme.egg(slot, "Ei", UDim2.fromScale(0.5, 0.52), px(48, 62), kind.schale, kind.punkte, Vector2.new(0.5, 0.5))
+						slot.Activated:Connect(function()
+							onHatch(kind.id)
+						end)
 					end
 					y += math.ceil(shown / PER_ROW) * (SLOT + SLOT_GAP) + 8
 				end
 			end
 			empty.Visible = not any
+			content.CanvasSize = px(0, y)
 		end,
 	}
 	close.Activated:Connect(api.close)
