@@ -13,7 +13,7 @@ local RunService = game:GetService("RunService")
 local shared = ReplicatedStorage:WaitForChild("KukurinShared")
 local Config = require(shared:WaitForChild("KukurinConfig"))
 local Katalog = require(shared:WaitForChild("SpielKatalog"))
-local Training = require(shared:WaitForChild("Training"))
+local PlayerStats = require(script.Parent:WaitForChild("PlayerStats"))
 local A = Config.Attributes
 
 local function ensure(parent: Instance, className: string, name: string): Instance
@@ -47,13 +47,14 @@ end
 local function setDefaults(player: Player)
 	local demo = if RunService:IsStudio() then Katalog.DemoInStudio else nil
 	player:SetAttribute(A.Money, if demo then demo.Geld else 0)
-	-- Fahrtraining startet immer echt bei Level 1 (auch in Studio).
-	player:SetAttribute(A.Level, 1)
-	player:SetAttribute(A.Training, 0)
-	player:SetAttribute(A.MaxSpeed, Training.speedAt(1, 0))
-	player:SetAttribute(A.ToNextLevel, Training.toNextLevel(1, 0))
 	player:SetAttribute(A.Rebirths, if demo then demo.Rebirths else 0)
 	player:SetAttribute(A.Model, Katalog.Modelle[1].id)
+	-- Fahrtraining startet immer echt bei Level 1 (auch in Studio).
+	PlayerStats.setTraining(player, 1, 0)
+	-- Modellwechsel ändert das Höchsttempo
+	player:GetAttributeChangedSignal(A.Model):Connect(function()
+		PlayerStats.refresh(player)
+	end)
 	player:SetAttribute(A.AnimalIndex, HttpService:JSONEncode(if demo then demo.Tierindex else {}))
 	player:SetAttribute(A.Eggs, HttpService:JSONEncode(if demo then demo.Eier else {}))
 	player:SetAttribute(A.Wheelie, false)
@@ -100,12 +101,6 @@ uiAction.OnServerEvent:Connect(function(player: Player, action: unknown, arg: un
 		end
 		player:SetAttribute(A.Model, model.id)
 		hint(player, model.name .. " ist ausgerüstet.")
-	elseif action == "Rebirth" then
-		local level = player:GetAttribute(A.Level) or 1
-		if level < Katalog.Rebirth.level then
-			hint(player, ("Rebirth ab Level %d. Du bist Level %d."):format(Katalog.Rebirth.level, level))
-		else
-			hint(player, "Der Rebirth kommt zusammen mit dem Fahrtraining.")
-		end
 	end
+	-- "Rebirth" behandelt RebirthService, "Ausbrueten" GehegeService.
 end)

@@ -109,17 +109,30 @@ for s, stage in SpielKatalog.Stages do
 	end
 end
 
+-- Kukurin-Modelle: gibt es kostenlos beim Rebirth-Meilenstein; tempoBonus in km/h
 SpielKatalog.Modelle = {
-	{ id = "starter", name = "Starter", rebirth = 0 },
-	{ id = "city", name = "City", rebirth = 2 },
+	{ id = "starter", name = "Starter", rebirth = 0, tempoBonus = 0 },
+	{ id = "city", name = "City", rebirth = 2, tempoBonus = 4 },
 }
 
--- Valentins Rechenbeispiel: erster Rebirth ab Fahrlevel 10.
+-- Valentins Rechenbeispiel: erster Rebirth ab Fahrlevel 10, jeder weitere später.
 SpielKatalog.Rebirth = {
 	level = 10,
+	levelJeRebirth = 5,
 	zeile1 = "Speed startet neu",
 	zeile2 = "Danach schneller leveln",
 }
+function SpielKatalog.rebirthLevel(rebirthsBisher: number): number
+	return SpielKatalog.Rebirth.level + SpielKatalog.Rebirth.levelJeRebirth * rebirthsBisher
+end
+function SpielKatalog.modell(id: string?): any
+	for _, m in SpielKatalog.Modelle do
+		if m.id == id then
+			return m
+		end
+	end
+	return SpielKatalog.Modelle[1]
+end
 
 -- productId = nil heißt: Produkt ist im Creator Dashboard noch nicht angelegt.
 SpielKatalog.Shop = {

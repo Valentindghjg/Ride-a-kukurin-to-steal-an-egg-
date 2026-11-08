@@ -213,17 +213,8 @@ local function takeSlot(player: Player): number
 	return 0
 end
 
-local function spawnScooter(player: Player)
-	removeScooter(player)
-
-	local spawn = Workspace:FindFirstChildWhichIsA("SpawnLocation")
-	local base = if spawn then spawn.CFrame else CFrame.new(0, 3.7, 118)
-	local ground = base.Position.Y - (if spawn then spawn.Size.Y / 2 else 0.5)
-	local slot = takeSlot(player)
-	local offset = Vector3.new(9 + (slot % 2) * 4, 0, -math.floor(slot / 2) * 7)
-	local cf = CFrame.new(base.Position.X, ground, base.Position.Z) * base.Rotation * CFrame.new(offset)
-
-	local model = KukurinModel.build(cf)
+local function placeScooter(player: Player, cf: CFrame)
+	local model = KukurinModel.build(cf, player:GetAttribute(A.Model))
 	model.Name = "Kukurin_" .. player.UserId
 	model:SetAttribute(A.Owner, player.UserId)
 	model:SetAttribute(A.Rider, 0)
@@ -236,7 +227,46 @@ local function spawnScooter(player: Player)
 	end)
 end
 
+local function spawnScooter(player: Player)
+	removeScooter(player)
+
+	local spawn = Workspace:FindFirstChildWhichIsA("SpawnLocation")
+	local base = if spawn then spawn.CFrame else CFrame.new(0, 3.7, 118)
+	local ground = base.Position.Y - (if spawn then spawn.Size.Y / 2 else 0.5)
+	local slot = takeSlot(player)
+	local offset = Vector3.new(9 + (slot % 2) * 4, 0, -math.floor(slot / 2) * 7)
+	local cf = CFrame.new(base.Position.X, ground, base.Position.Z) * base.Rotation * CFrame.new(offset)
+	placeScooter(player, cf)
+end
+
+-- Ausgerüstetes Modell gewechselt (Rebirth-Meilenstein oder Ausrüsten):
+-- Scooter an Ort und Stelle durch die neue Variante ersetzen; während der
+-- Fahrt erst nach dem Absteigen.
+local pendingSwap: { [Player]: boolean } = {}
+local function swapModel(player: Player)
+	if rides[player] then
+		pendingSwap[player] = true
+		return
+	end
+	pendingSwap[player] = nil
+	local old = scooters[player]
+	local chassis = old and old.PrimaryPart
+	if not (old and chassis) then
+		return
+	end
+	if old:GetAttribute("ModellId") == (player:GetAttribute(A.Model) or "starter") then
+		return
+	end
+	local upright = CFrame.new(chassis.Position) * CFrame.Angles(0, yawOf(chassis.CFrame), 0)
+	local ground = upright * CFrame.new(-KukurinModel.CHASSIS_CENTER)
+	old:Destroy()
+	placeScooter(player, ground)
+end
+
 local function onPlayerAdded(player: Player)
+	player:GetAttributeChangedSignal(A.Model):Connect(function()
+		swapModel(player)
+	end)
 	player.CharacterAdded:Connect(function()
 		spawnScooter(player)
 	end)
@@ -256,6 +286,12 @@ Players.PlayerRemoving:Connect(removeScooter)
 
 dismountEvent.OnServerEvent:Connect(function(player)
 	dismount(player)
+	if pendingSwap[player] then
+		swapModel(player)
+	end
+end)
+Players.PlayerRemoving:Connect(function(player)
+	pendingSwap[player] = nil
 end)
 
 -- Wächter: Während der Fahrt muss die Physik beim Client des Fahrers bleiben,

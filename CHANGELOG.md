@@ -2,6 +2,15 @@
 
 ## 8. November 2026
 
+Rebirth eingebaut ([RebirthService](src/server/RebirthService.server.luau)):
+- Rebirth 1 ab Level 10 (Valentins Beispiel), jeder weitere 5 Level später.
+- Der Rebirth setzt Level, Trainingsleiste und Tempo auf den Start zurück. Tiere, Geld, Eier und Gehegeplätze bleiben (Startwert für Frage 16).
+- Belohnung je Rebirth: +50 % Training und +5 % Tiereinkommen.
+- Beim Meilenstein gibt es das Modell genau einmal kostenlos und sofort ausgerüstet: Rebirth 2 bringt den petrolfarbenen City-Kukurin mit +4 km/h. Wechselt das ausgerüstete Modell, tauscht der Server den Scooter an Ort und Stelle aus, während der Fahrt erst nach dem Absteigen.
+- In der Kukurin-Übersicht zeigt die Rebirth-Leiste die nächste Nummer und das nötige Level. Vor dem Auslösen erscheint eine Bestätigung mit Reset und Belohnung. Freigeschaltete Modelle erscheinen in ihrer echten Farbe.
+- Höchsttempo = trainiertes Tempo + Modellbonus, zentral in [PlayerStats](src/server/PlayerStats.luau).
+- Offline durchgespielt: zu niedriges Level, Rebirth 1 mit Reset, Voraussetzung für Rebirth 2, City-Vergabe bei Rebirth 2, keine Doppelvergabe bei Rebirth 3, Tempo nach Modellwechsel.
+
 Gehege mit Tieren und Einkommen eingebaut ([GehegeService](src/server/GehegeService.server.luau)):
 - Jeder Spieler bekommt beim Beitritt eines der sieben Plots. Am Eingang steht das Gehegeschild wie in Bild 08 mit Besitzer, Belegung und Preis für den nächsten Platz, dort kauft man per Taste Plätze mit Spielgeld.
 - Startwerte: 3 Plätze, höchstens 8, der 4. Platz kostet $250, jeder weitere das 2,5-fache.

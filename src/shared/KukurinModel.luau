@@ -34,7 +34,7 @@ local function rgb(r: number, g: number, b: number): Color3
 	return Color3.fromRGB(r, g, b)
 end
 
-local COLORS = {
+local BASE_COLORS = {
 	Frame = rgb(34, 35, 40),
 	FrameDark = rgb(22, 23, 27),
 	Tube = rgb(42, 44, 50),
@@ -51,6 +51,28 @@ local COLORS = {
 	Lever = rgb(80, 82, 90),
 	Bell = rgb(222, 182, 70),
 }
+
+-- Farbvarianten je Modell (SpielKatalog.Modelle); fehlende Farben = Starter
+local VARIANTS = {
+	starter = {},
+	city = {
+		Frame = rgb(24, 96, 104),
+		FrameDark = rgb(16, 62, 70),
+		Tube = rgb(32, 118, 126),
+		Rim = rgb(36, 40, 48),
+		Spoke = rgb(244, 140, 40),
+		Screen = rgb(255, 170, 60),
+	},
+}
+
+local COLORS = BASE_COLORS
+local function palette(modelId: string?): { [string]: Color3 }
+	local result = table.clone(BASE_COLORS)
+	for key, color in VARIANTS[modelId or "starter"] or {} do
+		result[key] = color
+	end
+	return result
+end
 
 local M = Enum.Material
 local CYLINDER = Enum.PartType.Cylinder
@@ -186,10 +208,15 @@ end
 -- Modell
 ---------------------------------------------------------------------------
 
+KukurinModel.CHASSIS_CENTER = CHASSIS_CENTER
+
 -- Baut einen Kukurin, dessen Bodenmitte bei "cf" steht und nach cf.LookVector fährt.
-function KukurinModel.build(cf: CFrame): Model
+-- modelId wählt die Farbvariante (SpielKatalog.Modelle), Standard "starter".
+function KukurinModel.build(cf: CFrame, modelId: string?): Model
+	COLORS = palette(modelId)
 	local model = Instance.new("Model")
 	model.Name = "Kukurin"
+	model:SetAttribute("ModellId", modelId or "starter")
 
 	-- Fahrgestell (Wurzel der Baugruppe, unsichtbar)
 	local chassis = Instance.new("Part")

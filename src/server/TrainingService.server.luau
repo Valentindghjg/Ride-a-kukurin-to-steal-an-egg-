@@ -15,6 +15,7 @@ local Workspace = game:GetService("Workspace")
 local shared = ReplicatedStorage:WaitForChild("KukurinShared")
 local Config = require(shared:WaitForChild("KukurinConfig"))
 local Training = require(shared:WaitForChild("Training"))
+local PlayerStats = require(script.Parent:WaitForChild("PlayerStats"))
 local A = Config.Attributes
 
 local remotes = ReplicatedStorage:WaitForChild(Config.RemoteFolderName)
@@ -40,13 +41,6 @@ local function setWheelie(player: Player, active: boolean)
 	if player:GetAttribute(A.Wheelie) ~= active then
 		player:SetAttribute(A.Wheelie, active)
 	end
-end
-
-local function write(player: Player, level: number, progress: number)
-	player:SetAttribute(A.Level, level)
-	player:SetAttribute(A.Training, progress)
-	player:SetAttribute(A.MaxSpeed, Training.speedAt(level, progress))
-	player:SetAttribute(A.ToNextLevel, Training.toNextLevel(level, progress))
 end
 
 local function measure(player: Player, step: number)
@@ -93,11 +87,11 @@ local function measure(player: Player, step: number)
 		level = player:GetAttribute(A.Level) or 1,
 		progress = player:GetAttribute(A.Training) or 0,
 	}, delta, player:GetAttribute(A.Rebirths) or 0, wheelie)
-	write(player, state.level, state.progress)
+	PlayerStats.setTraining(player, state.level, state.progress)
 	if gained > 0 then
 		hintEvent:FireClient(player, ("Level %d! Dein Kukurin fährt jetzt %d km/h."):format(
 			state.level,
-			math.floor(Training.speedAt(state.level, 0) + 0.5)
+			math.floor(Training.speedAt(state.level, 0) + PlayerStats.modelBonus(player) + 0.5)
 		))
 	end
 end

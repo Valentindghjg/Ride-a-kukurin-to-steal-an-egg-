@@ -9,7 +9,7 @@ Kurze Entwicklungszeit, kleine erste Version und einfache Logik. **Kukurin** mus
 - [x] Spielidee und offene Entscheidungen festhalten.
 - [x] Neun aktuelle Map- und UI-Ansichten von Valentin freigegeben. Stadt in Studio vereinfacht und blockig umsetzen.
 - [x] Fahrtraining, Speed- und Levelreset beim Rebirth sowie schnelleres Leveln im neuen Durchgang festlegen.
-- [ ] Startwerte, Trainingsfortschritt pro Strecke und Rebirth-Meilensteine konfigurieren.
+- [x] Startwerte, Trainingsfortschritt pro Strecke und Rebirth-Meilensteine konfigurieren. Stehen in `Training.luau` und `SpielKatalog.luau`.
 - [x] Lokalen Studio-Startplatz anlegen und als `.rbxlx` im Repo versionieren.
 - [x] Startplatz als private Experience im Roblox-Konto gespeichert. Universe-ID `10775399842`, Startplatz-ID `127361796315157`.
 
@@ -21,7 +21,7 @@ Kurze Entwicklungszeit, kleine erste Version und einfache Logik. **Kukurin** mus
 - [ ] Mit einem Test-Ei die Flucht aus einer hinteren Stage durch eine frühere Stage bis zur Safe Zone am Hof spielen. Der Wächter muss die Stagegrenze überqueren und die Verfolgung an der Safe Zone beenden. Umgesetzt in `EggService` und offline durchgespielt (Stage 3 bis Hof, keine Mauerdurchquerung, Heimkehr). Die Probe in Studio steht noch aus.
 - [ ] Einen Fang in einer fremden Stage testen. Der Wächter läuft danach bis zu seiner eigenen Stage zurück. Offline durchgespielt, das Ei liegt danach wieder an seinem Platz. Die Probe in Studio steht noch aus.
 - [x] Eier-/Tierablauf und Geld/s aus Tieren in der Basis implementieren. Umgesetzt in `GehegeService`: ein Plot je Spieler, Ausbrüten aus „Meine Eier“, Einkommen jede Sekunde. Offline durchgespielt.
-- [ ] Ein Scooter-Upgrade und die automatische Freischaltung eines zweiten Modells bei einem Rebirth umsetzen.
+- [ ] Ein Scooter-Upgrade und die automatische Freischaltung eines zweiten Modells bei einem Rebirth umsetzen. Die Modellfreischaltung ist umgesetzt (City bei Rebirth 2, einmalig, +4 km/h), das Scooter-Upgrade mit Spielgeld fehlt noch.
 - [ ] Ablauf mit mindestens zwei Spielern testen.
 - [ ] Sobald die Steuerung steht, Aufsteigen, Fahren, Ei aufnehmen und Menüs mit Maus/Tastatur, Touch (Handy und iPad), Konsolen-Controller und VR-Eingabe testen.
 
@@ -38,7 +38,7 @@ Für die erste Veröffentlichung knapp halten: wenige Inhalte, funktionierende S
 - [ ] Für jede veröffentlichte Stage ein eigenes Thema, fünf 3D-Eiermodelle, fünf sammelbare Tierarten und einen Wächter einbauen. Weiter hinten im Gang müssen Wächter schneller laufen.
 - [ ] Beim selben Kukurin den Rückweg mit einem kleinen und einem größeren Ei vergleichen. Mit dem schwereren Ei fährt er langsamer. Das daraus geschlüpfte Tier wiegt mehr und verdient bei gleichem Einkommensbonus mehr Geld pro Sekunde.
 - [ ] Weitere Scooter-Modelle ergänzen.
-- [ ] Einen Rebirth mit Levelprüfung testen. Speed und Fahrlevel müssen auf die Startwerte fallen, die Tiere erhalten bleiben und der nächste Trainingslauf auf gleicher Strecke mehr Fortschritt bringen. Am Modell-Meilenstein den Kukurin genau einmal vergeben und den Kontostand durch die Modellvergabe nicht belasten.
+- [x] Einen Rebirth mit Levelprüfung testen. Speed und Fahrlevel müssen auf die Startwerte fallen, die Tiere erhalten bleiben und der nächste Trainingslauf auf gleicher Strecke mehr Fortschritt bringen. Am Modell-Meilenstein den Kukurin genau einmal vergeben und den Kontostand durch die Modellvergabe nicht belasten. Offline geprüft in `RebirthService`.
 - [x] Kauf zusätzlicher Gehegeplätze und Geld/s bei unterschiedlicher Belegung prüfen. Offline geprüft: Platzkauf, volles Gehege, Einkommen und Rebirth-Bonus.
 - [ ] Preise und Einnahmen auf die gewünschte Progression abstimmen.
 - [ ] Geld, Tiere, Gehegeplätze, Scooter-Besitz, Fahrtraining, Upgrades und Rebirth-Stand dauerhaft speichern.
