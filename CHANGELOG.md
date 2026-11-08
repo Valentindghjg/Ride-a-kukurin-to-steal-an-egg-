@@ -2,6 +2,8 @@
 
 ## 8. November 2026
 
+Map als Code in [MapBuilder.luau](src/server/MapBuilder.luau) neu gebaut. Look aus den neun freigegebenen Bildern, Grundriss aus Valentins zwei Screenshots in [docs/design/grundriss](docs/design/grundriss/). Ummauerter Gehegehof mit Fahrspur, sieben Plot-Flächen in diagonaler Reihe (noch ohne Gehege), EIERGANG-Tor mit Safe-Zone-Grenze, fünf Stage-Zonen (Wald, Wüste, Eis, Vulkan, Kristall) und eine Trainingsstadt mit 4×4-Straßennetz, Park, Uhrturm und Portal „Zum Hof“. Der Weltwechsel über die Portale merkt sich den Zeitpunkt am Spieler, damit er später nicht als Fahrstrecke zählt. Offline ohne Laufzeitfehler geprüft (5.713 Teile). Valentin hat die Map in Studio angesehen und für gut befunden.
+
 In der [Bauanleitung für Claude](CLAUDE.md#modellvorschlag-für-viele-stages) steht ein Vorschlag für wiederverwendbare 3D-Körper und erkennbare Eier- und Tiervarianten je Stage.
 
 Rojo 7.7.1 für die Live-Synchronisierung von Server-, Client- und gemeinsamem Code eingerichtet.

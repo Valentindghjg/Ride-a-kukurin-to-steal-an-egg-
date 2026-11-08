@@ -2,6 +2,17 @@
 
 **Von Valentin freigegeben.** Die neun Bilder zeigen den räumlichen Aufbau und die Bedienung. Die gebaute Stadt soll sichtbar einfacher und weniger realistisch aussehen als hier dargestellt. Für Studio breite Straßen, bunte Blockhäuser, einfache Fenster und wenige wiederverwendbare Bauteile verwenden. Für den räumlichen Aufbau zuerst den Hof und seine Sichtachse durch den Eiergang ansehen. Für die Bedienung die Fahransicht mit dem geöffneten Shop vergleichen.
 
+## Grundriss und Look
+
+Valentin hat am 8. November 2026 festgelegt: **Der Look kommt aus den neun Bildern dieser Galerie, der Grundriss aus den zwei Screenshots im Ordner [grundriss](grundriss/).**
+
+| Grundriss-Vorlage | Was daraus übernommen wird |
+| --- | --- |
+| [![Hof mit Zone hinter der Mauer](grundriss/hof-zonen.png)](grundriss/hof-zonen.png) | Großes, rundum hoch ummauertes Feld. Hinter der Rückwand liegen die Zonen als eigene ummauerte Felder, jeweils mit beschriftetem Durchgang. |
+| [![Hof mit Plot-Reihe](grundriss/hof-plots.webp)](grundriss/hof-plots.webp) | Die Plots stehen als diagonale Reihe auf einer Seite des Feldes, die andere Seite bleibt frei für Stationen. |
+
+Umgesetzt in [MapBuilder.luau](../../src/server/MapBuilder.luau): Ziegelmauern mit Cremekanten, EIERGANG-Tor mit Petrol-Bogen, dunkle Fahrspur mit orangen Linien und Pfeilen, fünf Stage-Zonen hintereinander und eine Trainingsstadt auf eigener Insel mit Portal „Zum Hof“.
+
 [![Gehegehof mit Eingang zum langen Eiergang](01-gehegehof.png)](01-gehegehof.png)
 
 Die Gehege öffnen sich zur Mittelachse. Durch den großen Torbogen sind die Abschnitte der Eierstrecke zu sehen. Rechts am Hof liegt der Zugang zur Trainingsstadt.
