@@ -21,7 +21,7 @@ Kurze Entwicklungszeit, kleine erste Version und einfache Logik. **Kukurin** mus
 - [ ] Mit einem Test-Ei die Flucht aus einer hinteren Stage durch eine frühere Stage bis zur Safe Zone am Hof spielen. Der Wächter muss die Stagegrenze überqueren und die Verfolgung an der Safe Zone beenden. Umgesetzt in `EggService` und offline durchgespielt (Stage 3 bis Hof, keine Mauerdurchquerung, Heimkehr). Die Probe in Studio steht noch aus.
 - [ ] Einen Fang in einer fremden Stage testen. Der Wächter läuft danach bis zu seiner eigenen Stage zurück. Offline durchgespielt, das Ei liegt danach wieder an seinem Platz. Die Probe in Studio steht noch aus.
 - [x] Eier-/Tierablauf und Geld/s aus Tieren in der Basis implementieren. Umgesetzt in `GehegeService`: ein Plot je Spieler, Ausbrüten aus „Meine Eier“, Einkommen jede Sekunde. Offline durchgespielt.
-- [ ] Ein Scooter-Upgrade und die automatische Freischaltung eines zweiten Modells bei einem Rebirth umsetzen. Die Modellfreischaltung ist umgesetzt (City bei Rebirth 2, einmalig, +4 km/h), das Scooter-Upgrade mit Spielgeld fehlt noch.
+- [x] Ein Scooter-Upgrade und die automatische Freischaltung eines zweiten Modells bei einem Rebirth umsetzen. City-Kukurin bei Rebirth 2 (einmalig, +4 km/h). Motor-Upgrade in der Werkstatt am Hof (5 Stufen, je +1,5 km/h, ab $300). Offline durchgespielt.
 - [ ] Ablauf mit mindestens zwei Spielern testen.
 - [ ] Sobald die Steuerung steht, Aufsteigen, Fahren, Ei aufnehmen und Menüs mit Maus/Tastatur, Touch (Handy und iPad), Konsolen-Controller und VR-Eingabe testen.
 

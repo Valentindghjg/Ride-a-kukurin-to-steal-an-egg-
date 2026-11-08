@@ -39,6 +39,7 @@ export type Data = {
 	training: number,
 	rebirths: number,
 	modell: string,
+	motor: number,
 	tierindex: { string },
 	eier: { [string]: number },
 	gehege: { plaetze: number, tiere: { string } },
@@ -55,6 +56,7 @@ function SaveData.collect(player: Player): Data
 		training = player:GetAttribute(A.Training) or 0,
 		rebirths = player:GetAttribute(A.Rebirths) or 0,
 		modell = player:GetAttribute(A.Model) or Katalog.Modelle[1].id,
+		motor = player:GetAttribute(A.Motor) or 0,
 		tierindex = if type(index) == "table" then index else {},
 		eier = if type(eggs) == "table" then eggs else {},
 		gehege = {
@@ -107,6 +109,7 @@ function SaveData.apply(player: Player, data: any)
 	player:SetAttribute(A.Money, math.floor(number(data.geld, 0, 0, 1e15)))
 	player:SetAttribute(A.Rebirths, rebirths)
 	player:SetAttribute(A.Model, modell.id)
+	player:SetAttribute(A.Motor, math.floor(number(data.motor, 0, 0, Katalog.Motor.maxStufe)))
 	PlayerStats.setTraining(player, math.floor(number(data.level, 1, 1, Training.MAX_LEVEL)), number(data.training, 0, 0, 0.999))
 	player:SetAttribute(A.AnimalIndex, HttpService:JSONEncode(index))
 	player:SetAttribute(A.Eggs, HttpService:JSONEncode(eggs))

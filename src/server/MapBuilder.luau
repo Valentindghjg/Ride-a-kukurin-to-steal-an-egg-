@@ -391,6 +391,22 @@ local function buildHof(root: Instance)
 	local zugang = newFolder(hof, "Zugang_Trainingsstadt")
 	pergola(zugang, -146, CITY_GATE_Z, TILE_TOP, 22, 36, 18)
 	sign(zugang, "TRAININGSSTADT", CFrame.lookAt(Vector3.new(-133.4, TILE_TOP + 15.5, CITY_GATE_Z), Vector3.new(-123.4, TILE_TOP + 15.5, CITY_GATE_Z)), 24, 4.5)
+	-- Werkstatt (Bild 02) für Scooter-Upgrades, neben dem Weg zur Trainingsstadt
+	local werkstatt = newFolder(hof, "Werkstatt")
+	local wx, wz = -120, 90
+	slab(werkstatt, "Boden", wx - 12, wx + 12, wz - 9, wz + 9, TILE_TOP, 0.6, C.Tile, M.Pavement)
+	pergola(werkstatt, wx, wz, TILE_TOP, 22, 16, 13)
+	box(werkstatt, "Werkzeugwand", wx - 10.6, TILE_TOP, wz - 6.5, wx - 9.4, TILE_TOP + 9, wz + 6.5, C.Brick, M.Brick)
+	box(werkstatt, "Werkzeugbrett", wx - 9.4, TILE_TOP + 3.6, wz - 5.5, wx - 9.1, TILE_TOP + 7.6, wz + 5.5, C.Planter, M.WoodPlanks)
+	for i, t in { { -4, 1.6 }, { -1.5, 2.4 }, { 1, 1.8 }, { 3.5, 2.2 } } do
+		local color = if i % 2 == 0 then C.Orange else C.Iron
+		box(werkstatt, "Werkzeug", wx - 9.1, TILE_TOP + 4.4, wz + t[1] - 0.3, wx - 8.8, TILE_TOP + 4.4 + t[2], wz + t[1] + 0.3, color, M.Metal)
+	end
+	box(werkstatt, "Werkbank", wx - 6.5, TILE_TOP, wz - 4.5, wx - 3.5, TILE_TOP + 3.4, wz + 4.5, C.Planter, M.WoodPlanks)
+	box(werkstatt, "Werkbankplatte", wx - 6.8, TILE_TOP + 3.4, wz - 4.8, wx - 3.2, TILE_TOP + 3.8, wz + 4.8, C.Iron, M.Metal)
+	box(werkstatt, "Werkzeugschrank", wx - 8.4, TILE_TOP, wz + 5.2, wx - 6, TILE_TOP + 4.5, wz + 7.2, rgb(224, 66, 50), M.Metal)
+	sign(werkstatt, "WERKSTATT", CFrame.lookAt(Vector3.new(wx + 12.6, TILE_TOP + 10.6, wz), Vector3.new(wx + 22.6, TILE_TOP + 10.6, wz)), 14, 3.4)
+
 	local hofArrival = CFrame.lookAt(Vector3.new(-124, LAND + 4, CITY_GATE_Z), Vector3.new(-114, LAND + 4, CITY_GATE_Z))
 	portalPad(zugang, "Portal_Trainingsstadt", "Portal_Hof", Vector3.new(-146, TILE_TOP + 0.3, CITY_GATE_Z), hofArrival)
 end
