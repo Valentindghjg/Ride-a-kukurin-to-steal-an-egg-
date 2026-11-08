@@ -9,6 +9,7 @@ local Players = game:GetService("Players")
 local RunService = game:GetService("RunService")
 local ContextActionService = game:GetService("ContextActionService")
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
+local UserInputService = game:GetService("UserInputService")
 local Workspace = game:GetService("Workspace")
 
 local Config = require(ReplicatedStorage:WaitForChild("KukurinShared"):WaitForChild("KukurinConfig"))
@@ -46,6 +47,51 @@ local function moveTowards(current: number, target: number, maxDelta: number): n
 	return math.max(current - maxDelta, target)
 end
 
+-- Kleine Ausschläge (z. B. Controller-Stick) ignorieren, Rest neu skalieren.
+local DEADZONE = 0.15
+local function deadzone(value: number): number
+	local magnitude = math.abs(value)
+	if magnitude < DEADZONE then
+		return 0
+	end
+	return math.sign(value) * (magnitude - DEADZONE) / (1 - DEADZONE)
+end
+
+-- Diagnosezeile nur in Roblox Studio, ein- und ausblenden mit F3
+-- (zeigt, warum ein Scooter nicht fährt). Liegt oben in der Mitte, damit sie
+-- keine Anzeige verdeckt.
+local diagnose: TextLabel? = nil
+local diagnoseTimer = 0
+local diagnoseOn = false
+local driftTime = 0
+if RunService:IsStudio() then
+	local diagnoseGui = Instance.new("ScreenGui")
+	diagnoseGui.Name = "KukurinDiagnose"
+	diagnoseGui.ResetOnSpawn = false
+	diagnoseGui.DisplayOrder = 20
+	diagnoseGui.Parent = player:WaitForChild("PlayerGui")
+	local label = Instance.new("TextLabel")
+	label.AnchorPoint = Vector2.new(0.5, 0)
+	label.Position = UDim2.new(0.5, 0, 0, 84)
+	label.Size = UDim2.fromOffset(760, 22)
+	label.BackgroundColor3 = Color3.new(0, 0, 0)
+	label.BackgroundTransparency = 0.4
+	label.TextColor3 = Color3.new(1, 1, 1)
+	label.Font = Enum.Font.Code
+	label.TextSize = 13
+	label.TextXAlignment = Enum.TextXAlignment.Left
+	label.Text = ""
+	label.Visible = false
+	label.Parent = diagnoseGui
+	diagnose = label
+	UserInputService.InputBegan:Connect(function(input, processed)
+		if not processed and input.KeyCode == Enum.KeyCode.F3 then
+			diagnoseOn = not diagnoseOn
+			label.Visible = diagnoseOn and riding ~= nil
+		end
+	end)
+end
+
 local function yawOf(cf: CFrame): number
 	local look = cf.LookVector
 	return math.atan2(-look.X, -look.Z)
@@ -64,11 +110,21 @@ local function startRiding(model: Model)
 	speed, steer = 0, 0
 	ContextActionService:BindAction(DISMOUNT_ACTION, onDismountAction, true, Enum.KeyCode.F, Enum.KeyCode.ButtonB)
 	ContextActionService:SetTitle(DISMOUNT_ACTION, "Absteigen")
+	local humanoid = player.Character and player.Character:FindFirstChildOfClass("Humanoid")
+	if humanoid then
+		humanoid.EvaluateStateMachine = false
+	end
+	if diagnose then
+		diagnose.Visible = diagnoseOn
+	end
 end
 
 local function stopRiding()
 	riding = nil
 	ContextActionService:UnbindAction(DISMOUNT_ACTION)
+	if diagnose then
+		diagnose.Visible = false
+	end
 end
 
 -- Nach einem Portalsprung die neue Blickrichtung übernehmen.
@@ -87,8 +143,21 @@ local function drive(model: Model, dt: number)
 		return
 	end
 
+	-- Der Charakter bleibt kraftlos, sonst schiebt sein Laufen den Scooter zur Seite.
+	local character = player.Character
+	local humanoid = character and character:FindFirstChildOfClass("Humanoid")
+	if humanoid then
+		if not humanoid.PlatformStand then
+			humanoid.PlatformStand = true
+		end
+		if humanoid.WalkSpeed ~= 0 then
+			humanoid.WalkSpeed = 0
+		end
+	end
+
 	local move = controls:GetMoveVector()
-	local throttle = -move.Z
+	local throttle = deadzone(-move.Z)
+	local steerInput = deadzone(move.X)
 	local maxSpeed = player:GetAttribute(A.MaxSpeed) or D.BaseMaxSpeed
 
 	-- Tempo
@@ -123,7 +192,7 @@ local function drive(model: Model, dt: number)
 	end
 
 	-- Lenken: braucht Fahrt, wird bei hohem Tempo etwas ruhiger
-	steer = moveTowards(steer, move.X, 5 * dt)
+	steer = moveTowards(steer, steerInput, 5 * dt)
 	local absSpeed = math.abs(speed)
 	local speedFactor = math.clamp(absSpeed / 8, 0, 1) * (1 - 0.45 * math.clamp(absSpeed / maxSpeed, 0, 1))
 	local direction = if speed >= 0 then 1 else -1
@@ -151,6 +220,39 @@ local function drive(model: Model, dt: number)
 	local steering = chassis:FindFirstChild("Lenkung")
 	if steering and steering:IsA("Motor6D") then
 		steering.Transform = CFrame.Angles(0, -steer * D.MaxSteerVisual, 0)
+	end
+
+	if diagnose then
+		local v = chassis.AssemblyLinearVelocity
+		local right = Vector3.new(math.cos(yaw), 0, -math.sin(yaw))
+		local lateral = v:Dot(right)
+		local clientOwns = chassis.ReceiveAge == 0
+		-- Abweichung zwischen Blickrichtung des Scooters und Fahrtrichtung
+		local turnDiff = math.deg((yawOf(chassis.CFrame) - yaw + math.pi) % (2 * math.pi) - math.pi)
+		local walking = not (humanoid and humanoid.PlatformStand)
+
+		-- Drift erkannt: Zeile automatisch einblenden und einmal ins Output schreiben
+		local problem = not clientOwns or math.abs(lateral) > 2.5 or math.abs(turnDiff) > 8 or walking
+		driftTime = if problem then driftTime + dt else 0
+		diagnoseTimer += dt
+		if diagnoseTimer > 0.2 or driftTime > 0.4 then
+			diagnoseTimer = 0
+			diagnose.Text = ("Physik: %s | Tempo soll %.1f / ist %.1f | seitlich %.2f | Winkel %.1f° | Eingabe Gas %.2f Lenken %.2f | Laufen %s"):format(
+				if clientOwns then "Client ✔" else "Server ✖",
+				speed,
+				v:Dot(dir),
+				lateral,
+				turnDiff,
+				throttle,
+				steerInput,
+				if walking then "AN ✖" else "aus ✔"
+			)
+		end
+		if driftTime > 0.4 and not diagnoseOn then
+			diagnoseOn = true
+			diagnose.Visible = true
+			warn("[Kukurin] Drift erkannt: " .. diagnose.Text)
+		end
 	end
 end
 

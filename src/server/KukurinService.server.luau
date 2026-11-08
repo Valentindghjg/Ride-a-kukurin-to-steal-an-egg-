@@ -8,10 +8,11 @@
 local Players = game:GetService("Players")
 local PhysicsService = game:GetService("PhysicsService")
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
+local RunService = game:GetService("RunService")
 local Workspace = game:GetService("Workspace")
 
 local Config = require(ReplicatedStorage:WaitForChild("KukurinShared"):WaitForChild("KukurinConfig"))
-local KukurinModel = require(script.Parent:WaitForChild("KukurinModel"))
+local KukurinModel = require(ReplicatedStorage:WaitForChild("KukurinShared"):WaitForChild("KukurinModel"))
 
 local A = Config.Attributes
 local MOUNT_DISTANCE = 14
@@ -46,6 +47,7 @@ type RideState = {
 	weld: Weld,
 	massless: { [BasePart]: boolean },
 	groups: { [BasePart]: string },
+	humanoid: { walkSpeed: number, jumpPower: number, jumpHeight: number, autoRotate: boolean },
 }
 
 local scooters: { [Player]: Model } = {}
@@ -99,6 +101,11 @@ local function dismount(player: Player)
 		local humanoid = character:FindFirstChildOfClass("Humanoid")
 		local root = character:FindFirstChild("HumanoidRootPart")
 		if humanoid then
+			humanoid.WalkSpeed = ride.humanoid.walkSpeed
+			humanoid.JumpPower = ride.humanoid.jumpPower
+			humanoid.JumpHeight = ride.humanoid.jumpHeight
+			humanoid.AutoRotate = ride.humanoid.autoRotate
+			humanoid.EvaluateStateMachine = true
 			humanoid.PlatformStand = false
 			humanoid:ChangeState(Enum.HumanoidStateType.GettingUp)
 		end
@@ -137,7 +144,25 @@ local function mount(player: Player, model: Model)
 	local rootHeight = if humanoid.RigType == Enum.HumanoidRigType.R15 then humanoid.HipHeight + root.Size.Y / 2 else 3
 	local c0 = CFrame.new(standOffset + Vector3.new(0, rootHeight, 0))
 
-	local ride: RideState = { model = model, weld = nil :: any, massless = {}, groups = {} }
+	local ride: RideState = {
+		model = model,
+		weld = nil :: any,
+		massless = {},
+		groups = {},
+		humanoid = {
+			walkSpeed = humanoid.WalkSpeed,
+			jumpPower = humanoid.JumpPower,
+			jumpHeight = humanoid.JumpHeight,
+			autoRotate = humanoid.AutoRotate,
+		},
+	}
+	-- Der Charakter darf während der Fahrt keine eigene Kraft aufbringen
+	-- (sonst schiebt das Laufen den Scooter kameraabhängig zur Seite).
+	humanoid.WalkSpeed = 0
+	humanoid.JumpPower = 0
+	humanoid.JumpHeight = 0
+	humanoid.AutoRotate = false
+	humanoid.EvaluateStateMachine = false
 	for _, part in character:GetDescendants() do
 		if part:IsA("BasePart") then
 			ride.massless[part] = part.Massless
@@ -231,4 +256,21 @@ Players.PlayerRemoving:Connect(removeScooter)
 
 dismountEvent.OnServerEvent:Connect(function(player)
 	dismount(player)
+end)
+
+-- Wächter: Während der Fahrt muss die Physik beim Client des Fahrers bleiben,
+-- sonst wirken seine Eingaben nicht und der reibungsfreie Scooter rutscht.
+local sinceCheck = 0
+RunService.Heartbeat:Connect(function(dt)
+	sinceCheck += dt
+	if sinceCheck < 0.5 then
+		return
+	end
+	sinceCheck = 0
+	for player, ride in rides do
+		local chassis = ride.model.PrimaryPart
+		if chassis and chassis:IsDescendantOf(Workspace) and chassis:GetNetworkOwner() ~= player then
+			chassis:SetNetworkOwner(player)
+		end
+	end
 end)

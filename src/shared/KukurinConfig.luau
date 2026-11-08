@@ -16,6 +16,17 @@ KukurinConfig.Attributes = {
 	MaxSpeed = "KukurinTempo", -- trainiertes Höchsttempo (am Spieler, kommt mit dem Training)
 	TeleportTime = "LetzterWeltwechsel", -- Serverzeit des letzten Portalsprungs (am Spieler)
 	TeleportYaw = "LetzterWeltwechselYaw", -- Blickrichtung nach dem Sprung (am Spieler)
+
+	-- Spielerdaten für die Anzeigen (am Spieler, nur der Server schreibt)
+	Money = "Geld",
+	Level = "FahrLevel",
+	Training = "Training", -- Füllstand der Trainingsleiste 0..1
+	ToNextLevel = "TempoBisLevel", -- km/h, die bis zum nächsten Level fehlen (Anzeige rechts über der Leiste)
+	Rebirths = "Rebirths",
+	Model = "Modell", -- id aus SpielKatalog.Modelle
+	AnimalIndex = "Tierindex", -- JSON-Liste entdeckter Tier-ids
+	Eggs = "Eier", -- JSON-Objekt { eiId = Anzahl }
+	Wheelie = "WheelieAktiv", -- true, solange der Wheelie-Bonus zählt
 }
 
 KukurinConfig.Drive = {
