@@ -21,7 +21,7 @@ Kurze Entwicklungszeit, kleine erste Version und einfache Logik. **Kukurin** mus
 - [ ] Mit einem Test-Ei die Flucht aus einer hinteren Stage durch eine frühere Stage bis zur Safe Zone am Hof spielen. Der Wächter muss die Stagegrenze überqueren und die Verfolgung an der Safe Zone beenden. Umgesetzt in `EggService` und offline durchgespielt (Stage 3 bis Hof, keine Mauerdurchquerung, Heimkehr). Die Probe in Studio steht noch aus.
 - [ ] Einen Fang in einer fremden Stage testen. Der Wächter läuft danach bis zu seiner eigenen Stage zurück. Offline durchgespielt, das Ei liegt danach wieder an seinem Platz. Die Probe in Studio steht noch aus.
 - [x] Eier-/Tierablauf und Geld/s aus Tieren in der Basis implementieren. Umgesetzt in `GehegeService`: ein Plot je Spieler, Ausbrüten aus „Meine Eier“, Einkommen jede Sekunde. Offline durchgespielt.
-- [x] Ein Scooter-Upgrade und die automatische Freischaltung eines zweiten Modells bei einem Rebirth umsetzen. City-Kukurin bei Rebirth 2 (einmalig, +4 km/h). Motor-Upgrade in der Werkstatt am Hof (5 Stufen, je +1,5 km/h, ab $300). Offline durchgespielt.
+- [x] Die automatische Freischaltung eines zweiten Modells bei einem Rebirth umsetzen. City-Kukurin bei Rebirth 2 (einmalig, +4 km/h). Offline durchgespielt. Spielgeld-Upgrades für den Roller gibt es nicht, bessere Roller kommen nur über den Rebirth.
 - [ ] Ablauf mit mindestens zwei Spielern testen.
 - [ ] Sobald die Steuerung steht, Aufsteigen, Fahren, Ei aufnehmen und Menüs mit Maus/Tastatur, Touch (Handy und iPad), Konsolen-Controller und VR-Eingabe testen.
 
@@ -41,7 +41,7 @@ Für die erste Veröffentlichung knapp halten: wenige Inhalte, funktionierende S
 - [x] Einen Rebirth mit Levelprüfung testen. Speed und Fahrlevel müssen auf die Startwerte fallen, die Tiere erhalten bleiben und der nächste Trainingslauf auf gleicher Strecke mehr Fortschritt bringen. Am Modell-Meilenstein den Kukurin genau einmal vergeben und den Kontostand durch die Modellvergabe nicht belasten. Offline geprüft in `RebirthService`.
 - [x] Kauf zusätzlicher Gehegeplätze und Geld/s bei unterschiedlicher Belegung prüfen. Offline geprüft: Platzkauf, volles Gehege, Einkommen und Rebirth-Bonus.
 - [ ] Preise und Einnahmen auf die gewünschte Progression abstimmen.
-- [x] Geld, Tiere, Gehegeplätze, Scooter-Besitz, Fahrtraining, Upgrades und Rebirth-Stand dauerhaft speichern. Umgesetzt in `DataService`/`SaveData` (DataStore, eigener Speicher für Studio).
+- [x] Geld, Tiere, Gehegeplätze, Scooter-Besitz, Fahrtraining und Rebirth-Stand dauerhaft speichern. Umgesetzt in `DataService`/`SaveData` (DataStore, eigener Speicher für Studio).
 - [ ] Käufe und Belohnungen serverseitig prüfen.
 - [ ] Spielstand nach Verlassen und erneutem Beitreten prüfen. Offline durchgespielt. In Studio braucht es „Enable Studio Access to API Services“, die Probe dort steht aus.
 

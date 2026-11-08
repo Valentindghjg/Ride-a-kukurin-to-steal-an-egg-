@@ -1,7 +1,7 @@
 -- Gemeinsame Schreibstelle für Level, Trainingsfortschritt und Höchsttempo.
 -- Höchsttempo = trainiertes Tempo (Training.luau) + Bonus des ausgerüsteten
--- Kukurin-Modells + Motor-Upgrade aus der Werkstatt.
--- Benutzt von PlayerData, TrainingService, RebirthService, UpgradeService.
+-- Kukurin-Modells. Bessere Roller gibt es nur über den Rebirth.
+-- Benutzt von PlayerData, TrainingService und RebirthService.
 
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 
@@ -17,14 +17,10 @@ function PlayerStats.modelBonus(player: Player): number
 	return Katalog.modell(player:GetAttribute(A.Model)).tempoBonus or 0
 end
 
-function PlayerStats.motorBonus(player: Player): number
-	return (player:GetAttribute(A.Motor) or 0) * Katalog.Motor.tempoJeStufe
-end
-
 function PlayerStats.setTraining(player: Player, level: number, progress: number)
 	player:SetAttribute(A.Level, level)
 	player:SetAttribute(A.Training, progress)
-	player:SetAttribute(A.MaxSpeed, Training.speedAt(level, progress) + PlayerStats.modelBonus(player) + PlayerStats.motorBonus(player))
+	player:SetAttribute(A.MaxSpeed, Training.speedAt(level, progress) + PlayerStats.modelBonus(player))
 	player:SetAttribute(A.ToNextLevel, Training.toNextLevel(level, progress))
 end
 

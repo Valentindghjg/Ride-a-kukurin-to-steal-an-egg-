@@ -391,7 +391,8 @@ local function buildHof(root: Instance)
 	local zugang = newFolder(hof, "Zugang_Trainingsstadt")
 	pergola(zugang, -146, CITY_GATE_Z, TILE_TOP, 22, 36, 18)
 	sign(zugang, "TRAININGSSTADT", CFrame.lookAt(Vector3.new(-133.4, TILE_TOP + 15.5, CITY_GATE_Z), Vector3.new(-123.4, TILE_TOP + 15.5, CITY_GATE_Z)), 24, 4.5)
-	-- Werkstatt (Bild 02) für Scooter-Upgrades, neben dem Weg zur Trainingsstadt
+	-- Werkstatt (Bild 02) als Kulisse neben dem Weg zur Trainingsstadt.
+	-- Ohne Kauffunktion: bessere Roller gibt es nur über den Rebirth.
 	local werkstatt = newFolder(hof, "Werkstatt")
 	local wx, wz = -120, 90
 	slab(werkstatt, "Boden", wx - 12, wx + 12, wz - 9, wz + 9, TILE_TOP, 0.6, C.Tile, M.Pavement)

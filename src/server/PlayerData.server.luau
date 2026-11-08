@@ -49,7 +49,6 @@ local function setDefaults(player: Player)
 	player:SetAttribute(A.Money, if demo then demo.Geld else 0)
 	player:SetAttribute(A.Rebirths, if demo then demo.Rebirths else 0)
 	player:SetAttribute(A.Model, Katalog.Modelle[1].id)
-	player:SetAttribute(A.Motor, 0)
 	-- Fahrtraining startet immer echt bei Level 1 (auch in Studio).
 	PlayerStats.setTraining(player, 1, 0)
 	-- Modellwechsel ändert das Höchsttempo

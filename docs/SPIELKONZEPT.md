@@ -11,7 +11,7 @@ Der Spieler startet mit einem einfachen Kukurin am eigenen Gehege. Er fährt dur
 | Fahrtraining | Aktiv gefahrene Strecke füllt die Trainingsleiste. Eine volle Leiste erhöht Fahrlevel und trainierten Speed. Innerhalb eines Durchgangs benötigen spätere Level mehr Strecke. Stillstand bringt keinen Fortschritt. |
 | Tiereinkommen | Jedes eingesetzte Tier liefert seinen eigenen Geldbetrag pro Sekunde. Das Gesamteinkommen ist die Summe der aktiven Tiere mit dem jeweils freigeschalteten Einkommensbonus. |
 | Gehegeausbau | Das Gehege hat begrenzt Platz. Mit einem größeren Betrag Spielgeld kauft der Spieler zusätzliche Plätze für gleichzeitig aktive Tiere. Das Einkommen steigt, wenn ein weiteres Tier eingesetzt wird. |
-| Scooter-Upgrades | Mit Spielgeld kann der Spieler seinen aktuellen Kukurin verbessern. Neue Modelle erhält er automatisch und kostenlos bei den vorgesehenen Rebirth-Meilensteinen. Bessere Modelle ermöglichen höheren Speed. |
+| Bessere Roller | Einen besseren Kukurin gibt es nur über den Rebirth: Neue Modelle erhält der Spieler automatisch und kostenlos bei den vorgesehenen Rebirth-Meilensteinen. Bessere Modelle ermöglichen höheren Speed. Spielgeld-Upgrades für den Roller gibt es nicht (Valentin, 8. November 2026). |
 | Rebirth | Ab dem nötigen Fahrlevel kann der Spieler einen Rebirth auslösen. Speed und Fahrlevel gehen auf die Startwerte zurück und die laufende Leiste leert sich. Die Tiere bleiben erhalten. Bei gleicher Strecke levelt der Spieler im neuen Durchgang schneller. |
 
 **Valentins Beispiel für die Balance.** Der erste Rebirth könnte ab Fahrlevel 10 möglich sein. Bei Rebirth 2 könnte der Spieler einen besseren Kukurin und 5 % mehr Tiereinkommen bekommen. Aus 100 Geld/s würden 105 Geld/s. Der Einkommensbonus und das schnellere Leveln nach einem Rebirth sind zwei verschiedene Belohnungen.
@@ -43,7 +43,7 @@ Die neun Bilder sind als Vorlagen für Grundriss und UI freigegeben. Für die St
 - **Tier-Index und Eierpanel.** Der Index zeigt die Sammlung, unbekannte Tiere als Silhouetten und den Ertrag des ausgewählten Tiers. Über das seitliche Eierpanel sieht der Spieler seinen Eierbestand und weiterhin die Welt.
 - **Gehegeschild.** Am Eingang stehen belegte und verfügbare Plätze, die zusätzlichen Plätze der nächsten Stufe und deren Spielgeldpreis.
 - **Robux-Shop.** Ein eigener HUD-Button öffnet das Shopfenster über der Spielwelt. Eine Karte zeigt Artikel, Wirkung und Robux-Preis. Auswahl führt zur Kaufbestätigung, Abbruch zurück zum Shop und das X zurück ins Spiel. Produkte und Preise der Abbildung sind Beispiele.
-- **Speicherung.** Tiere, Geld, Gehegeplätze, freigeschaltete und ausgerüstete Kukurin, Upgrades, Fahrlevel, laufender Trainingsfortschritt und Rebirth-Stand sollen beim Wiederbeitritt wieder verfügbar sein.
+- **Speicherung.** Tiere, Geld, Gehegeplätze, freigeschaltete und ausgerüstete Kukurin, Fahrlevel, laufender Trainingsfortschritt und Rebirth-Stand sollen beim Wiederbeitritt wieder verfügbar sein.
 
 ## Noch festzulegen
 
@@ -51,6 +51,6 @@ Die [vollständige Fragenliste](../offen/README.md) enthält die fehlenden Zahle
 
 - Stagethemen und konkrete Tierarten, Gestaltung und Gewicht der fünf Eiermodelle je Stage, Tempo mit Beute, Tiergewichte und Ertrag je Tier. Auch Schlüpfregeln, Einkommensabholung und Verhalten bei vollem Gehege sind offen.
 - Wächterart und Tempo je Stage, Auslöser der Verfolgung, Folgen eines Fangs für Spieler und Ei sowie Zeitpunkt der Gutschrift bei erfolgreicher Flucht.
-- Startlevel und Start-Speed, Fahrgefühl, Trainingskurve, Wheelie-Bonus, Scooter-Upgrades und ihre Preise.
-- Modellfolge, Rebirth-Ziele und weitere Boni. Für Geld, Gehegeplätze und Scooter-Upgrades ist das Verhalten beim Rebirth noch offen.
+- Startlevel und Start-Speed, Fahrgefühl, Trainingskurve und Wheelie-Bonus.
+- Modellfolge, Rebirth-Ziele und weitere Boni. Für Geld und Gehegeplätze ist das Verhalten beim Rebirth noch offen.
 - Startkapazität, zusätzliche Plätze und Kosten je Gehegestufe, Größe der Welten sowie Sortiment und Preise des Robux-Shops.

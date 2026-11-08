@@ -31,7 +31,6 @@ KukurinConfig.Attributes = {
 	CarrySpeed = "EiTempo", -- Tempofaktor durch das getragene Ei (0..1)
 	Income = "Einkommen", -- $/s aller Tiere inklusive Rebirth-Bonus
 	Pen = "Gehege", -- JSON { plot, plaetze, tiere = { tierId, ... } }
-	Motor = "MotorStufe", -- Upgrade-Stufe aus der Werkstatt (0..max)
 }
 
 KukurinConfig.Drive = {

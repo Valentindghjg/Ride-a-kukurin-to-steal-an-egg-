@@ -2,6 +2,8 @@
 
 ## 8. November 2026
 
+Motor-Upgrade wieder entfernt. Valentin hat klargestellt: Einen besseren Roller gibt es nur über den Rebirth, nicht über Spielgeld-Upgrades. Die Zeile „Scooter-Upgrades“ im Spielkonzept, die das Upgrade beschrieb, ist entsprechend geändert, ebenso Entwicklungsplan und offene Fragen. Die Werkstatt aus Bild 02 bleibt als Kulisse stehen, ohne Kauffunktion. Der City-Kukurin bei Rebirth 2 bleibt. Ein alter Speicherstand mit Motorstufe wird ohne Fehler geladen, die Stufe wird ignoriert.
+
 Werkstatt mit Motor-Upgrade ([UpgradeService](src/server/UpgradeService.server.luau)): Wie in Bild 02 steht neben dem Weg zur Trainingsstadt eine Werkstatt mit Petrol-Dach, Werkzeugwand, Werkbank und rotem Schrank. An der Werkbank verbessert man den Motor mit Spielgeld: 5 Stufen, je +1,5 km/h, Preise $300, $600, $1.200, $2.400 und $4.800. Das Upgrade gilt für alle Modelle, bleibt beim Rebirth erhalten und wird gespeichert (Startwerte für Frage 10). Offline durchgespielt: zu wenig Geld, Ausbau bis Stufe 5, kein Kauf über das Maximum, Erhalt beim Rebirth.
 
 Spielstand speichern und laden ([DataService](src/server/DataService.server.luau), [SaveData](src/server/SaveData.luau)):

@@ -73,19 +73,6 @@ function SpielKatalog.platzPreis(plaetzeVorher: number): number
 	return math.floor(SpielKatalog.Gehege.preisErsterPlatz * SpielKatalog.Gehege.preisFaktor ^ n / 5 + 0.5) * 5
 end
 
--- Scooter-Upgrade in der Werkstatt (Spielgeld). Gilt für alle Modelle und
--- bleibt beim Rebirth erhalten (Startwerte für Frage 10 und 16).
-SpielKatalog.Motor = {
-	name = "Motor",
-	tempoJeStufe = 1.5, -- km/h je Stufe
-	maxStufe = 5,
-	preisStart = 300,
-	preisFaktor = 2,
-}
-function SpielKatalog.motorPreis(stufeBisher: number): number
-	return math.floor(SpielKatalog.Motor.preisStart * SpielKatalog.Motor.preisFaktor ^ stufeBisher + 0.5)
-end
-
 -- Valentins Beispiel: Rebirth bringt +5 % Tiereinkommen (hier je Rebirth)
 SpielKatalog.EinkommenJeRebirth = 0.05
 
