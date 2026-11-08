@@ -11,7 +11,7 @@ Kurze Entwicklungszeit, kleine erste Version und einfache Logik. **Kukurin** mus
 - [x] Fahrtraining, Speed- und Levelreset beim Rebirth sowie schnelleres Leveln im neuen Durchgang festlegen.
 - [ ] Startwerte, Trainingsfortschritt pro Strecke und Rebirth-Meilensteine konfigurieren.
 - [x] Lokalen Studio-Startplatz anlegen und als `.rbxlx` im Repo versionieren.
-- [ ] Startplatz als private Experience im Roblox-Konto speichern und ihre IDs hier zuordnen.
+- [x] Startplatz als private Experience im Roblox-Konto gespeichert. Universe-ID `10775399842`, Startplatz-ID `127361796315157`.
 
 ## 2. Erster spielbarer Ablauf
 
@@ -23,6 +23,7 @@ Kurze Entwicklungszeit, kleine erste Version und einfache Logik. **Kukurin** mus
 - [ ] Eier-/Tierablauf und Geld/s aus Tieren in der Basis implementieren.
 - [ ] Ein Scooter-Upgrade und die automatische Freischaltung eines zweiten Modells bei einem Rebirth umsetzen.
 - [ ] Ablauf mit mindestens zwei Spielern testen.
+- [ ] Sobald die Steuerung steht, Aufsteigen, Fahren, Ei aufnehmen und Menüs mit Maus/Tastatur, Touch (Handy und iPad), Konsolen-Controller und VR-Eingabe testen.
 
 Der erste Prototyp ist fertig, wenn Spieler fahren, ein Ei stehlen, ein Tier Geld verdienen lassen und mit genug Fahrlevel einen Rebirth auslösen können.
 

@@ -2,6 +2,8 @@
 
 ## 8. November 2026
 
+Nach erneuter Anmeldung den Startplatz als private Roblox-Experience gespeichert. Studio hat das Speichern mit allen fünf Gerätekategorien bestätigt. Die IDs stehen in der [Projektübersicht](README.md).
+
 Den lokalen Studio-Startplatz mit Grundplatte und Spawnpunkt angelegt und in Roblox Studio geöffnet. Beim ersten Speichern als neue Experience im Roblox-Konto hat Studio die Anmeldung mit HTTP 401 zurückgewiesen.
 
 Valentin hat den [Eierdiebstahl im Stage-Gang](docs/SPIELKONZEPT.md#eier-stehlen-im-stage-gang) festgelegt. Jede thematische Stage enthält fünf Tierarten und fünf 3D-Eiermodelle. Schwere Eier bremsen den Kukurin stärker und bringen schwerere Tiere mit höherem Ertrag. Die Wächter späterer Stages laufen schneller. Sie verfolgen Spieler über Stagegrenzen hinweg bis zur Safe Zone am Hof. Nach einem Fang läuft der Wächter in seine Heimatstage zurück.
