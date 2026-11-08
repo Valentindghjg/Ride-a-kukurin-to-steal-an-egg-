@@ -6,6 +6,8 @@ Ein Roblox-Spiel von Valentin. Auf dem Kukurin trainierst du beim Fahren Speed, 
 
 Die private Roblox-Experience ist unter der Universe-ID `10775399842` gespeichert. Der Startplatz hat die Place-ID `127361796315157`. Bei der Erstellung wurden Computer, Handy, Tablet (einschließlich iPad), Konsole und VR ausgewählt. [Experience im Creator Dashboard](https://create.roblox.com/dashboard/creations/experiences/10775399842/overview)
 
+Für die Live-Synchronisierung im Repo-Ordner `rojo serve` starten und im Rojo-Plugin des Startplatzes mit `localhost:34872` verbinden. Rojo synchronisiert `src/server`, `src/client` und `src/shared` in die zugehörigen Kukurin-Ordner in Studio. Grundplatte und Spawnpunkt kommen aus dem Startplatz.
+
 Die neun freigegebenen Bilder zeigen Wege, Blickwinkel und Bedienung. Die Stadt im Spiel soll einfacher, blockiger und weniger realistisch wirken als die Illustrationen.
 
 - [Spielkonzept und offene Entscheidungen](docs/SPIELKONZEPT.md)

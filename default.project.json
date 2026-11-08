@@ -1,0 +1,23 @@
+{
+  "name": "Ride a Kukurin to Steal an Egg",
+  "tree": {
+    "$className": "DataModel",
+    "ReplicatedStorage": {
+      "KukurinShared": {
+        "$path": "src/shared"
+      }
+    },
+    "ServerScriptService": {
+      "KukurinServer": {
+        "$path": "src/server"
+      }
+    },
+    "StarterPlayer": {
+      "StarterPlayerScripts": {
+        "KukurinClient": {
+          "$path": "src/client"
+        }
+      }
+    }
+  }
+}

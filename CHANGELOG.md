@@ -2,6 +2,8 @@
 
 ## 8. November 2026
 
+Rojo 7.7.1 für die Live-Synchronisierung von Server-, Client- und gemeinsamem Code eingerichtet.
+
 Nach erneuter Anmeldung den Startplatz als private Roblox-Experience gespeichert. Studio hat das Speichern mit allen fünf Gerätekategorien bestätigt. Die IDs stehen in der [Projektübersicht](README.md).
 
 Den lokalen Studio-Startplatz mit Grundplatte und Spawnpunkt angelegt und in Roblox Studio geöffnet. Beim ersten Speichern als neue Experience im Roblox-Konto hat Studio die Anmeldung mit HTTP 401 zurückgewiesen.
