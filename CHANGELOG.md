@@ -2,6 +2,8 @@
 
 ## 8. November 2026
 
+In der [Bauanleitung für Claude](CLAUDE.md#modellvorschlag-für-viele-stages) steht ein Vorschlag für wiederverwendbare 3D-Körper und erkennbare Eier- und Tiervarianten je Stage.
+
 Rojo 7.7.1 für die Live-Synchronisierung von Server-, Client- und gemeinsamem Code eingerichtet.
 
 Nach erneuter Anmeldung den Startplatz als private Roblox-Experience gespeichert. Studio hat das Speichern mit allen fünf Gerätekategorien bestätigt. Die IDs stehen in der [Projektübersicht](README.md).
