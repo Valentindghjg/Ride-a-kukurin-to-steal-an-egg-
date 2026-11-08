@@ -10,7 +10,8 @@ Kurze Entwicklungszeit, kleine erste Version und einfache Logik. **Kukurin** mus
 - [x] Neun aktuelle Map- und UI-Ansichten von Valentin freigegeben. Stadt in Studio vereinfacht und blockig umsetzen.
 - [x] Fahrtraining, Speed- und Levelreset beim Rebirth sowie schnelleres Leveln im neuen Durchgang festlegen.
 - [ ] Startwerte, Trainingsfortschritt pro Strecke und Rebirth-Meilensteine konfigurieren.
-- [ ] Roblox-Studio-Projekt zuordnen und Speicher-/Synchronisierungsweg einrichten.
+- [x] Lokalen Studio-Startplatz anlegen und als `.rbxlx` im Repo versionieren.
+- [ ] Startplatz als private Experience im Roblox-Konto speichern und ihre IDs hier zuordnen.
 
 ## 2. Erster spielbarer Ablauf
 
