@@ -42,6 +42,10 @@ KukurinConfig.Drive = {
 	ParkForce = 4000,
 	Responsiveness = 35,
 	BlockedSlack = 6, -- wie weit das Solltempo über dem tatsächlichen liegen darf
+	WheelieAngle = math.rad(22), -- Neigung beim Wheelie (Server zählt ab 12°)
+	WheelieMinSpeed = 6, -- Wheelie nur in Fahrt
+	WheelieRaise = math.rad(90), -- Grad pro Sekunde beim Anheben
+	WheelieDrop = math.rad(140), -- Grad pro Sekunde beim Absetzen
 }
 
 KukurinConfig.WheelRadius = 0.95 -- unsichtbare Kontaktkugeln (Fahrphysik)

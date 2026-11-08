@@ -13,6 +13,7 @@ local RunService = game:GetService("RunService")
 local shared = ReplicatedStorage:WaitForChild("KukurinShared")
 local Config = require(shared:WaitForChild("KukurinConfig"))
 local Katalog = require(shared:WaitForChild("SpielKatalog"))
+local Training = require(shared:WaitForChild("Training"))
 local A = Config.Attributes
 
 local function ensure(parent: Instance, className: string, name: string): Instance
@@ -46,10 +47,11 @@ end
 local function setDefaults(player: Player)
 	local demo = if RunService:IsStudio() then Katalog.DemoInStudio else nil
 	player:SetAttribute(A.Money, if demo then demo.Geld else 0)
-	player:SetAttribute(A.Level, if demo then demo.FahrLevel else 1)
-	player:SetAttribute(A.Training, if demo then demo.Training else 0)
-	-- Bis das Fahrtraining steht, gibt es den Wert nur als Studio-Beispiel.
-	player:SetAttribute(A.ToNextLevel, if demo then demo.TempoBisLevel else nil)
+	-- Fahrtraining startet immer echt bei Level 1 (auch in Studio).
+	player:SetAttribute(A.Level, 1)
+	player:SetAttribute(A.Training, 0)
+	player:SetAttribute(A.MaxSpeed, Training.speedAt(1, 0))
+	player:SetAttribute(A.ToNextLevel, Training.toNextLevel(1, 0))
 	player:SetAttribute(A.Rebirths, if demo then demo.Rebirths else 0)
 	player:SetAttribute(A.Model, Katalog.Modelle[1].id)
 	player:SetAttribute(A.AnimalIndex, HttpService:JSONEncode(if demo then demo.Tierindex else {}))

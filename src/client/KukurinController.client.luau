@@ -104,12 +104,29 @@ local function onDismountAction(_: string, inputState: Enum.UserInputState): Enu
 	return Enum.ContextActionResult.Sink
 end
 
+-- Wheelie: gedrückt halten (Leertaste, Gamepad A, Handy-Taste "Wheelie")
+local WHEELIE_ACTION = "KukurinWheelie"
+local wheelieHeld = false
+local wheelieAngle = 0
+local function onWheelieAction(_: string, inputState: Enum.UserInputState): Enum.ContextActionResult
+	if inputState == Enum.UserInputState.Begin then
+		wheelieHeld = true
+	elseif inputState == Enum.UserInputState.End or inputState == Enum.UserInputState.Cancel then
+		wheelieHeld = false
+	end
+	return Enum.ContextActionResult.Sink
+end
+
 local function startRiding(model: Model)
 	riding = model
 	yaw = yawOf((model.PrimaryPart :: BasePart).CFrame)
 	speed, steer = 0, 0
+	wheelieHeld, wheelieAngle = false, 0
 	ContextActionService:BindAction(DISMOUNT_ACTION, onDismountAction, true, Enum.KeyCode.F, Enum.KeyCode.ButtonB)
 	ContextActionService:SetTitle(DISMOUNT_ACTION, "Absteigen")
+	-- höhere Priorität als der normale Sprung, der auf derselben Taste liegt
+	ContextActionService:BindActionAtPriority(WHEELIE_ACTION, onWheelieAction, true, Enum.ContextActionPriority.High.Value, Enum.KeyCode.Space, Enum.KeyCode.ButtonA)
+	ContextActionService:SetTitle(WHEELIE_ACTION, "Wheelie")
 	local humanoid = player.Character and player.Character:FindFirstChildOfClass("Humanoid")
 	if humanoid then
 		humanoid.EvaluateStateMachine = false
@@ -121,7 +138,9 @@ end
 
 local function stopRiding()
 	riding = nil
+	wheelieHeld, wheelieAngle = false, 0
 	ContextActionService:UnbindAction(DISMOUNT_ACTION)
+	ContextActionService:UnbindAction(WHEELIE_ACTION)
 	if diagnose then
 		diagnose.Visible = false
 	end
@@ -211,8 +230,13 @@ local function drive(model: Model, dt: number)
 	end
 	local roll = -steer * D.LeanAngle * math.clamp(absSpeed / maxSpeed, 0, 1)
 
+	-- Wheelie: Vorderrad anheben, solange gehalten und in Fahrt
+	local wheelieTarget = if wheelieHeld and speed > D.WheelieMinSpeed then D.WheelieAngle else 0
+	local wheelieRate = if wheelieTarget > wheelieAngle then D.WheelieRaise else D.WheelieDrop
+	wheelieAngle = moveTowards(wheelieAngle, wheelieTarget, wheelieRate * dt)
+
 	local orientation = align :: AlignOrientation
-	orientation.CFrame = CFrame.Angles(0, yaw, 0) * CFrame.Angles(pitch, 0, roll)
+	orientation.CFrame = CFrame.Angles(0, yaw, 0) * CFrame.Angles(pitch + wheelieAngle, 0, roll)
 	local linear = driveForce :: LinearVelocity
 	linear.MaxForce = D.DriveForce
 	linear.PlaneVelocity = Vector2.new(dir.X * speed, dir.Z * speed)

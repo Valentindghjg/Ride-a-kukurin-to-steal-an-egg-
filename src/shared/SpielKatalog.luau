@@ -45,9 +45,6 @@ SpielKatalog.KmhProStud = 1
 -- In Roblox Studio zeigt der Server Beispielwerte, damit die UI gefüllt ist.
 SpielKatalog.DemoInStudio = {
 	Geld = 1250,
-	FahrLevel = 6,
-	Training = 0.55,
-	TempoBisLevel = 6,
 	Rebirths = 0,
 	Tierindex = { "hund", "katze", "vogel" },
 	Eier = { wald = 3, stadt = 3 },

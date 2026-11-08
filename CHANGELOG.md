@@ -2,6 +2,15 @@
 
 ## 8. November 2026
 
+Fahrtraining eingebaut ([Training.luau](src/shared/Training.luau), [TrainingService](src/server/TrainingService.server.luau)). Der Server misst die tatsächlich gefahrene Strecke auf dem Kukurin. Stillstand, Portalsprünge, ein neuer Scooter und unplausible Sprünge zählen nicht, jede Messung ist auf das trainierte Tempo begrenzt. Fahren erhöht das trainierte Tempo stetig. Jedes Level beginnt bei einem festen Tempo, deshalb zeigt die Leiste „noch x km/h bis Level n+1“. Ein Levelaufstieg meldet sich als Hinweis.
+
+Dokumentierte Startwerte für die offenen Fragen 08 und 09:
+- Level 1 = 32 km/h, je Level +2 km/h.
+- 900 Studs von Level 1 auf 2, danach je Level 30 % mehr. Überschüssige Strecke wird übertragen. Bis Level 10 sind es rund 29.000 Studs, etwa 14 Minuten Fahrt.
+- Je Rebirth +50 % Trainingswirkung.
+- Wheelie mit Leertaste, Gamepad A oder Handy-Taste: Er hebt das Vorderrad um 22° an. Der Server zählt den Abschnitt doppelt, sobald der Scooter wirklich mehr als 12° geneigt ist. Der Wheelie-Bonus in der UI leuchtet dann.
+- Training startet auch in Studio echt bei Level 1. Nur Geld, Tiere und Eier haben dort noch Beispielwerte.
+
 Oberfläche nach den Bildern 02 und 04–07 gebaut ([PC-Vorschau](docs/design/ui-vorschau-pc.jpg), [Handy-Vorschau](docs/design/ui-vorschau-handy.jpg)):
 - Menüknöpfe links, Eier-Knopf rechts, Fahrinstrument unten links mit live km/h und Geld. Auf reinen Touch-Geräten wird das Instrument zur schmalen Leiste oben, damit der Joystick frei bleibt.
 - Levelleiste nach Valentins Wunsch wie die Minecraft-Erfahrungsleiste: lang und schmal unten in der Mitte, mit Segmenten. Darüber links „Level n“, rechts „noch x km/h bis Level n+1“. Den Wert liefert später das Fahrtraining, in Studio steht ein Beispielwert.
