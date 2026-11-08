@@ -18,8 +18,8 @@ Kurze Entwicklungszeit, kleine erste Version und einfache Logik. **Kukurin** mus
 - [x] Kleine Teststrecke und einen einfachen Scooter erstellen. Map und Kukurin nach Fotovorlage sind gebaut, Fahrwerte stehen in `src/shared/KukurinConfig.luau`.
 - [x] Aufsteigen, Fahren, Lenken, Bremsen und Absteigen testen. Mit Maus und Tastatur in Studio von Valentin geprüft.
 - [x] Fahrstrecke serverseitig plausibilisieren, Speed-Training und kleine Trainingsleiste ergänzen. Stillstand/Teleports dürfen keinen Trainingsgewinn geben. Umgesetzt in `TrainingService` und `src/shared/Training.luau`, Rechenlogik offline getestet.
-- [ ] Mit einem Test-Ei die Flucht aus einer hinteren Stage durch eine frühere Stage bis zur Safe Zone am Hof spielen. Der Wächter muss die Stagegrenze überqueren und die Verfolgung an der Safe Zone beenden.
-- [ ] Einen Fang in einer fremden Stage testen. Der Wächter läuft danach bis zu seiner eigenen Stage zurück.
+- [ ] Mit einem Test-Ei die Flucht aus einer hinteren Stage durch eine frühere Stage bis zur Safe Zone am Hof spielen. Der Wächter muss die Stagegrenze überqueren und die Verfolgung an der Safe Zone beenden. Umgesetzt in `EggService` und offline durchgespielt (Stage 3 bis Hof, keine Mauerdurchquerung, Heimkehr). Die Probe in Studio steht noch aus.
+- [ ] Einen Fang in einer fremden Stage testen. Der Wächter läuft danach bis zu seiner eigenen Stage zurück. Offline durchgespielt, das Ei liegt danach wieder an seinem Platz. Die Probe in Studio steht noch aus.
 - [ ] Eier-/Tierablauf und Geld/s aus Tieren in der Basis implementieren.
 - [ ] Ein Scooter-Upgrade und die automatische Freischaltung eines zweiten Modells bei einem Rebirth umsetzen.
 - [ ] Ablauf mit mindestens zwei Spielern testen.

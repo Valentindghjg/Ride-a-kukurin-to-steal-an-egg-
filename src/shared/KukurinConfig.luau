@@ -27,6 +27,8 @@ KukurinConfig.Attributes = {
 	AnimalIndex = "Tierindex", -- JSON-Liste entdeckter Tier-ids
 	Eggs = "Eier", -- JSON-Objekt { eiId = Anzahl }
 	Wheelie = "WheelieAktiv", -- true, solange der Wheelie-Bonus zählt
+	CarryEgg = "TraegtEi", -- id des getragenen Eis (nil = keins)
+	CarrySpeed = "EiTempo", -- Tempofaktor durch das getragene Ei (0..1)
 }
 
 KukurinConfig.Drive = {

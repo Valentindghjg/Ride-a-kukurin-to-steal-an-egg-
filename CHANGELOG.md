@@ -2,6 +2,15 @@
 
 ## 8. November 2026
 
+Eier stehlen mit Wächtern eingebaut ([EggService](src/server/EggService.server.luau), [SpielKatalog](src/shared/SpielKatalog.luau)):
+- Jede Stage hat fünf Eiergrößen von „klein“ bis „gigantisch“ und fünf Tiere. Wald: Maus, Hase, Fuchs, Reh, Bär. Wüste: Skorpion, Echse, Schlange, Kamel, Löwe. Eis: Pinguin, Robbe, Eule, Wolf, Mammut. Vulkan: Käfer, Fledermaus, Krabbe, Nashorn, T-Rex. Kristall: Schmetterling, Pfau, Flamingo, Einhorn, Drache.
+- Größere Eier sind seltener (40/28/18/10/4 %) und bremsen den Kukurin stärker (Tempo ×0,92 bis ×0,6). Daraus schlüpfen Tiere mit mehr Geld pro Sekunde: im Wald 2 bis 16 $/s, jede Stage weiter hinten ×4. Große Eier leuchten.
+- Die Eier liegen für alle Spieler gemeinsam aus, sechs Plätze je Stage. Ein abgegebenes Ei wird nach 15 s ersetzt. Man trägt höchstens ein Ei, gut sichtbar auf dem Rücken. Mit Ei gibt es keinen Wheelie.
+- Jede Stage hat einen blockigen Wächter in ihrer Farbe (22 km/h in Stage 1, je Stage +4). Er jagt den nächsten Dieb mit einem Ei aus seiner Stage durch die Durchgänge auch in andere Stages. Am EIERGANG-Tor (Safe Zone) endet die Jagd.
+- Fängt er dich, kehrt das Ei an seinen Platz zurück, dir passiert sonst nichts, und der Wächter läuft heim. Erreichst du den Hof, landet das Ei unter „Meine Eier“.
+- Verlässt man das Spiel oder stirbt, kehrt das Ei zurück.
+- Offline durchgespielt: Flucht aus Stage 3 durch Stage 2 und 1 bis in den Hof (der Wächter überquert die Stagegrenze, ohne durch Mauern zu laufen, und kehrt danach heim) sowie ein Fang bei zu langsamer Flucht.
+
 Fahrtraining eingebaut ([Training.luau](src/shared/Training.luau), [TrainingService](src/server/TrainingService.server.luau)). Der Server misst die tatsächlich gefahrene Strecke auf dem Kukurin. Stillstand, Portalsprünge, ein neuer Scooter und unplausible Sprünge zählen nicht, jede Messung ist auf das trainierte Tempo begrenzt. Fahren erhöht das trainierte Tempo stetig. Jedes Level beginnt bei einem festen Tempo, deshalb zeigt die Leiste „noch x km/h bis Level n+1“. Ein Levelaufstieg meldet sich als Hinweis.
 
 Dokumentierte Startwerte für die offenen Fragen 08 und 09:

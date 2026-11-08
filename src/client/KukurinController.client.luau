@@ -177,7 +177,10 @@ local function drive(model: Model, dt: number)
 	local move = controls:GetMoveVector()
 	local throttle = deadzone(-move.Z)
 	local steerInput = deadzone(move.X)
-	local maxSpeed = player:GetAttribute(A.MaxSpeed) or D.BaseMaxSpeed
+	-- Ein getragenes Ei bremst, je schwerer desto mehr (Faktor vom Server)
+	local carrying = player:GetAttribute(A.CarryEgg) ~= nil
+	local eggFactor = player:GetAttribute(A.CarrySpeed)
+	local maxSpeed = (player:GetAttribute(A.MaxSpeed) or D.BaseMaxSpeed) * (if type(eggFactor) == "number" then eggFactor else 1)
 
 	-- Tempo
 	local target, rate
@@ -231,7 +234,7 @@ local function drive(model: Model, dt: number)
 	local roll = -steer * D.LeanAngle * math.clamp(absSpeed / maxSpeed, 0, 1)
 
 	-- Wheelie: Vorderrad anheben, solange gehalten und in Fahrt
-	local wheelieTarget = if wheelieHeld and speed > D.WheelieMinSpeed then D.WheelieAngle else 0
+	local wheelieTarget = if wheelieHeld and not carrying and speed > D.WheelieMinSpeed then D.WheelieAngle else 0
 	local wheelieRate = if wheelieTarget > wheelieAngle then D.WheelieRaise else D.WheelieDrop
 	wheelieAngle = moveTowards(wheelieAngle, wheelieTarget, wheelieRate * dt)
 

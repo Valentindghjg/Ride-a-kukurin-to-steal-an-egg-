@@ -542,6 +542,10 @@ end
 local function buildEiergang(root: Instance)
 	local gang = newFolder(root, "Eiergang")
 	local zStart = -(HOF_Z + WALL_T)
+	-- Grenze der Safe Zone (Mitte der Hofmauer mit dem EIERGANG-Tor) und Hofmaße
+	gang:SetAttribute("SafeZ", -(HOF_Z + WALL_T / 2))
+	gang:SetAttribute("HofHalbeBreite", HOF_X)
+	gang:SetAttribute("HofVorne", HOF_Z)
 
 	for k, stage in STAGES do
 		local zone = newFolder(gang, "Stage_" .. k)
@@ -549,6 +553,12 @@ local function buildEiergang(root: Instance)
 		zone:SetAttribute("Thema", stage.name)
 
 		local zEnd = zStart - ZONE_DEPTH
+		-- Maße für Eier und Wächter (EggService)
+		zone:SetAttribute("ZStart", zStart)
+		zone:SetAttribute("ZEnde", zEnd)
+		zone:SetAttribute("HalbeBreite", ZONE_HALF_X)
+		zone:SetAttribute("Boden", LAND + 0.1)
+		zone:SetAttribute("Durchgang", ZONE_OPEN)
 		slab(zone, "Boden", -ZONE_HALF_X, ZONE_HALF_X, zEnd, zStart, LAND + 0.1, 0.6, stage.floor, stage.floorMat)
 		local pathEnd = if k < #STAGES then zEnd - ZONE_WALL_T else zEnd
 		slab(zone, "Weg", -10, 10, pathEnd, zStart, LAND + 0.2, 0.6, stage.path, stage.pathMat)
