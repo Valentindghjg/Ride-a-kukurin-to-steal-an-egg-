@@ -15,7 +15,7 @@ Kurze Entwicklungszeit, kleine erste Version und einfache Logik. **Kukurin** mus
 
 ## 2. Erster spielbarer Ablauf
 
-- [ ] Kleine Teststrecke und einen einfachen Scooter erstellen.
+- [x] Kleine Teststrecke und einen einfachen Scooter erstellen. Map und Kukurin nach Fotovorlage sind gebaut, Fahrwerte stehen in `src/shared/KukurinConfig.luau`.
 - [ ] Aufsteigen, Fahren, Lenken, Bremsen und Absteigen testen.
 - [ ] Fahrstrecke serverseitig plausibilisieren, Speed-Training und kleine Trainingsleiste ergänzen. Stillstand/Teleports dürfen keinen Trainingsgewinn geben.
 - [ ] Mit einem Test-Ei die Flucht aus einer hinteren Stage durch eine frühere Stage bis zur Safe Zone am Hof spielen. Der Wächter muss die Stagegrenze überqueren und die Verfolgung an der Safe Zone beenden.
