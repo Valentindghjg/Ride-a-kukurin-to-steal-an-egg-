@@ -365,13 +365,28 @@ local function buildHof(root: Instance)
 	-- Beginn der Safe Zone sichtbar am Tor
 	slab(hof, "SafeZoneLinie", -EIER_HALF + 0.2, EIER_HALF - 0.2, -143.6, -142.4, LAND + 0.4, 0.3, C.Teal)
 
-	-- Plots als diagonale Reihe (nur Flächen, noch keine Gehege)
+	-- Gehege als diagonale Reihe: Grasfläche mit Plattenrand und gelbem
+	-- Holzzaun (Bild 01). Der Eingang liegt zur Fahrspur hin (-X), etwas
+	-- unterhalb der Mitte; daneben steht das Gehegeschild (GehegeService).
 	local plots = newFolder(hof, "Plots")
 	for k = 0, 6 do
 		local cx, cz = 40 + k * 14, -92 + k * 33
 		slab(plots, "PlotRand", cx - 24, cx + 24, cz - 16, cz + 16, TILE_TOP, 0.6, C.Tile, M.Pavement)
 		local plot = slab(plots, "Plot_" .. (k + 1), cx - 22, cx + 22, cz - 14, cz + 14, LAND + 0.5, 0.6, C.GrassPlot, M.Grass)
 		plot:SetAttribute("PlotNummer", k + 1)
+
+		local zaun = newFolder(plots, "Zaun_" .. (k + 1))
+		local x0, x1, z0, z1 = cx - 23.2, cx + 23.2, cz - 15.2, cz + 15.2
+		local gateLow, gateHigh = cz - 11, cz - 1 -- Eingang, 10 Studs breit
+		fence(zaun, Vector3.new(x0, 0, z0), Vector3.new(x1, 0, z0), TILE_TOP)
+		fence(zaun, Vector3.new(x0, 0, z1), Vector3.new(x1, 0, z1), TILE_TOP)
+		fence(zaun, Vector3.new(x1, 0, z0), Vector3.new(x1, 0, z1), TILE_TOP)
+		fence(zaun, Vector3.new(x0, 0, z0), Vector3.new(x0, 0, gateLow), TILE_TOP)
+		fence(zaun, Vector3.new(x0, 0, gateHigh), Vector3.new(x0, 0, z1), TILE_TOP)
+		for _, z in { gateLow, gateHigh } do
+			box(zaun, "Torpfosten", x0 - 0.8, TILE_TOP, z - 0.8, x0 + 0.8, TILE_TOP + 5.2, z + 0.8, C.Wood, M.Wood)
+			box(zaun, "TorpfostenKappe", x0 - 1, TILE_TOP + 5.2, z - 1, x0 + 1, TILE_TOP + 5.7, z + 1, C.Orange)
+		end
 	end
 
 	-- Laternen und Blockbüsche

@@ -2,6 +2,15 @@
 
 ## 8. November 2026
 
+Gehege mit Zaun und Brutzeit nach Valentins Wunsch:
+- Jedes Gehege hat einen gelben Holzzaun mit Eingang zur Fahrspur (zwei Torpfosten), das Gehegeschild steht daneben. Der Zaun ist fest, auch für den Kukurin.
+- Ein gestohlenes Ei landet nach dem Eiergang wie bisher unter „Meine Eier“. Antippen legt es jetzt in das eigene Gehege, in ein Strohnest auf dem nächsten freien Platz.
+- Dort wächst es während der Brutzeit von 60 % auf volle Größe, darüber läuft ein Countdown. Ist es ausgewachsen, kommt eine Meldung, und der Besitzer öffnet es per Taste. Erst dann schlüpft das Tier, kommt in den Tier-Index und verdient Geld.
+- Ein brütendes Ei belegt einen Platz und verdient nichts.
+- Startwerte für Frage 12: Brutzeit 20 s (klein) bis 2 min (gigantisch), je Stage weiter hinten +50 %. Die Zeit läuft auch weiter, wenn man nicht im Spiel ist. Nur der Besitzer kann öffnen.
+- Der Spielstand speichert brütende Eier mit ihrer Fertig-Zeit. Alte Stände, in denen nur Tiere stehen, werden weiter geladen.
+- Offline durchgespielt: Platzieren, zu frühes Öffnen, Meldung, Öffnen, Einkommen nur von Tieren, volles Gehege, fremdes Ei, alter Spielstand, offline abgelaufene Brutzeit.
+
 Motor-Upgrade wieder entfernt. Valentin hat klargestellt: Einen besseren Roller gibt es nur über den Rebirth, nicht über Spielgeld-Upgrades. Die Zeile „Scooter-Upgrades“ im Spielkonzept, die das Upgrade beschrieb, ist entsprechend geändert, ebenso Entwicklungsplan und offene Fragen. Die Werkstatt aus Bild 02 bleibt als Kulisse stehen, ohne Kauffunktion. Der City-Kukurin bei Rebirth 2 bleibt. Ein alter Speicherstand mit Motorstufe wird ohne Fehler geladen, die Stufe wird ignoriert.
 
 Werkstatt mit Motor-Upgrade ([UpgradeService](src/server/UpgradeService.server.luau)): Wie in Bild 02 steht neben dem Weg zur Trainingsstadt eine Werkstatt mit Petrol-Dach, Werkzeugwand, Werkbank und rotem Schrank. An der Werkbank verbessert man den Motor mit Spielgeld: 5 Stufen, je +1,5 km/h, Preise $300, $600, $1.200, $2.400 und $4.800. Das Upgrade gilt für alle Modelle, bleibt beim Rebirth erhalten und wird gespeichert (Startwerte für Frage 10). Offline durchgespielt: zu wenig Geld, Ausbau bis Stufe 5, kein Kauf über das Maximum, Erhalt beim Rebirth.

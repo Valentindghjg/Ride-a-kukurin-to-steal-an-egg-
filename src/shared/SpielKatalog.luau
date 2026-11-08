@@ -45,12 +45,15 @@ SpielKatalog.Stages = {
 
 -- Fünf Eiergrößen: Gewicht bremst den Kukurin, größer heißt seltener und wertvoller.
 SpielKatalog.Groessen = {
-	{ name = "klein", tempo = 0.92, haeufigkeit = 40, geld = 1, groesse = 1.0 },
-	{ name = "mittel", tempo = 0.84, haeufigkeit = 28, geld = 1.8, groesse = 1.2 },
-	{ name = "groß", tempo = 0.75, haeufigkeit = 18, geld = 3, groesse = 1.4 },
-	{ name = "riesig", tempo = 0.67, haeufigkeit = 10, geld = 5, groesse = 1.65 },
-	{ name = "gigantisch", tempo = 0.6, haeufigkeit = 4, geld = 8, groesse = 1.9 },
+	{ name = "klein", tempo = 0.92, haeufigkeit = 40, geld = 1, groesse = 1.0, brutzeit = 20 },
+	{ name = "mittel", tempo = 0.84, haeufigkeit = 28, geld = 1.8, groesse = 1.2, brutzeit = 40 },
+	{ name = "groß", tempo = 0.75, haeufigkeit = 18, geld = 3, groesse = 1.4, brutzeit = 60 },
+	{ name = "riesig", tempo = 0.67, haeufigkeit = 10, geld = 5, groesse = 1.65, brutzeit = 90 },
+	{ name = "gigantisch", tempo = 0.6, haeufigkeit = 4, geld = 8, groesse = 1.9, brutzeit = 120 },
 }
+
+-- Brutzeit im Gehege (Sekunden, läuft auch offline weiter): Größe × Stage-Faktor
+SpielKatalog.BrutzeitJeStage = 0.5 -- jede Stage weiter hinten +50 %
 
 SpielKatalog.GeldBasis = 2 -- Geld/s eines kleinen Tiers in Stage 1
 SpielKatalog.GeldJeStage = 4 -- jede Stage weiter hinten: ×4
@@ -96,6 +99,7 @@ for s, stage in SpielKatalog.Stages do
 			groesse = g,
 			tempo = groesse.tempo,
 			skala = groesse.groesse,
+			brutzeit = math.floor(groesse.brutzeit * (1 + SpielKatalog.BrutzeitJeStage * (s - 1)) + 0.5),
 			haeufigkeit = groesse.haeufigkeit,
 			schale = stage.schale,
 			punkte = stage.punkte,

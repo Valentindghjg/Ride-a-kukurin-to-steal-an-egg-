@@ -41,8 +41,20 @@ export type Data = {
 	modell: string,
 	tierindex: { string },
 	eier: { [string]: number },
-	gehege: { plaetze: number, tiere: { string } },
+	-- belegung: Eier (typ "ei", fertig = Serverzeit) und Tiere (typ "tier")
+	gehege: { plaetze: number, belegung: { { id: string, typ: string, fertig: number? } } },
 }
+
+-- Altes Gehege-Format (nur Tier-ids) in Belegungseinträge umwandeln
+function SaveData.fromAnimals(ids: { any }): { { id: string, typ: string } }
+	local entries = {}
+	for _, id in ids do
+		if type(id) == "string" then
+			table.insert(entries, { id = id, typ = "tier" })
+		end
+	end
+	return entries
+end
 
 function SaveData.collect(player: Player): Data
 	local pen = decode(player:GetAttribute(A.Pen))
@@ -59,7 +71,10 @@ function SaveData.collect(player: Player): Data
 		eier = if type(eggs) == "table" then eggs else {},
 		gehege = {
 			plaetze = if type(pen) == "table" then tonumber(pen.plaetze) or Katalog.Gehege.startPlaetze else Katalog.Gehege.startPlaetze,
-			tiere = if type(pen) == "table" and type(pen.tiere) == "table" then pen.tiere else {},
+			belegung = if type(pen) == "table" and type(pen.belegung) == "table"
+				then pen.belegung
+				elseif type(pen) == "table" and type(pen.tiere) == "table" then SaveData.fromAnimals(pen.tiere)
+				else {},
 		},
 	}
 end
@@ -95,11 +110,23 @@ function SaveData.apply(player: Player, data: any)
 	end
 
 	local slots = math.floor(number(type(data.gehege) == "table" and data.gehege.plaetze, Katalog.Gehege.startPlaetze, Katalog.Gehege.startPlaetze, Katalog.Gehege.maxPlaetze))
-	local animals = {}
-	if type(data.gehege) == "table" and type(data.gehege.tiere) == "table" then
-		for _, id in data.gehege.tiere do
-			if Katalog.TierNachId[id] and #animals < slots then
-				table.insert(animals, id)
+	-- Belegung prüfen; alte Stände mit "tiere" (nur Tiere) werden übernommen
+	local entries = {}
+	local pen = if type(data.gehege) == "table" then data.gehege else {}
+	if type(pen.belegung) == "table" then
+		for _, e in pen.belegung do
+			if type(e) == "table" and Katalog.TierNachId[e.id] and #entries < slots then
+				if e.typ == "ei" then
+					table.insert(entries, { id = e.id, typ = "ei", fertig = number(e.fertig, 0, 0, 1e12) })
+				else
+					table.insert(entries, { id = e.id, typ = "tier" })
+				end
+			end
+		end
+	elseif type(pen.tiere) == "table" then
+		for _, id in pen.tiere do
+			if Katalog.TierNachId[id] and #entries < slots then
+				table.insert(entries, { id = id, typ = "tier" })
 			end
 		end
 	end
@@ -110,7 +137,7 @@ function SaveData.apply(player: Player, data: any)
 	PlayerStats.setTraining(player, math.floor(number(data.level, 1, 1, Training.MAX_LEVEL)), number(data.training, 0, 0, 0.999))
 	player:SetAttribute(A.AnimalIndex, HttpService:JSONEncode(index))
 	player:SetAttribute(A.Eggs, HttpService:JSONEncode(eggs))
-	player:SetAttribute(A.Pen, HttpService:JSONEncode({ plaetze = slots, tiere = animals }))
+	player:SetAttribute(A.Pen, HttpService:JSONEncode({ plaetze = slots, belegung = entries }))
 end
 
 return SaveData

@@ -42,7 +42,7 @@ function EggPanel.build(gui: ScreenGui, kinds: { any }, onHatch: (id: string) ->
 		closeGradient.Color = ColorSequence.new(C.Orange, C.OrangeDark)
 	end
 
-	Theme.text(panel, "Hilfe", "Ei antippen = im Gehege ausbrüten", px(14, HEADER + 6), px(W - 28, 22), { color = C.GreyDark, outline = 0 })
+	Theme.text(panel, "Hilfe", "Ei antippen = im Gehege platzieren", px(14, HEADER + 6), px(W - 28, 22), { color = C.GreyDark, outline = 0 })
 	-- Liste scrollt, wenn viele Eiersorten zusammenkommen
 	local content = Instance.new("ScrollingFrame")
 	content.Name = "Liste"

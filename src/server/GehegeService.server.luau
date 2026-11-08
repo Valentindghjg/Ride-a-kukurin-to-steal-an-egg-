@@ -1,11 +1,14 @@
--- Gehege: ein Plot je Spieler, Plätze für Tiere, Ausbrüten, Einkommen.
+-- Gehege: ein Plot je Spieler, Plätze für Eier und Tiere, Brüten, Einkommen.
 --
--- * Beim Beitritt bekommt jeder Spieler ein freies Plot im Hof (sieben Plots).
+-- * Beim Beitritt bekommt jeder Spieler ein freies Plot im Hof (sieben Plots,
+--   jedes mit Zaun und Eingang zur Fahrspur).
 -- * Am Eingang steht das Gehegeschild (Bild 08): Besitzer, Belegung und der
 --   Preis für den nächsten Platz; "Platz kaufen" kostet Spielgeld.
--- * "Ausbrueten" (aus dem Eierpanel): ein Ei aus "Meine Eier" schlüpft sofort
---   im eigenen Gehege, das Tier steht auf dem nächsten freien Platz und gilt
---   im Tier-Index als entdeckt. Ohne freien Platz bleibt das Ei liegen.
+-- * "Ausbrueten" (aus dem Eierpanel): Ein Ei aus "Meine Eier" wird im eigenen
+--   Gehege auf den nächsten freien Platz gelegt. Es wächst während der
+--   Brutzeit (läuft auch offline weiter). Ist es ausgewachsen, öffnet der
+--   Besitzer es per Taste, dann steht dort das Tier und gilt im Tier-Index
+--   als entdeckt. Ohne freien Platz bleibt das Ei im Inventar.
 -- * Jede Sekunde wird das Einkommen aller Tiere gutgeschrieben (auch während
 --   der Fahrt in der Trainingsstadt), je Rebirth +5 %.
 -- Der Stand steht als JSON im Attribut "Gehege"; ändert ein anderer Dienst
@@ -20,6 +23,7 @@ local Workspace = game:GetService("Workspace")
 local shared = ReplicatedStorage:WaitForChild("KukurinShared")
 local Config = require(shared:WaitForChild("KukurinConfig"))
 local Katalog = require(shared:WaitForChild("SpielKatalog"))
+local EggModel = require(script.Parent:WaitForChild("EggModel"))
 local A = Config.Attributes
 
 local remotes = ReplicatedStorage:WaitForChild(Config.RemoteFolderName)
@@ -54,6 +58,16 @@ local function decode(raw: unknown): any
 	end
 	local ok, value = pcall(HttpService.JSONDecode, HttpService, raw)
 	return if ok then value else nil
+end
+
+local function now(): number
+	return Workspace:GetServerTimeNow()
+end
+
+-- 75 -> "1:15"
+local function clock(seconds: number): string
+	local total = math.max(0, math.ceil(seconds))
+	return ("%d:%02d"):format(math.floor(total / 60), total % 60)
 end
 
 local function money(n: number): string
@@ -123,7 +137,8 @@ type Sign = { model: Model, title: { TextLabel }, places: { TextLabel }, offer: 
 local function buildSign(plot: Plot): Sign
 	local model = Instance.new("Model")
 	model.Name = "Gehegeschild_" .. plot.index
-	local base = Vector3.new(plot.center.X - 24.5, plot.top, plot.center.Z)
+	-- neben dem Eingang (Eingang: z von Mitte-11 bis Mitte-1, siehe MapBuilder)
+	local base = Vector3.new(plot.center.X - 25.2, plot.top, plot.center.Z + 8)
 	for _, dz in { -4.2, 4.2 } do
 		block(model, "Pfosten", Vector3.new(0.6, 6.5, 0.6), CFrame.new(base + Vector3.new(0, 3.25, dz)), rgb(120, 80, 50), Enum.Material.Wood)
 	end
@@ -208,17 +223,23 @@ end
 -- Gehege-Zustand je Spieler
 ---------------------------------------------------------------------------
 
+-- Ein belegter Platz: Ei (brütet bis "fertig", Serverzeit) oder Tier
+type Entry = { id: string, typ: string, fertig: number? }
+type EggView = { model: Model, label: TextLabel, prompt: ProximityPrompt, entry: Entry, base: Vector3, height: number }
+
 type Pen = {
 	player: Player,
 	plot: Plot,
 	sign: Sign,
 	folder: Folder,
 	slots: number,
-	animals: { string },
+	belegung: { Entry },
+	views: { EggView },
 	carry: number, -- Bruchteile von Geld zwischen zwei Gutschriften
 	writing: boolean,
 }
 local pens: { [Player]: Pen } = {}
+local notified: { [Entry]: boolean } = setmetatable({}, { __mode = "k" }) :: any
 local signs: { [number]: Sign } = {}
 for _, plot in plots do
 	signs[plot.index] = buildSign(plot)
@@ -229,7 +250,7 @@ local function updateSign(plot: Plot, pen: Pen?)
 	local title, places, offer
 	if pen then
 		title = pen.player.DisplayName .. "s Gehege"
-		places = ("%d / %d Plätze belegt"):format(#pen.animals, pen.slots)
+		places = ("%d / %d Plätze belegt"):format(#pen.belegung, pen.slots)
 		if pen.slots >= Katalog.Gehege.maxPlaetze then
 			offer = "Alle Plätze gekauft"
 		else
@@ -254,16 +275,84 @@ local function slotCFrame(plot: Plot, i: number): CFrame
 	return CFrame.lookAt(pos, pos + Vector3.new(-1, 0, 0))
 end
 
+local openEgg: (Player, Pen, number) -> ()
+
+-- Ei auf dem Platz: wächst von 60 % auf volle Größe, Countdown darüber
+local function updateView(view: EggView)
+	local ei = Katalog.EiNachId[view.entry.id]
+	local remaining = (view.entry.fertig or 0) - now()
+	local progress = math.clamp(1 - remaining / math.max(ei.brutzeit, 1), 0, 1)
+	local scale = 0.6 + 0.4 * progress
+	view.model:ScaleTo(scale)
+	view.model:PivotTo(CFrame.new(view.base + Vector3.new(0, view.height * scale / 2 + 0.35, 0)))
+	if remaining > 0 then
+		view.label.Text = "⏳ " .. clock(remaining)
+		view.prompt.Enabled = false
+	else
+		view.label.Text = "Ausgewachsen! Öffnen"
+		view.prompt.Enabled = true
+	end
+end
+
+local function buildIncubator(pen: Pen, i: number, entry: Entry)
+	local ei = Katalog.EiNachId[entry.id]
+	local base = Vector3.new(pen.plot.center.X, pen.plot.top, pen.plot.center.Z) + SLOTS[i]
+	local nest = block(pen.folder, "Nest", Vector3.new(0.5, 4.8, 4.8), CFrame.new(base + Vector3.new(0, 0.25, 0)) * CFrame.Angles(0, 0, math.rad(90)), rgb(214, 178, 98), Enum.Material.Fabric)
+	nest.Shape = Enum.PartType.Cylinder
+	local model = EggModel.build(ei, false)
+	model.Name = "Brutei"
+	model.Parent = pen.folder
+
+	local gui = Instance.new("BillboardGui")
+	gui.Size = UDim2.fromOffset(190, 56)
+	gui.StudsOffset = Vector3.new(0, 2.2 * ei.skala + 1.2, 0)
+	gui.MaxDistance = 70
+	gui.Parent = model.PrimaryPart
+	local name = label(gui, ei.name, UDim2.fromScale(0, 0), UDim2.fromScale(1, 0.5), Color3.new(1, 1, 1))
+	local nameStroke = Instance.new("UIStroke")
+	nameStroke.Color = OUTLINE
+	nameStroke.Thickness = 2
+	nameStroke.Parent = name
+	local timer = label(gui, "", UDim2.fromScale(0.05, 0.5), UDim2.fromScale(0.9, 0.5), rgb(255, 214, 120))
+	local timerStroke = Instance.new("UIStroke")
+	timerStroke.Color = OUTLINE
+	timerStroke.Thickness = 2
+	timerStroke.Parent = timer
+
+	local prompt = Instance.new("ProximityPrompt")
+	prompt.ActionText = "Öffnen"
+	prompt.ObjectText = ei.name
+	prompt.HoldDuration = 0.6
+	prompt.MaxActivationDistance = 12
+	prompt.RequiresLineOfSight = false
+	prompt.Enabled = false
+	prompt.Parent = model.PrimaryPart
+	prompt.Triggered:Connect(function(player)
+		openEgg(player, pen, i)
+	end)
+
+	local view: EggView = { model = model, label = timer, prompt = prompt, entry = entry, base = base, height = 2.2 * ei.skala * 1.3 }
+	pen.views[i] = view
+	updateView(view)
+end
+
 local function rebuild(pen: Pen)
 	pen.folder:ClearAllChildren()
+	pen.views = {}
 	for i = 1, pen.slots do
 		local marker = block(pen.folder, "Platz", Vector3.new(7, 0.1, 7), CFrame.new(Vector3.new(pen.plot.center.X, pen.plot.top + 0.05, pen.plot.center.Z) + SLOTS[i]), CREAM)
 		marker.Transparency = 0.35
 	end
-	for i, id in pen.animals do
-		local animal = Katalog.TierNachId[id]
-		if animal and SLOTS[i] then
-			buildAnimal(animal, slotCFrame(pen.plot, i), pen.folder)
+	for i, entry in pen.belegung do
+		if SLOTS[i] then
+			if entry.typ == "ei" then
+				buildIncubator(pen, i, entry)
+			else
+				local animal = Katalog.TierNachId[entry.id]
+				if animal then
+					buildAnimal(animal, slotCFrame(pen.plot, i), pen.folder)
+				end
+			end
 		end
 	end
 	updateSign(pen.plot, pen)
@@ -271,9 +360,9 @@ end
 
 local function incomeOf(pen: Pen): number
 	local sum = 0
-	for _, id in pen.animals do
-		local animal = Katalog.TierNachId[id]
-		if animal then
+	for _, entry in pen.belegung do
+		local animal = Katalog.TierNachId[entry.id]
+		if animal and entry.typ == "tier" then
 			sum += animal.geldProSek
 		end
 	end
@@ -283,27 +372,35 @@ end
 
 local function save(pen: Pen)
 	pen.writing = true
-	pen.player:SetAttribute(A.Pen, HttpService:JSONEncode({ plot = pen.plot.index, plaetze = pen.slots, tiere = pen.animals }))
+	pen.player:SetAttribute(A.Pen, HttpService:JSONEncode({ plot = pen.plot.index, plaetze = pen.slots, belegung = pen.belegung }))
 	pen.player:SetAttribute(A.Income, incomeOf(pen))
 	pen.writing = false
 end
 
--- Stand aus dem Attribut übernehmen (Beitritt oder geladener Spielstand)
+-- Stand aus dem Attribut übernehmen (Beitritt oder geladener Spielstand).
+-- Versteht auch das alte Format { tiere = { id, ... } }.
 local function loadFromAttribute(pen: Pen)
 	local data = decode(pen.player:GetAttribute(A.Pen))
 	local slots = Katalog.Gehege.startPlaetze
-	local animals = {}
+	local entries: { Entry } = {}
 	if type(data) == "table" then
 		slots = math.clamp(math.floor(tonumber(data.plaetze) or slots), Katalog.Gehege.startPlaetze, Katalog.Gehege.maxPlaetze)
-		if type(data.tiere) == "table" then
+		if type(data.belegung) == "table" then
+			for _, e in data.belegung do
+				if type(e) == "table" and Katalog.TierNachId[e.id] and #entries < slots then
+					local isEgg = e.typ == "ei"
+					table.insert(entries, { id = e.id, typ = if isEgg then "ei" else "tier", fertig = if isEgg then tonumber(e.fertig) or now() else nil })
+				end
+			end
+		elseif type(data.tiere) == "table" then
 			for _, id in data.tiere do
-				if Katalog.TierNachId[id] and #animals < slots then
-					table.insert(animals, id)
+				if Katalog.TierNachId[id] and #entries < slots then
+					table.insert(entries, { id = id, typ = "tier" })
 				end
 			end
 		end
 	end
-	pen.slots, pen.animals = slots, animals
+	pen.slots, pen.belegung = slots, entries
 	rebuild(pen)
 	save(pen)
 end
@@ -338,7 +435,8 @@ local function claim(player: Player)
 		sign = signs[free.index],
 		folder = folder,
 		slots = Katalog.Gehege.startPlaetze,
-		animals = {},
+		belegung = {},
+		views = {},
 		carry = 0,
 		writing = false,
 	}
@@ -405,11 +503,11 @@ uiAction.OnServerEvent:Connect(function(player: Player, action: unknown, arg: un
 	if action ~= "Ausbrueten" or type(arg) ~= "string" then
 		return
 	end
-	local now = os.clock()
-	if (lastHatch[player] or 0) + 0.3 > now then
+	local clickTime = os.clock()
+	if (lastHatch[player] or 0) + 0.3 > clickTime then
 		return
 	end
-	lastHatch[player] = now
+	lastHatch[player] = clickTime
 
 	local ei = Katalog.EiNachId[arg]
 	local pen = pens[player]
@@ -424,7 +522,7 @@ uiAction.OnServerEvent:Connect(function(player: Player, action: unknown, arg: un
 	if type(eggs) ~= "table" or (tonumber(eggs[arg]) or 0) < 1 then
 		return
 	end
-	if #pen.animals >= pen.slots then
+	if #pen.belegung >= pen.slots then
 		hint(player, "Dein Gehege ist voll. Kaufe am Gehegeschild einen neuen Platz.")
 		return
 	end
@@ -435,8 +533,29 @@ uiAction.OnServerEvent:Connect(function(player: Player, action: unknown, arg: un
 	end
 	player:SetAttribute(A.Eggs, HttpService:JSONEncode(eggs))
 
-	local animal = Katalog.TierNachId[ei.tier]
-	table.insert(pen.animals, animal.id)
+	table.insert(pen.belegung, { id = ei.id, typ = "ei", fertig = now() + ei.brutzeit })
+	rebuild(pen)
+	save(pen)
+	hint(player, ("%s liegt jetzt in deinem Gehege. In %s ist es ausgewachsen."):format(ei.name, clock(ei.brutzeit)))
+end)
+
+-- Ausgewachsenes Ei öffnen: das Tier kommt heraus
+openEgg = function(player: Player, pen: Pen, i: number)
+	if pens[player] ~= pen then
+		hint(player, "Das ist nicht dein Gehege.")
+		return
+	end
+	local entry = pen.belegung[i]
+	if not entry or entry.typ ~= "ei" then
+		return
+	end
+	local remaining = (entry.fertig or 0) - now()
+	if remaining > 0 then
+		hint(player, ("Noch %s, bis das Ei ausgewachsen ist."):format(clock(remaining)))
+		return
+	end
+	entry.typ, entry.fertig = "tier", nil
+	local animal = Katalog.TierNachId[entry.id]
 	local index = decode(player:GetAttribute(A.AnimalIndex))
 	if type(index) ~= "table" then
 		index = {}
@@ -448,7 +567,7 @@ uiAction.OnServerEvent:Connect(function(player: Player, action: unknown, arg: un
 	rebuild(pen)
 	save(pen)
 	hint(player, ("%s %s ist geschlüpft! +%d $/s"):format(animal.icon, animal.name, animal.geldProSek))
-end)
+end
 
 Players.PlayerRemoving:Connect(function(player)
 	lastHatch[player] = nil
@@ -467,6 +586,13 @@ RunService.Heartbeat:Connect(function(dt)
 	local seconds = elapsed
 	elapsed = 0
 	for player, pen in pens do
+		for _, view in pen.views do
+			updateView(view)
+			if (view.entry.fertig or 0) <= now() and not notified[view.entry] then
+				notified[view.entry] = true
+				hint(player, ("Dein %s ist ausgewachsen! Öffne es in deinem Gehege."):format(Katalog.EiNachId[view.entry.id].name))
+			end
+		end
 		local income = incomeOf(pen)
 		if player:GetAttribute(A.Income) ~= income then
 			player:SetAttribute(A.Income, income)
