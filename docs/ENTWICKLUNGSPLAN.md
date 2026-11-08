@@ -17,7 +17,8 @@ Kurze Entwicklungszeit, kleine erste Version und einfache Logik. **Kukurin** mus
 - [ ] Kleine Teststrecke und einen einfachen Scooter erstellen.
 - [ ] Aufsteigen, Fahren, Lenken, Bremsen und Absteigen testen.
 - [ ] Fahrstrecke serverseitig plausibilisieren, Speed-Training und kleine Trainingsleiste ergänzen. Stillstand/Teleports dürfen keinen Trainingsgewinn geben.
-- [ ] Ein Test-Ei mit einem vollständigen Diebstahlablauf ergänzen.
+- [ ] Mit einem Test-Ei die Flucht aus einer hinteren Stage durch eine frühere Stage bis zur Safe Zone am Hof spielen. Der Wächter muss die Stagegrenze überqueren und die Verfolgung an der Safe Zone beenden.
+- [ ] Einen Fang in einer fremden Stage testen. Der Wächter läuft danach bis zu seiner eigenen Stage zurück.
 - [ ] Eier-/Tierablauf und Geld/s aus Tieren in der Basis implementieren.
 - [ ] Ein Scooter-Upgrade und die automatische Freischaltung eines zweiten Modells bei einem Rebirth umsetzen.
 - [ ] Ablauf mit mindestens zwei Spielern testen.
@@ -32,7 +33,9 @@ Für die erste Veröffentlichung knapp halten: wenige Inhalte, funktionierende S
 - [ ] Basenhof mit Gehegen und klar erkennbarem Zugang zum langen Eiergang aufbauen. Separaten Wechsel in die große Trainingsstadt und Rückkehr zum Hof testen. Scooter, Fahrlevel und Trainingsfortschritt vor und nach dem Wechsel vergleichen.
 - [ ] Normale Fahrt, Wheelie und Stillstand vergleichen. Bei gleicher Strecke und gleichem Rebirth-Stand muss der Wheelie mehr Training bringen. Wechsel zwischen Fahrzuständen darf dieselbe Strecke nur einmal zählen.
 - [ ] Robux-Shop im HUD ergänzen. Öffnen, Schließen und Kaufabbruch prüfen. Für festgelegte Produkte bestätigte Käufe verarbeiten und die Belohnung pro Kauf genau einmal vergeben.
-- [ ] Eier und weitere Scooter-Modelle ergänzen.
+- [ ] Für jede veröffentlichte Stage ein eigenes Thema, fünf 3D-Eiermodelle, fünf sammelbare Tierarten und einen Wächter einbauen. Weiter hinten im Gang müssen Wächter schneller laufen.
+- [ ] Beim selben Kukurin den Rückweg mit einem kleinen und einem größeren Ei vergleichen. Mit dem schwereren Ei fährt er langsamer. Das daraus geschlüpfte Tier wiegt mehr und verdient bei gleichem Einkommensbonus mehr Geld pro Sekunde.
+- [ ] Weitere Scooter-Modelle ergänzen.
 - [ ] Einen Rebirth mit Levelprüfung testen. Speed und Fahrlevel müssen auf die Startwerte fallen, die Tiere erhalten bleiben und der nächste Trainingslauf auf gleicher Strecke mehr Fortschritt bringen. Am Modell-Meilenstein den Kukurin genau einmal vergeben und den Kontostand durch die Modellvergabe nicht belasten.
 - [ ] Kauf zusätzlicher Gehegeplätze und Geld/s bei unterschiedlicher Belegung prüfen.
 - [ ] Preise und Einnahmen auf die gewünschte Progression abstimmen.

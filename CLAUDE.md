@@ -12,6 +12,7 @@ Die Trainingsstadt soll sich beim Fahren groß anfühlen. Dafür reichen verbund
 
 ## Hinweise zur Umsetzung
 
+- Beim Eiergang die [Regeln für Beute und Wächter](docs/SPIELKONZEPT.md#eier-stehlen-im-stage-gang) umsetzen. Ein Wächter muss seinen Spieler durch die Grenzen anderer Stages verfolgen können. Die Grenze zur Safe Zone am Gehegehof beendet die Jagd. Nach einem Fang läuft das Tier zurück in seine Heimatstage.
 - Beim Training nur tatsächlich gefahrene Strecke berücksichtigen. Weltwechsel und Teleports aus der Streckenmessung ausnehmen. Den Wheelie-Bonus nur für den Abschnitt mit angehobenem Vorderrad vergeben.
 - Rebirths setzen Speed, Fahrlevel und die laufende Trainingsleiste auf Startwerte. Die Tiere bleiben erhalten, das Training wird schneller und das Modell des erreichten Meilensteins wird genau einmal kostenlos vergeben.
 - Anzeigen aus den aktuellen Spielerdaten befüllen. Große Schaltflächen, ein lesbarer Trainingsbalken und ein gut erreichbares X für geöffnete Menüs sollen auf Handy und PC funktionieren. Robux-Angebote im Shop und Gehegeausbau mit Spielgeld haben eigene Aktionen.
