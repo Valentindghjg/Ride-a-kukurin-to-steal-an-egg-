@@ -2,6 +2,14 @@
 
 ## 8. November 2026
 
+Spielstand speichern und laden ([DataService](src/server/DataService.server.luau), [SaveData](src/server/SaveData.luau)):
+- Gesichert werden Geld, Level mit Trainingsleiste, Rebirths, ausgerüstetes Modell, Tier-Index, Eier und das Gehege mit Plätzen und Tieren.
+- Gespeichert wird beim Verlassen, alle 60 s und beim Herunterfahren des Servers.
+- Schlägt das Laden fehl, speichert der Server für diesen Spieler nicht, damit ein vorhandener Stand nie mit Startwerten überschrieben wird.
+- Geladene Werte werden geprüft und begrenzt. Unbekannte Eier und Tiere fallen weg, und gesperrte Modelle werden nicht ausgerüstet.
+- Roblox Studio nutzt einen eigenen Speicher. Dafür muss unter Game Settings > Security „Enable Studio Access to API Services“ eingeschaltet sein, sonst erscheint ein Hinweis.
+- Offline durchgespielt: neuer Spieler, Speichern beim Verlassen, Wiederbeitritt mit allen Werten, bereinigter beschädigter Stand, Ladefehler ohne Überschreiben, Sichern beim Herunterfahren.
+
 Rebirth eingebaut ([RebirthService](src/server/RebirthService.server.luau)):
 - Rebirth 1 ab Level 10 (Valentins Beispiel), jeder weitere 5 Level später.
 - Der Rebirth setzt Level, Trainingsleiste und Tempo auf den Start zurück. Tiere, Geld, Eier und Gehegeplätze bleiben (Startwert für Frage 16).
